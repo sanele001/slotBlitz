@@ -1,0 +1,20 @@
+[
+	{
+		"slug": "mega-fortune-dreams",
+		"title": "Mega Fortune Dreams",
+		"image": "diamondsImage",
+		"description": "Experience the thrill of progressive jackpots and luxurious symbols in this NetEnt classic."
+	},
+	{
+		"slug": "starburst",
+		"title": "Starburst",
+		"image": "gatesOlympusImage",
+		"description": "A dazzling journey through space with expanding wilds and respins."
+	},
+	{
+		"slug": "gonzos-quest",
+		"title": "Gonzo's Quest",
+		"image": "jackpotWorldImage",
+		"description": "Join Gonzo on his quest for El Dorado with avalanche multipliers."
+	}
+]
