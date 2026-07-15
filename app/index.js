@@ -1,11 +1,9 @@
 'use client';
-
 import React, { useState, useEffect } from 'react';
 import HomeNav from '../components/ui/nav/nav';
 import HeroBanner from '../components/ui/heroBanner';
 import SlotCard from '../components/slot/slotCard';
 import ReviewCard from '../components/reviews/reviewCard';
-import Image from 'next/image';
 import styles from '../styles/localStyle.module.css';
 import { motion } from 'framer-motion';
 import { FaSearch, FaBell, FaUser } from 'react-icons/fa';
@@ -22,11 +20,13 @@ const games = [
 		image: diamondsImage,
 		description:
 			'Experience the thrill of progressive jackpots and luxurious symbols in this NetEnt classic.',
+		key: 'efouGHBr',
 	},
 	{
 		slug: 'starburst',
 		title: '40 Diamonds Plus',
 		image: gatesOlympusImage,
+		key: 'UndOUsTr',
 		description:
 			'A dazzling journey through space with expanding wilds and respins.',
 	},
@@ -34,15 +34,15 @@ const games = [
 		slug: 'gonzos-quest',
 		title: 'Jackpot World',
 		image: jackpotWorldImage,
+		key: 'YaRDitack',
 		description:
 			'Join Gonzo on his quest for El Dorado with avalanche multipliers.',
 	},
 ];
 
-const Home = () => {
+const Home = ({ slodataProps }) => {
 	const [searchTerm, setSearchTerm] = useState('');
 	const [mounted, setMounted] = useState(false);
-
 	useEffect(() => {
 		setMounted(true);
 	}, []);
@@ -79,7 +79,7 @@ const Home = () => {
 					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
 						{filteredGames.map((game, index) => (
 							<motion.div
-								key={game.slug}
+								key={game.key}
 								initial={{ opacity: 0, scale: 0.9 }}
 								animate={{ opacity: 1, scale: 1 }}
 								whileHover={{ y: -10 }}
@@ -103,16 +103,18 @@ const Home = () => {
 						{[
 							{
 								title: 'Starburst XXXtreme',
+								key: 'starburst-xxx',
 								description:
 									'A high-volatility upgrade to the classic Starburst with massive multipliers...',
 							},
 							{
 								title: 'Book of Dead',
+								key: 'book-of-dead',
 								description:
 									'Join Rich Wilde on an Egyptian adventure with expanding symbols...',
 							},
 						].map((review, index) => (
-							<ReviewCard review={review} />
+							<ReviewCard review={review} key={review.key} />
 						))}
 					</div>
 				</section>
