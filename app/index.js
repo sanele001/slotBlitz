@@ -1,54 +1,31 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import { EmblaOptionsType } from 'embla-carousel';
 import HomeNav from '../components/ui/nav/nav';
 import HeroBanner from '../components/ui/heroBanner';
 import SlotCard from '../components/slot/slotCard';
 import ReviewCard from '../components/reviews/reviewCard';
-import styles from '../styles/localStyle.module.css';
+import DisplayGroups from '../lib/displayGroups';
+import EmblaCarousel from '../components/carousel/carousel';
 import { motion } from 'framer-motion';
-import { FaSearch, FaBell, FaUser } from 'react-icons/fa';
 import Head from 'next/head';
 import Link from 'next/link';
-import diamondsImage from '../assets/Diamonds.jpg';
-import gatesOlympusImage from '../assets/40diomond.png';
-import jackpotWorldImage from '../assets/jackpotWorld.png';
-
-const games = [
-	{
-		slug: 'mega-fortune-dreams',
-		title: 'Diamonds',
-		image: diamondsImage,
-		description:
-			'Experience the thrill of progressive jackpots and luxurious symbols in this NetEnt classic.',
-		key: 'efouGHBr',
-	},
-	{
-		slug: 'starburst',
-		title: '40 Diamonds Plus',
-		image: gatesOlympusImage,
-		key: 'UndOUsTr',
-		description:
-			'A dazzling journey through space with expanding wilds and respins.',
-	},
-	{
-		slug: 'gonzos-quest',
-		title: 'Jackpot World',
-		image: jackpotWorldImage,
-		key: 'YaRDitack',
-		description:
-			'Join Gonzo on his quest for El Dorado with avalanche multipliers.',
-	},
-];
 
 const Home = ({ slodataProps }) => {
 	const [searchTerm, setSearchTerm] = useState('');
 	const [mounted, setMounted] = useState(false);
+	const featuredGroup = new DisplayGroups(slodataProps, 6).featuredGroup();
+	const OPTIONS = { loop: true };
+	const SLIDE_COUNT = 5;
+	const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
+
 	useEffect(() => {
 		setMounted(true);
+		console.log(featuredGroup.length);
 	}, []);
 
-	const filteredGames = games.filter((game) =>
-		game.title.toLowerCase().includes(searchTerm.toLowerCase()),
+	const filteredGames = featuredGroup.filter((game) =>
+		game.gameName.toLowerCase().includes(searchTerm.toLowerCase()),
 	);
 
 	if (!mounted) {
@@ -79,7 +56,7 @@ const Home = ({ slodataProps }) => {
 					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
 						{filteredGames.map((game, index) => (
 							<motion.div
-								key={game.key}
+								key={game.id}
 								initial={{ opacity: 0, scale: 0.9 }}
 								animate={{ opacity: 1, scale: 1 }}
 								whileHover={{ y: -10 }}
@@ -93,6 +70,16 @@ const Home = ({ slodataProps }) => {
 								No games found matching "{searchTerm}"
 							</div>
 						)}
+					</div>
+				</section>
+
+				{/* toprated section */}
+				<section className='px-6 py-12'>
+					<h3 className='text-2xl font-bold text-white mb-8'>
+						Top Rated Games
+					</h3>
+					<div>
+						<EmblaCarousel slides={SLIDES} options={OPTIONS} />
 					</div>
 				</section>
 
