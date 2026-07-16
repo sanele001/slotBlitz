@@ -15,10 +15,10 @@ const Home = ({ slodataProps }) => {
 	const [searchTerm, setSearchTerm] = useState('');
 	const [mounted, setMounted] = useState(false);
 	const featuredGroup = new DisplayGroups(slodataProps, 6).featuredGroup();
+	const topRatedGroup = new DisplayGroups(slodataProps, 9).topGamesGroup();
 
 	useEffect(() => {
 		setMounted(true);
-		console.log(featuredGroup.length);
 	}, []);
 
 	const filteredGames = featuredGroup.filter((game) =>
@@ -76,7 +76,7 @@ const Home = ({ slodataProps }) => {
 						Top Rated Games
 					</h3>
 					<div>
-						<EmblaCarousel slides={filteredGames} options={{ loop: true }} />
+						<EmblaCarousel slides={topRatedGroup} options={{ loop: true }} />
 					</div>
 				</section>
 

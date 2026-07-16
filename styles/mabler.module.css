@@ -1,10 +1,13 @@
 .embla {
-	max-width: 48rem;
+	max-width: 90rem;
 	margin: auto;
 
-	--slide-height: 19rem;
+	--slide-height: 30rem;
 	--slide-spacing: 1rem;
 	--slide-size: 70%;
+	--detail-medium-contrast: var(--text-medium-contrast, #ff6b6b);
+	--detail-high-contrast: #6b7280;
+	--text-high-contrast-rgb-value: 255, 255, 255;
 }
 
 .embla__viewport {
@@ -26,7 +29,7 @@
 
 .embla__slide__number {
 	border: 0.2rem solid var(--detail-medium-contrast);
-	border-radius: 1.8rem;
+	border-radius: 1.5rem;
 	font-size: 4rem;
 	font-weight: 600;
 	display: flex;
@@ -34,6 +37,10 @@
 	justify-content: center;
 	height: var(--slide-height);
 	user-select: none;
+}
+
+.embla__slide__number:hover {
+	cursor: pointer;
 }
 
 .embla__controls {

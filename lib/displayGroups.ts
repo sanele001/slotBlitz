@@ -15,7 +15,8 @@ class DisplayGroups {
 	}
 
 	topGamesGroup() {
-		//
+		const groupedData = this.groupData.slice(0, this.groupSize);
+		return groupedData;
 	}
 }
 

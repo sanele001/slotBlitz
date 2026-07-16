@@ -4,6 +4,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import styles from '../../styles/mabler.module.css';
 import { NextButton, PrevButton, usePrevNextButtons } from './carouselButtons';
 import { Slot } from '../../types/slot';
+import Link from 'next/link';
 
 type PropType = {
 	slides: Slot[];
@@ -28,13 +29,17 @@ const EmblaCarousel = (props: PropType) => {
 				<div className={styles.embla__container}>
 					{slides.map((slide, index) => (
 						<div className={styles.embla__slide} key={index}>
-							<div className={styles.embla__slide__number}>
-								<div className='w-full h-full'>
-									<div
-										style={{ backgroundImage: `url(${slide.imageLandscape})` }}
-										className='w-full h-full rounded-lg bg-cover bg-top bg-no-repeat'></div>
+							<Link href={`/games/${slide.gameSlug}`}>
+								<div className={styles.embla__slide__number}>
+									<div className='w-full h-full'>
+										<div
+											style={{
+												backgroundImage: `url(${slide.imageLandscape})`,
+											}}
+											className='w-full h-full rounded-3xl bg-cover bg-top bg-no-repeat'></div>
+									</div>
 								</div>
-							</div>
+							</Link>
 						</div>
 					))}
 				</div>

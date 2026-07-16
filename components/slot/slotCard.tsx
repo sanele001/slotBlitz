@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Slot } from '../../types/slot';
+import Link from 'next/link';
 
 type SlotCardProps = {
 	game: {
@@ -9,12 +10,13 @@ type SlotCardProps = {
 		gameName: string;
 		reliaseDateComment: string;
 		imageLandscape: string;
+		gameSlug: string;
 	};
 };
 
 const SlotCard = ({ game }: SlotCardProps) => {
 	return (
-		<div className='bg-dark-light p-2 rounded-2xl'>
+		<div className='bg-dark-light p-4 rounded-2xl'>
 			<div className='bg-dark h-48 mb-4 rounded-lg flex items-center justify-center'>
 				<div
 					style={{ backgroundImage: `url(${game.imageLandscape})` }}
@@ -24,6 +26,11 @@ const SlotCard = ({ game }: SlotCardProps) => {
 			<p className='text-gray-400'>
 				{game.reliaseDateComment || 'comments are currently unavailable'}
 			</p>
+			<Link
+				className='mt-4 px-6 py-2 bg-primary text-white rounded-full hover:bg-opacity-80 transition-colors inline-block'
+				href={`/games/${game.gameSlug}`}>
+				View Details
+			</Link>
 		</div>
 	);
 };
