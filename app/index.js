@@ -15,9 +15,6 @@ const Home = ({ slodataProps }) => {
 	const [searchTerm, setSearchTerm] = useState('');
 	const [mounted, setMounted] = useState(false);
 	const featuredGroup = new DisplayGroups(slodataProps, 6).featuredGroup();
-	const OPTIONS = { loop: true };
-	const SLIDE_COUNT = 5;
-	const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
 	useEffect(() => {
 		setMounted(true);
@@ -79,7 +76,7 @@ const Home = ({ slodataProps }) => {
 						Top Rated Games
 					</h3>
 					<div>
-						<EmblaCarousel slides={SLIDES} options={OPTIONS} />
+						<EmblaCarousel slides={filteredGames} options={{ loop: true }} />
 					</div>
 				</section>
 

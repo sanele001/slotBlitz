@@ -22,7 +22,6 @@
 	flex: 0 0 var(--slide-size);
 	min-width: 0;
 	padding-left: var(--slide-spacing);
-	background-color: aquamarine;
 }
 
 .embla__slide__number {
