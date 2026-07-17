@@ -36,7 +36,7 @@ const EmblaCarousel = (props: PropType) => {
 											style={{
 												backgroundImage: `url(${slide.imageLandscape})`,
 											}}
-											className='w-full h-full rounded-3xl bg-cover bg-top bg-no-repeat'></div>
+											className='w-full h-full rounded-xl bg-cover bg-top bg-no-repeat'></div>
 									</div>
 								</div>
 							</Link>

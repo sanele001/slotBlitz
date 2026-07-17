@@ -2,9 +2,9 @@
 	max-width: 90rem;
 	margin: auto;
 
-	--slide-height: 30rem;
+	--slide-height: 10rem;
 	--slide-spacing: 1rem;
-	--slide-size: 70%;
+	--slide-size: 35%;
 	--detail-medium-contrast: var(--text-medium-contrast, #ff6b6b);
 	--detail-high-contrast: #6b7280;
 	--text-high-contrast-rgb-value: 255, 255, 255;
@@ -25,11 +25,19 @@
 	flex: 0 0 var(--slide-size);
 	min-width: 0;
 	padding-left: var(--slide-spacing);
+	border-color: rgba(255, 255, 255, 0.06);
+
+	/* bg-[#0c0a14] */
+	background-color: #0c0a14;
 }
 
 .embla__slide__number {
-	border: 0.2rem solid var(--detail-medium-contrast);
-	border-radius: 1.5rem;
+	border: 0.12rem solid;
+	border-color: rgba(255, 255, 255, 0.06);
+
+	/* bg-[#0c0a14] */
+	background-color: #0c0a14;
+	border-radius: 0.75rem;
 	font-size: 4rem;
 	font-weight: 600;
 	display: flex;
@@ -41,6 +49,20 @@
 
 .embla__slide__number:hover {
 	cursor: pointer;
+	/* hover:border-white/[0.15] */
+	border-color: rgba(255, 255, 255, 0.15);
+
+	/* hover:bg-[#120f1f] */
+	background-color: #120f1f;
+
+	/* hover:shadow-2xl combined with hover:shadow-black/60 */
+	/* Tailwind's shadow-2xl uses two layered box-shadows for smooth depth */
+	box-shadow:
+		0 25px 50px -12px rgba(0, 0, 0, 0.6),
+		0 0 0 1px rgba(0, 0, 0, 0.6);
+	transition-property: border-color, background-color, box-shadow;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 300ms;
 }
 
 .embla__controls {
@@ -70,9 +92,9 @@
 	border: 0;
 	padding: 0;
 	margin: 0;
-	border: 0.2rem solid var(--detail-medium-contrast);
-	width: 3.6rem;
-	height: 3.6rem;
+	border: 0.1rem solid whitesmoke;
+	width: 2rem;
+	height: 2rem;
 
 	z-index: 1;
 	border-radius: 50%;
