@@ -94,7 +94,6 @@ export const NextButton = ({
 	className,
 	...restProps
 }: PropType) => {
-	console.log('these childres', children);
 	return (
 		<button
 			type='button'

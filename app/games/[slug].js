@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useEffect } from 'react';
 import { dummyData } from '../../dummydata';
 import { findGameBySlug } from '../../lib/fetcher';
@@ -5,8 +6,44 @@ import { motion } from 'framer-motion';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { FaArrowLeft, FaStar, FaDollarSign, FaBolt } from 'react-icons/fa';
+import { FaArrowLeft } from 'react-icons/fa';
+import GameImageCard from '../../components/games/gameImageCard';
+import GameDetailsCard from '../../components/games/gameDetailsCard';
+import KeyFeaturesSection from '../../components/games/keyFeaturesSection';
+import { GameCTAButtons } from '../../components/games/gameCTAButtons';
+import { features } from 'process';
+
 const test = JSON.parse(JSON.stringify(dummyData));
+
+const myfeatures = [
+	{ title: 'Wild', description: 'Substitutes for other symbols' },
+	{ title: 'Multiplier', description: 'Increase your winnings' },
+	{
+		title: 'Feature: Substitution Symbols',
+		description: 'Special symbols expand wins',
+	},
+	{
+		title: 'Free Spins Mode Choosing',
+		description: 'Choose your free spins mode',
+	},
+	{ title: 'Achievements', description: 'Unlock exciting achievements' },
+	{ title: 'Free Spins', description: 'Trigger exciting free spins' },
+	{ title: 'Scatter symbols', description: 'Trigger bonus features' },
+	{
+		title: 'Random Wilds / Additional Wilds',
+		description: 'More wilds, more wins',
+	},
+	{
+		title: 'Free Spins Multiplier',
+		description: 'Multiply your free spins wins',
+	},
+	{ title: 'RTP range', description: '96.86% return to player' },
+	{
+		title: 'Immersive Storyline',
+		description: 'Engaging vampire romance theme',
+	},
+	{ title: 'Mobile Optimized', description: 'Seamless play on any device' },
+];
 
 const GamePage = () => {
 	const params = useParams();
@@ -23,12 +60,13 @@ const GamePage = () => {
 		return null;
 	}
 
+	debugger;
 	if (!game) {
 		return (
 			<div className='min-h-screen bg-dark flex items-center justify-center'>
 				<div className='text-center'>
 					<h1 className='text-4xl text-white mb-4'>Game Not Found</h1>
-					<Link href='/' className='text-primary hover:text-primary-dark'>
+					<Link href='/' className='text-red-500 hover:text-red-400'>
 						Return to Home
 					</Link>
 				</div>
@@ -44,84 +82,44 @@ const GamePage = () => {
 			</Head>
 
 			<div className='min-h-screen bg-dark'>
-				<div className='container mx-auto px-4 py-8'>
+				<div className='container mx-auto px-4 md:px-6 py-6 md:py-8'>
+					{/* Back Button */}
 					<Link
 						href='/'
-						className='inline-flex items-center text-primary hover:text-primary-dark mb-8'>
-						<FaArrowLeft className='mr-2' />
-						Back to Games
+						className='inline-flex items-center gap-2 text-red-500 hover:text-red-400 mb-8 transition-colors'>
+						<FaArrowLeft className='h-4 w-4' />
+						<span>Back to Games</span>
 					</Link>
 
+					{/* Main Content */}
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
-						className='bg-dark-light rounded-xl p-8'>
-						<div className='flex flex-col md:flex-row gap-8'>
-							<div className='w-full md:w-1/3'>
-								<div className=' rounded-lg h-64 flex items-center justify-center mb-4'>
-									<div
-										style={{ backgroundImage: `url(${game.imageSquare})` }}
-										className='w-full h-full  bg-contain bg-center bg-no-repeat'></div>
-								</div>
-								<div className='flex items-center justify-between mb-4'>
-									<div className='flex items-center'>
-										<FaStar className='text-yellow-500 mr-2' />
-										<span className='text-white'>{game.slotRank}/5.0</span>
-									</div>
-									<span className='text-gray-400'>{game.vendorName}</span>
-								</div>
-							</div>
-
-							<div className='w-full md:w-2/3'>
-								<h1 className='text-4xl font-bold text-white mb-4'>
-									{game.gameName}
-								</h1>
-								<p className='text-gray-400 mb-6'>{game.reliaseDateComment}</p>
-
-								<div className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-8'>
-									<div className='bg-dark p-4 rounded-lg'>
-										<div className='text-primary mb-2'>RTP</div>
-										<div className='text-white font-bold'>{game.rtp}</div>
-									</div>
-									<div className='bg-dark p-4 rounded-lg'>
-										<div className='text-primary mb-2'>Volatility</div>
-										<div className='text-white font-bold'>
-											{game.volatility}
-										</div>
-									</div>
-									<div className='bg-dark p-4 rounded-lg'>
-										<div className='text-primary mb-2'>Min Bet</div>
-										<div className='text-white font-bold'>${game.minBet}</div>
-									</div>
-									<div className='bg-dark p-4 rounded-lg'>
-										<div className='text-primary mb-2'>Max Bet</div>
-										<div className='text-white font-bold'>${game.maxBet}</div>
-									</div>
-								</div>
-
-								<div className='mb-8'>
-									<h2 className='text-2xl font-bold text-white mb-4'>
-										Key Features
-									</h2>
-									<ul className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-										{game.features.map((feature, index) => (
-											<li
-												key={index}
-												className='flex items-center text-gray-400'>
-												<FaBolt className='text-primary mr-2' />
-												{feature}
-											</li>
-										))}
-									</ul>
-								</div>
-
-								<Link href={`/games/demo/${slug}`}>
-									<button className='w-full md:w-auto px-8 py-3 bg-primary text-white rounded-full hover:bg-opacity-80 transition-colors'>
-										Play Demo
-									</button>
-								</Link>
-							</div>
+						transition={{ duration: 0.5 }}
+						className='bg-[black] border border-white/[0.06] rounded-3xl p-0px md:p-5'>
+						{/* Layout: Image on left, Details on right (stacks on mobile) */}
+						<div className=' flex max-w-4xl flex-col items-start gap-6 md:flex-row '>
+							<GameImageCard
+								imageSrc={game.imageSquare}
+								title={game.gameName}
+								rating={4.8}
+								provider='Games Global'
+							/>
+							<GameDetailsCard
+								gameName={game.gameName}
+								reliaseDateComment={game.reliaseDateComment}
+								stats={[
+									{ label: 'RTP', value: '96.86%' },
+									{ label: 'Volatility', value: 'MED' },
+									{ label: 'Min Bet', value: '$0.3' },
+									{ label: 'Max Bet', value: '$60' },
+								]}>
+								<GameCTAButtons slug={slug} />
+							</GameDetailsCard>
 						</div>
+
+						{/* Key Features Section */}
+						<KeyFeaturesSection features={myfeatures} />
 					</motion.div>
 				</div>
 			</div>

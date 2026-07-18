@@ -4,8 +4,8 @@ import { EmblaOptionsType } from 'embla-carousel';
 import { LargeImageCard } from '../components/slot/largeImageCard';
 import { SmallImageCard } from '../components/slot/smallImageCard';
 import { FaCrown } from 'react-icons/fa';
-import HomeNav from '../components/ui/nav/nav';
-import HeroBanner from '../components/ui/heroBanner';
+import HomeNav from '../components/siteComponets/nav/nav';
+import HeroSection from '../components/siteComponets/Hero/hero';
 import SlotCard from '../components/slot/slotCard';
 import ReviewCard from '../components/reviews/reviewCard';
 import DisplayGroups from '../lib/displayGroups';
@@ -13,6 +13,8 @@ import EmblaCarousel from '../components/carousel/carousel';
 import { motion } from 'framer-motion';
 import Head from 'next/head';
 import Link from 'next/link';
+
+const hero = require('../assets/mainbg.png');
 
 /////////////////////////////////////////////////////////////
 
@@ -90,7 +92,7 @@ const Home = ({ slodataProps }) => {
 				<HomeNav />
 
 				{/* Hero Section */}
-				<HeroBanner />
+				<HeroSection heroImageSrc={hero} />
 
 				{/* Featured Games */}
 				<section className='px-1 py-3 items-center'>
@@ -105,7 +107,7 @@ const Home = ({ slodataProps }) => {
 							</div>
 						)}
 					</div> */}
-					<div className='mx-auto max-w-7xl border border-white/[0.06] bg-[#090710] rounded-3xl p-6'>
+					<div className='mx-auto max-w-7xl border border-white/[0.06]  rounded-3xl p-6'>
 						{/* Header */}
 						<div className='mb-6 flex items-center justify-between'>
 							<div className='flex items-center gap-2 text-amber-500'>
@@ -122,7 +124,7 @@ const Home = ({ slodataProps }) => {
 						</div>
 
 						<div className='grid grid-cols-2 gap-5 sm:grid-cols-2 md:grid-cols-3'>
-							{MOCK_SLOTS.map((game) => (
+							{filteredGames.map((game) => (
 								<LargeImageCard key={game.id} game={game} />
 							))}
 						</div>
@@ -131,7 +133,7 @@ const Home = ({ slodataProps }) => {
 
 				{/* toprated section */}
 				<section className='px-6 py-3'>
-					<div className='mx-auto max-w-7xl border border-white/[0.06] bg-[#090710] rounded-3xl p-6'>
+					<div className='mx-auto max-w-7xl border border-white/[0.06]  rounded-3xl p-6'>
 						{/* Header */}
 						<div className='mb-6 flex items-center justify-between'>
 							<div className='flex items-center gap-2 text-amber-500'>
@@ -155,7 +157,7 @@ const Home = ({ slodataProps }) => {
 
 				{/* Latest Reviews */}
 				<section className='px-1 py-3 items-center'>
-					<div className='mx-auto max-w-7xl border border-white/[0.06] bg-[#090710] rounded-3xl p-6'>
+					<div className='mx-auto max-w-7xl border border-white/[0.06] rounded-3xl p-6'>
 						{/* Header */}
 						<div className='mb-6 flex items-center justify-between'>
 							<div className='flex items-center gap-2 text-amber-500'>

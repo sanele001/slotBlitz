@@ -4,39 +4,18 @@ import Link from 'next/link';
 import { FaStar, FaCrown } from 'react-icons/fa';
 
 interface SlotGame {
-	id: string;
-	title: string;
-	provider: string;
-	rating: number;
+	id: Number;
+	gameName: string;
+	vendorName: string;
+	slotRank: number;
 	maxRating?: number; // Defaults to 5
-	imageUrl: string;
-	slug: string;
+	imageSquare: string;
+	gameSlug: string;
 	badge?: {
 		text: string;
 		type: 'hot' | 'new' | 'featured';
 	};
 }
-
-const MOCK_SLOTS: SlotGame[] = [
-	{
-		id: '1',
-		title: 'Mega Fortune Dreams',
-		provider: 'NetEnt',
-		rating: 4.6,
-		imageUrl: '/images/slots/mega-fortune.jpg', // Replace with your actual public folder path
-		slug: 'mega-fortune-dreams',
-		badge: { text: 'HOT', type: 'hot' },
-	},
-	{
-		id: '2',
-		title: 'Starburst',
-		provider: 'NetEnt',
-		rating: 4.8,
-		imageUrl: '/images/slots/starburst.jpg',
-		slug: 'starburst',
-		badge: { text: 'NEW', type: 'new' },
-	},
-];
 
 interface SlotCardProps {
 	game: SlotGame;
@@ -44,13 +23,13 @@ interface SlotCardProps {
 
 export const LargeImageCard: React.FC<SlotCardProps> = ({ game }) => {
 	const {
-		title,
-		provider,
-		rating,
+		gameName,
+		vendorName,
+		slotRank,
 		maxRating = 5,
-		imageUrl,
-		slug,
-		badge,
+		imageSquare,
+		gameSlug,
+		badge = { text: 'HOT', type: 'hot' },
 	} = game;
 
 	const getBadgeStyles = (type?: string) => {
@@ -75,8 +54,8 @@ export const LargeImageCard: React.FC<SlotCardProps> = ({ game }) => {
       */}
 			<div className='relative aspect-[4/5] md:aspect-[21/9] w-full overflow-hidden rounded-xl bg-[#1a162b]'>
 				<Image
-					src='https://static.freedemo.games/images/games/gates-of-olympus-super-scatter/gates-of-olympus-super-scatter-rectangle.webp'
-					alt={title}
+					src={imageSquare}
+					alt={gameName}
 					fill
 					sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
 					className='object-cover transition-transform duration-500 ease-out group-hover:scale-105'
@@ -102,15 +81,15 @@ export const LargeImageCard: React.FC<SlotCardProps> = ({ game }) => {
 				{/* Title, Provider & Rating */}
 				<div className='flex flex-col min-w-0'>
 					<h3 className='truncate text-base font-semibold text-white tracking-wide transition-colors group-hover:text-red-400'>
-						{title}
+						{gameName}
 					</h3>
 
 					<div className='mt-1.5 flex items-center gap-2 text-sm text-gray-400'>
-						<span className='truncate'>{provider}</span>
+						<span className='truncate'>{vendorName}</span>
 						<span className='text-gray-700'>•</span>
 						<div className='flex items-center gap-1.5'>
 							<FaStar className='h-3.5 w-3.5 text-amber-500' />
-							<span className='font-semibold text-gray-200'>{rating}</span>
+							<span className='font-semibold text-gray-200'>{slotRank}</span>
 							<span className='text-gray-500'>/{maxRating}</span>
 						</div>
 					</div>
@@ -122,9 +101,9 @@ export const LargeImageCard: React.FC<SlotCardProps> = ({ game }) => {
           - Desktop (md): Auto width (md:w-auto), larger padding
         */}
 				<Link
-					href={`/reviews/${slug}`}
+					href={`/games/${gameSlug}`}
 					className='flex w-full md:w-auto shrink-0 items-center justify-center rounded-xl bg-[#e54b4b] px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm font-semibold text-white transition-all duration-200 hover:bg-[#f05a5a] active:scale-[0.98]'>
-					View Review
+					Game Details
 				</Link>
 			</div>
 		</div>
