@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
+import VerticalGameInfoCard from '../../components/games/verticalGameInfoCard';
 import { FaArrowLeft } from 'react-icons/fa';
 import GameImageCard from '../../components/games/gameImageCard';
 import GameDetailsCard from '../../components/games/gameDetailsCard';
@@ -96,9 +97,9 @@ const GamePage = () => {
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5 }}
-						className='bg-[black] border border-white/[0.06] rounded-3xl p-0px md:p-5'>
+						className='border border-white/[0.06] rounded-3xl p-0px md:p-5'>
 						{/* Layout: Image on left, Details on right (stacks on mobile) */}
-						<div className=' flex max-w-4xl flex-col items-start gap-6 md:flex-row '>
+						<div className=' flex max-w-7xl flex-col items-start gap-6 md:flex-row '>
 							<GameImageCard
 								imageSrc={game.imageSquare}
 								title={game.gameName}
@@ -116,6 +117,7 @@ const GamePage = () => {
 								]}>
 								<GameCTAButtons slug={slug} />
 							</GameDetailsCard>
+							<VerticalGameInfoCard />
 						</div>
 
 						{/* Key Features Section */}

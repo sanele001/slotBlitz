@@ -8,7 +8,8 @@ export const dummyData = [
 		type: 'Video Slots',
 		releaseDate: '2011-12-05',
 		wideReliaseDate: null,
-		reliaseDateComment: '',
+		reliaseDateComment:
+			'Deciding how many levels to include at launch depends on your game’s scope, monetization, retention goals.',
 		endOfLifeDate: null,
 		rtp: 96.86,
 		rtpComments: '96.01-96.86%',

@@ -36,7 +36,7 @@ export default function GameDetailsCard({
 	debugger;
 	return (
 		<div
-			className={`relative w-full max-w-xl overflow-hidden rounded-2xl bg-[#0b0713] p-6 sm:p-8 ${className}`}>
+			className={`relative w-full max-w-xl overflow-hidden rounded-2xl  p-6 sm:p-8 ${className}`}>
 			<div className='pointer-events-none absolute inset-0'>
 				<div className='absolute -top-10 right-10 h-40 w-40 rounded-full bg-fuchsia-600/10 blur-3xl' />
 				<div className='absolute bottom-0 left-1/3 h-32 w-32 rounded-full bg-red-500/10 blur-3xl' />

@@ -16,7 +16,7 @@ export const GameCTAButtons: React.FC<GameCTAButtonsProps> = ({
 	console.log('myslug is ', slug);
 	return (
 		<div className='flex flex-col md:flex-row gap-4 mt-8'>
-			<Link href={`/games/${slug}`} className='flex-1 md:flex-none'>
+			<Link href={`/games/demo/${slug}`} className='flex-1 md:flex-none'>
 				<button className='w-full md:w-auto px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-xl transition-colors flex items-center justify-center gap-2'>
 					<FaPlay className='h-4 w-4' />
 					Play Demo

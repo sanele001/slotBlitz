@@ -1,5 +1,9 @@
-#home-page {
-	background-image: url('../assets/bg7.png');
-	background-size: cover;
+.demobg {
+	background-image: url('../assets/image.png');
+	background-size: 50%;
 	background-repeat: no-repeat;
+	background-position: right;
+	background-position: right top;
+	background-color: rgba(0, 0, 0, 0.55);
+	backdrop-filter: blur(10px);
 }

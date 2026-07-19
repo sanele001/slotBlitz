@@ -163,7 +163,7 @@ const Home = ({ slodataProps }) => {
 							<div className='flex items-center gap-2 text-amber-500'>
 								<FaCrown className='h-5 w-5' />
 								<h2 className='text-xl font-bold text-white tracking-wide'>
-									Featured Games
+									Expert Reviews
 								</h2>
 							</div>
 							<Link

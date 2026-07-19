@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { dummyData } from '../../../dummydata';
 import { findGameBySlug } from '../../../lib/fetcher';
+import styles from '../../../styles/localStyle.module.css';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { FaArrowLeft, FaDollarSign, FaSpinner } from 'react-icons/fa';
+import GameFrame from '../../../components/slot/GameFrame';
 const test = JSON.parse(JSON.stringify(dummyData));
-
 const DemoGame = () => {
 	const params = useParams();
 	const [mounted, setMounted] = useState(false);
@@ -45,7 +46,7 @@ const DemoGame = () => {
 				<title>Play {game.gameName} Demo - Slot Review</title>
 			</Head>
 
-			<div className='min-h-screen bg-dark'>
+			<div className={`min-h-screen bg-dark ${styles.demobg}`}>
 				<div className='container mx-auto px-4 py-8'>
 					<Link
 						href={`/games/${slug}`}
@@ -54,36 +55,7 @@ const DemoGame = () => {
 						Back to Game Info
 					</Link>
 
-					<motion.div
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						className='bg-dark-light rounded-xl p-8 max-w-4xl mx-auto'>
-						<div className='text-center mb-8'>
-							<h1 className='text-3xl font-bold text-white mb-2'>
-								{game.title}
-							</h1>
-							<p className='text-gray-400'>Demo Mode</p>
-						</div>
-
-						<div className='bg-dark rounded-xl p-4 mb-8 '>
-							<iframe
-								src={game.demoGameLink}
-								className='w-full h-[25rem] rounded-lg'></iframe>
-						</div>
-
-						<div className='text-center text-gray-400 text-sm'>
-							<p>{game.gameName}</p>
-							<p className='mt-2'>
-								This is a demo version for entertainment purposes only.
-							</p>
-							<Link
-								href='/'
-								className='inline-flex items-center text-primary hover:text-primary-dark mt-5'>
-								<FaArrowLeft className='mr-2' />
-								Back to Home
-							</Link>
-						</div>
-					</motion.div>
+					<GameFrame game={game} />
 				</div>
 			</div>
 		</>
