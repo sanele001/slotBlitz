@@ -106,18 +106,10 @@ const GamePage = () => {
 								rating={4.8}
 								provider='Games Global'
 							/>
-							<GameDetailsCard
-								gameName={game.gameName}
-								reliaseDateComment={game.reliaseDateComment}
-								stats={[
-									{ label: 'RTP', value: '96.86%' },
-									{ label: 'Volatility', value: 'MED' },
-									{ label: 'Min Bet', value: '$0.3' },
-									{ label: 'Max Bet', value: '$60' },
-								]}>
+							<GameDetailsCard game={game}>
 								<GameCTAButtons slug={slug} />
 							</GameDetailsCard>
-							<VerticalGameInfoCard />
+							<VerticalGameInfoCard game={game} />
 						</div>
 
 						{/* Key Features Section */}

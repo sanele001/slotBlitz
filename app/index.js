@@ -4,7 +4,7 @@ import { EmblaOptionsType } from 'embla-carousel';
 import { LargeImageCard } from '../components/slot/largeImageCard';
 import { SmallImageCard } from '../components/slot/smallImageCard';
 import { FaCrown } from 'react-icons/fa';
-import HomeNav from '../components/siteComponets/nav/nav';
+import Navbar from '../components/siteComponets/nav/Navbar';
 import HeroSection from '../components/siteComponets/Hero/hero';
 import SlotCard from '../components/slot/slotCard';
 import ReviewCard from '../components/reviews/reviewCard';
@@ -17,7 +17,7 @@ import Link from 'next/link';
 const hero = require('../assets/mainbg.png');
 
 /////////////////////////////////////////////////////////////
-
+// use used to hold review section will deleted later
 const MOCK_SLOTS = [
 	{
 		id: '1',
@@ -88,9 +88,6 @@ const Home = ({ slodataProps }) => {
 			</Head>
 
 			<div className='min-h-screen bg-dark'>
-				{/* Navigation */}
-				<HomeNav />
-
 				{/* Hero Section */}
 				<HeroSection heroImageSrc={hero} />
 

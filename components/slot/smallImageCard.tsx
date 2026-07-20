@@ -88,7 +88,7 @@ export const SmallImageCard: React.FC<SmallImageCardProps> = () => {
 				<div className='mt-3'>
 					<Link
 						href={`/reviews/${slug}`}
-						className='inline-flex items-center justify-center rounded-xl border border-[#e54b4b]/[0.4] px-5 py-1.5 text-xs font-semibold text-[#f05a5a] transition-all duration-200 hover:border-[#e54b4b] hover:bg-[#e54b4b]/[0.06] active:scale-[0.98]'>
+						className='inline-flex items-center justify-center rounded-xl border border-[#fb226b]/[0.4] px-5 py-1.5 text-xs font-semibold text-primary transition-all duration-200 hover:border-[#e54b4b] hover:bg-[#e54b4b]/[0.06] active:scale-[0.98]'>
 						Read Review
 					</Link>
 				</div>

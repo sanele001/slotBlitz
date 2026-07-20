@@ -1,19 +1,16 @@
 'use client';
 
-import { children } from 'cheerio/dist/commonjs/api/traversing';
 import { FaStar } from 'react-icons/fa';
+import type { Slot } from '../../types/slot';
 
 export interface GameStat {
 	label: string;
-	value: string;
-	valueColor?: string; // e.g. "text-red-500"
+	value: string | number;
+	valueColor?: string;
 }
 
 export interface GameDetailsProps {
-	gameName: string;
-	reliaseDateComment: string;
-	badgeLabel?: string;
-	stats: GameStat[];
+	game: Slot;
 	className?: string;
 	children?: React.ReactNode;
 }
@@ -26,14 +23,19 @@ const defaultStatColors = [
 ];
 
 export default function GameDetailsCard({
-	gameName,
-	reliaseDateComment,
-	badgeLabel = 'Featured Game',
-	stats,
+	game,
 	className = '',
 	children,
 }: GameDetailsProps) {
-	debugger;
+	const badgeLabel = 'Featured Game';
+	const stats: GameStat[] = [
+		{ label: 'RTP', value: game.rtp },
+		{ label: 'Volatility', value: game.volatility },
+		{ label: 'Min Bet', value: game.minBet },
+		{ label: 'Max Bet', value: game.maxBet },
+	];
+
+	console.log(game);
 	return (
 		<div
 			className={`relative w-full max-w-xl overflow-hidden rounded-2xl  p-6 sm:p-8 ${className}`}>
@@ -51,11 +53,11 @@ export default function GameDetailsCard({
 				</div>
 
 				<h2 className='text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-white'>
-					{gameName}
+					{game.gameName}
 				</h2>
 
 				<p className='mt-3 max-w-md text-sm sm:text-base leading-relaxed text-neutral-400'>
-					{reliaseDateComment}
+					{game.reliaseDateComment}
 				</p>
 
 				<div className='mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4'>

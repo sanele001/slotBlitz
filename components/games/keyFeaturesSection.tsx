@@ -20,7 +20,7 @@ export default function KeyFeaturesSection({
 }: KeyFeaturesProps) {
 	return (
 		<div
-			className={`w-full rounded-2xl bg-[#0b0713] p-6 sm:p-8 ring-1 ring-inset ring-white/10 ${className} mt-5`}>
+			className={`w-full rounded-2xl  p-6 sm:p-8 ring-1 ring-inset ring-white/10 ${className} mt-5`}>
 			<h2 className='text-lg sm:text-xl font-bold text-white'>{heading}</h2>
 
 			<div className='mt-6 grid grid-cols-1 gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-3'>

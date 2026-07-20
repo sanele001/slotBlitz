@@ -10,6 +10,7 @@ export interface Slot {
 	releaseDate: string;
 	wideReleaseDate: string | null;
 	releaseDateComment: string;
+	reliaseDateComment: string;
 
 	endOfLifeDate: string | null;
 

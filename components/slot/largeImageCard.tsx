@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { FaStar, FaCrown } from 'react-icons/fa';
 
 interface SlotGame {
-	id: Number;
+	gameId: Number;
 	gameName: string;
 	vendorName: string;
 	slotRank: number;
@@ -102,7 +102,7 @@ export const LargeImageCard: React.FC<SlotCardProps> = ({ game }) => {
         */}
 				<Link
 					href={`/games/${gameSlug}`}
-					className='flex w-full md:w-auto shrink-0 items-center justify-center rounded-xl bg-[#e54b4b] px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm font-semibold text-white transition-all duration-200 hover:bg-[#f05a5a] active:scale-[0.98]'>
+					className='flex w-full md:w-auto shrink-0 items-center justify-center rounded-xl bg-primary px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm font-semibold text-white transition-all duration-200 hover:bg-[#f05a5a] active:scale-[0.98]'>
 					Game Details
 				</Link>
 			</div>

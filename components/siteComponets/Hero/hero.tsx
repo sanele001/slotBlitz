@@ -27,8 +27,7 @@ export default function HeroSection({
 			<div className='mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12'>
 				{/* Left column: copy */}
 				<div className='relative z-10'>
-					<div className='mb-4 inline-flex items-center gap-2 rounded-full bg-violet-500/15 px-3 py-1.5 ring-1 ring-inset ring-violet-400/30'>
-						<FaStar className='h-3.5 w-3.5 text-violet-400' />
+					<div className='mb-4 inline-flex items-center gap-2 rounded-full bg-violet-500/15'>
 						<span className='text-xs sm:text-sm font-medium text-violet-300'>
 							Your Ultimate Slot Guide
 						</span>
@@ -37,7 +36,7 @@ export default function HeroSection({
 					<div className='flex items-start justify-between gap-4 lg:block'>
 						<h1 className='text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-white'>
 							Discover the Best{' '}
-							<span className='text-red-500'>Online Slots</span>{' '}
+							<span className='text-primary'>Online Slots</span>{' '}
 							<span className='text-amber-300'>✦</span>
 						</h1>
 
@@ -61,11 +60,11 @@ export default function HeroSection({
 
 					{/* CTA buttons */}
 					<div className='mt-6 flex flex-wrap items-center gap-3'>
-						<button className='inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-red-500 to-orange-500 px-5 py-3 text-sm sm:text-base font-semibold text-white transition-colors hover:from-red-400 hover:to-orange-400'>
+						<button className='inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm sm:text-base font-semibold text-white transition-colors hover:from-red-400 hover:to-orange-400'>
 							Explore Slots
 							<FaArrowRight className='h-3.5 w-3.5' />
 						</button>
-						<button className='inline-flex items-center gap-2 rounded-xl bg-white/5 px-5 py-3 text-sm sm:text-base font-semibold text-white ring-1 ring-inset ring-white/15 transition-colors hover:bg-white/10'>
+						<button className='inline-flex items-center gap-2 rounded-xl bg-white/5 px-5 py-3 text-sm sm:text-base font-semibold text-white ring-1 ring-inset ring-white transition-colors hover:bg-white/10'>
 							<FaFileAlt className='h-3.5 w-3.5' />
 							Latest Reviews
 						</button>
