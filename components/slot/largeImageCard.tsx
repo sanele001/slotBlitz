@@ -11,10 +11,7 @@ interface SlotGame {
 	maxRating?: number; // Defaults to 5
 	imageSquare: string;
 	gameSlug: string;
-	badge?: {
-		text: string;
-		type: 'hot' | 'new' | 'featured';
-	};
+	badge?: string;
 }
 
 interface SlotCardProps {
@@ -29,7 +26,7 @@ export const LargeImageCard: React.FC<SlotCardProps> = ({ game }) => {
 		maxRating = 5,
 		imageSquare,
 		gameSlug,
-		badge = { text: 'HOT', type: 'hot' },
+		badge,
 	} = game;
 
 	const getBadgeStyles = (type?: string) => {
@@ -66,8 +63,8 @@ export const LargeImageCard: React.FC<SlotCardProps> = ({ game }) => {
 				{/* Badge */}
 				{badge && (
 					<span
-						className={`absolute left-3 top-3 rounded-md px-2.5 py-1 text-[11px] font-bold tracking-wider ${getBadgeStyles(badge.type)}`}>
-						{badge.text}
+						className={`absolute left-3 top-3 rounded-md px-2.5 py-1 text-[11px] font-bold tracking-wider ${getBadgeStyles(badge)}`}>
+						{badge}
 					</span>
 				)}
 			</div>

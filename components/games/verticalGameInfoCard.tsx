@@ -29,7 +29,7 @@ export default function VerticalGameInfoCard({ game }: GameInfoCardProps) {
 		{ icon: FaRegCalendarAlt, label: 'Release Date', value: game.releaseDate },
 		{ icon: BsGrid3X3GapFill, label: 'Reels', value: '3-5' },
 		{ icon: FaShareNodes, label: 'Paylines', value: game.type },
-		{ icon: GiRose, label: 'Theme', value: game.themes[0] },
+		{ icon: GiRose, label: 'Theme', value: game.theme },
 	];
 	return (
 		<div className='w-full max-w-xs rounded-2xl    p-3 shadow-xl'>

@@ -1,33 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { dummyData } from '../../../dummydata';
-import { findGameBySlug } from '../../../lib/fetcher';
+import { useFetch } from '../../hooks/useFetch';
+import { singleSlotUrl, requestOptions } from '../../config/api';
 import styles from '../../../styles/localStyle.module.css';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { FaArrowLeft, FaDollarSign, FaSpinner } from 'react-icons/fa';
 import GameFrame from '../../../components/slot/GameFrame';
-const test = JSON.parse(JSON.stringify(dummyData));
+
 const DemoGame = () => {
 	const params = useParams();
 	const [mounted, setMounted] = useState(false);
 	const [balance, setBalance] = useState(1000);
+	const [selectedGame, setSelectedGame] = useState(null);
 	const [bet, setBet] = useState(1);
 	const [isSpinning, setIsSpinning] = useState(false);
+	const slug = params?.slug;
 
 	useEffect(() => {
-		setMounted(true);
-	}, []);
+		let call = true;
 
-	const slug = params?.slug;
-	const game = findGameBySlug(test, slug);
+		async function getGame() {
+			if (call) {
+				const resp = await useFetch(singleSlotUrl + slug, requestOptions);
+				setSelectedGame(resp.data[0]);
+				setMounted(true);
+			}
+		}
 
-	if (!mounted) {
-		return null;
-	}
+		getGame();
 
-	if (!game) {
+		return () => {
+			call = false;
+		};
+	}, [selectedGame]);
+
+	if (!selectedGame) {
 		return (
 			<div className='min-h-screen bg-dark flex items-center justify-center'>
 				<div className='text-center'>
@@ -43,7 +52,7 @@ const DemoGame = () => {
 	return (
 		<>
 			<Head>
-				<title>Play {game.gameName} Demo - Slot Review</title>
+				<title>Play {selectedGame.gameName} Demo - Slot Review</title>
 			</Head>
 
 			<div className={`min-h-screen bg-dark ${styles.demobg}`}>
@@ -55,7 +64,7 @@ const DemoGame = () => {
 						Back to Game Info
 					</Link>
 
-					<GameFrame game={game} />
+					<GameFrame game={selectedGame} />
 				</div>
 			</div>
 		</>

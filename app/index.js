@@ -4,13 +4,9 @@ import { EmblaOptionsType } from 'embla-carousel';
 import { LargeImageCard } from '../components/slot/largeImageCard';
 import { SmallImageCard } from '../components/slot/smallImageCard';
 import { FaCrown } from 'react-icons/fa';
-import Navbar from '../components/siteComponets/nav/Navbar';
 import HeroSection from '../components/siteComponets/Hero/hero';
-import SlotCard from '../components/slot/slotCard';
-import ReviewCard from '../components/reviews/reviewCard';
 import DisplayGroups from '../lib/displayGroups';
 import EmblaCarousel from '../components/carousel/carousel';
-import { motion } from 'framer-motion';
 import Head from 'next/head';
 import Link from 'next/link';
 
@@ -29,7 +25,7 @@ const MOCK_SLOTS = [
 		badge: { text: 'HOT', type: 'hot' },
 	},
 	{
-		id: '1',
+		id: '2',
 		title: 'Mega Fortune Dreams',
 		provider: 'NetEnt',
 		rating: 4.6,
@@ -38,7 +34,7 @@ const MOCK_SLOTS = [
 		badge: { text: 'HOT', type: 'hot' },
 	},
 	{
-		id: '2',
+		id: '3',
 		title: 'Starburst',
 		provider: 'NetEnt',
 		rating: 4.8,
@@ -47,7 +43,7 @@ const MOCK_SLOTS = [
 		badge: { text: 'NEW', type: 'new' },
 	},
 	{
-		id: '3',
+		id: '5',
 		title: "Gonzo's Quest",
 		provider: 'NetEnt',
 		rating: 4.7,
@@ -58,11 +54,17 @@ const MOCK_SLOTS = [
 ];
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-const Home = ({ slodataProps }) => {
+const Home = ({ slotDataProps }) => {
 	const [searchTerm, setSearchTerm] = useState('');
 	const [mounted, setMounted] = useState(false);
-	const featuredGroup = new DisplayGroups(slodataProps, 6).featuredGroup();
-	const topRatedGroup = new DisplayGroups(slodataProps, 9).topGamesGroup();
+	const featuredGroup = new DisplayGroups(
+		slotDataProps.data,
+		6,
+	).featuredGroup();
+	const topRatedGroup = new DisplayGroups(
+		slotDataProps.data,
+		9,
+	).topGamesGroup();
 
 	useEffect(() => {
 		setMounted(true);
@@ -93,17 +95,6 @@ const Home = ({ slodataProps }) => {
 
 				{/* Featured Games */}
 				<section className='px-1 py-3 items-center'>
-					{/* <h3 className='text-2xl font-bold text-white mb-8'>Featured Games</h3>
-					<div className='grid grid-cols-3 gap-2 bg-dark w-[80%] m-auto'>
-						{filteredGames.map((game, index) => (
-							<SlotCard2 game={mygame} />
-						))}
-						{filteredGames.length === 0 && (
-							<div className='col-span-full text-center text-gray-400 py-12'>
-								No games found matching "{searchTerm}"
-							</div>
-						)}
-					</div> */}
 					<div className='mx-auto max-w-7xl border border-white/[0.06]  rounded-3xl p-6'>
 						{/* Header */}
 						<div className='mb-6 flex items-center justify-between'>
@@ -122,7 +113,7 @@ const Home = ({ slodataProps }) => {
 
 						<div className='grid grid-cols-2 gap-5 sm:grid-cols-2 md:grid-cols-3'>
 							{filteredGames.map((game) => (
-								<LargeImageCard key={game.id} game={game} />
+								<LargeImageCard key={game.documentId} game={game} />
 							))}
 						</div>
 					</div>
@@ -172,7 +163,7 @@ const Home = ({ slodataProps }) => {
 
 						<div className='grid grid-cols-1 gap-5 sm:grid-cols-1 md:grid-cols-2'>
 							{MOCK_SLOTS.map((game) => (
-								<SmallImageCard />
+								<SmallImageCard key={game.id} />
 							))}
 						</div>
 					</div>

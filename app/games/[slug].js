@@ -1,8 +1,8 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { dummyData } from '../../dummydata';
-import { findGameBySlug } from '../../lib/fetcher';
+import { useFetch } from '../hooks/useFetch';
 import { motion } from 'framer-motion';
+import { singleSlotUrl, requestOptions } from '../config/api';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
@@ -14,59 +14,37 @@ import KeyFeaturesSection from '../../components/games/keyFeaturesSection';
 import { GameCTAButtons } from '../../components/games/gameCTAButtons';
 import { features } from 'process';
 
-const test = JSON.parse(JSON.stringify(dummyData));
-
-const myfeatures = [
-	{ title: 'Wild', description: 'Substitutes for other symbols' },
-	{ title: 'Multiplier', description: 'Increase your winnings' },
-	{
-		title: 'Feature: Substitution Symbols',
-		description: 'Special symbols expand wins',
-	},
-	{
-		title: 'Free Spins Mode Choosing',
-		description: 'Choose your free spins mode',
-	},
-	{ title: 'Achievements', description: 'Unlock exciting achievements' },
-	{ title: 'Free Spins', description: 'Trigger exciting free spins' },
-	{ title: 'Scatter symbols', description: 'Trigger bonus features' },
-	{
-		title: 'Random Wilds / Additional Wilds',
-		description: 'More wilds, more wins',
-	},
-	{
-		title: 'Free Spins Multiplier',
-		description: 'Multiply your free spins wins',
-	},
-	{ title: 'RTP range', description: '96.86% return to player' },
-	{
-		title: 'Immersive Storyline',
-		description: 'Engaging vampire romance theme',
-	},
-	{ title: 'Mobile Optimized', description: 'Seamless play on any device' },
-];
-
 const GamePage = () => {
 	const params = useParams();
 	const [mounted, setMounted] = useState(false);
+	const [selectedGame, setSelectedGame] = useState(null);
+	const slug = params?.slug;
 
 	useEffect(() => {
-		setMounted(true);
-	}, []);
+		let call = true;
 
-	const slug = params?.slug;
-	const game = findGameBySlug(test, slug);
+		async function getGame() {
+			if (call) {
+				const resp = await useFetch(singleSlotUrl + slug, requestOptions);
+				setSelectedGame(resp.data[0]);
+				setMounted(true);
+			}
+		}
 
-	if (!mounted) {
-		return null;
-	}
+		getGame();
 
-	debugger;
-	if (!game) {
+		return () => {
+			call = false;
+		};
+	}, [selectedGame]);
+
+	if (!selectedGame) {
 		return (
 			<div className='min-h-screen bg-dark flex items-center justify-center'>
 				<div className='text-center'>
-					<h1 className='text-4xl text-white mb-4'>Game Not Found</h1>
+					<h1 className='text-4xl text-white mb-4'>
+						{!mounted ? 'game loading' : 'Game Not Found'}
+					</h1>
 					<Link href='/' className='text-red-500 hover:text-red-400'>
 						Return to Home
 					</Link>
@@ -78,8 +56,8 @@ const GamePage = () => {
 	return (
 		<>
 			<Head>
-				<title>{game.gameName} - Slot Review</title>
-				<meta name='description' content={game.reliaseDateComment} />
+				<title>{selectedGame.gameName} - Slot Review</title>
+				<meta name='description' content={selectedGame.gameName} />
 			</Head>
 
 			<div className='min-h-screen bg-dark'>
@@ -101,19 +79,19 @@ const GamePage = () => {
 						{/* Layout: Image on left, Details on right (stacks on mobile) */}
 						<div className=' flex max-w-7xl flex-col items-start gap-6 md:flex-row '>
 							<GameImageCard
-								imageSrc={game.imageSquare}
-								title={game.gameName}
+								imageSrc={selectedGame.imageSquare}
+								title={selectedGame.gameName}
 								rating={4.8}
 								provider='Games Global'
 							/>
-							<GameDetailsCard game={game}>
+							<GameDetailsCard game={selectedGame}>
 								<GameCTAButtons slug={slug} />
 							</GameDetailsCard>
-							<VerticalGameInfoCard game={game} />
+							<VerticalGameInfoCard game={selectedGame} />
 						</div>
 
 						{/* Key Features Section */}
-						<KeyFeaturesSection features={myfeatures} />
+						<KeyFeaturesSection features={selectedGame.feature} />
 					</motion.div>
 				</div>
 			</div>
