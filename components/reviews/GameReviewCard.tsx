@@ -51,11 +51,12 @@ export default function GameReviewCard({ gameReview }: ReviewProps) {
 		title,
 		rating,
 		author,
-		updatedDate,
+		updatedDate = ': Jun 19 2026', // need to be refactored
 		description,
 		playUrl,
 		providerUrl,
 	} = gameReview;
+
 	return (
 		<div className='mx-auto max-w-7xl   rounded-2xl p-4 sm:p-6 flex flex-col md:flex-row gap-6'>
 			{/* Thumbnail */}

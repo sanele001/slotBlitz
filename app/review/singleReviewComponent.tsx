@@ -6,6 +6,7 @@ import { ReviewData } from '../../types/review';
 import GameOverview from '../../components/reviews/reviewTextSection';
 import { usefetchReview } from '../hooks/reviews/useFetchReviews';
 import { useEffect, useState } from 'react';
+import Footer from '../../components/siteComponets/footer/Footer';
 
 interface ReviewDataResponse {
 	data: ReviewData[];
@@ -74,6 +75,7 @@ export default function GameReviewComp() {
 			{reviewInfo && <GameReviewCard gameReview={gameReview} />}
 			{reviewInfo && <ReviewBar feature={reviewBar} />}
 			{reviewInfo && <GameOverview gameOverview={gameOverview} />}
+			{reviewInfo && <Footer />}
 		</div>
 	);
 }

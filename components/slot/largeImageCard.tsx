@@ -31,11 +31,11 @@ export const LargeImageCard: React.FC<SlotCardProps> = ({ game }) => {
 
 	const getBadgeStyles = (type?: string) => {
 		switch (type) {
-			case 'hot':
+			case 'Hot':
 				return 'bg-[#ef4444] text-white';
-			case 'new':
+			case 'New':
 				return 'bg-[#10b981] text-white';
-			case 'featured':
+			case 'Featured':
 				return 'bg-[#8b5cf6] text-white';
 			default:
 				return 'bg-blue-500 text-white';

@@ -61,7 +61,7 @@ export default function Footer() {
 				{/* Brand */}
 				<div>
 					<h2 className='text-xl font-extrabold text-white tracking-wide'>
-						SlotBlitz
+						Webslots
 					</h2>
 					<p className='mt-3 text-sm text-white/50 max-w-xs'>
 						Your trusted destination for top rated slots and the best online

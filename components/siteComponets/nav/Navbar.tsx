@@ -35,7 +35,7 @@ const NAV_ITEMS: NavItem[] = [
 	{ label: 'Slots', href: '/slots', icon: BsGridFill },
 	{ label: 'Providers', href: '/providers', icon: MdBusiness },
 	{ label: 'News', href: '/news', icon: FaNewspaper },
-	{ label: 'Guides', href: '/guides', icon: FaCompass },
+	{ label: 'Reviews', href: '/reviews', icon: FaCompass },
 ];
 
 const ACCENT = '#fb226b';
@@ -52,8 +52,8 @@ export default function Navbar() {
 				<Link
 					href='/'
 					className='flex items-center shrink-0 text-lg font-extrabold'>
-					<span className='text-white'>Slot</span>
-					<span style={{ color: ACCENT }}>Blitz</span>
+					<span className='text-white'>Webslots</span>
+					<span className='text-primary'>.Africa</span>
 				</Link>
 
 				{/* Desktop nav links */}

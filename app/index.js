@@ -18,17 +18,9 @@ const Home = ({ slotDataProps, reviewDataProps }) => {
 	const featuredGroup = new DisplayGroups(slotDataProps, 6).featuredGroup();
 	const topRatedGroup = new DisplayGroups(slotDataProps, 9).topGamesGroup();
 
-	useEffect(() => {
-		setMounted(true);
-	}, []);
-
 	const filteredGames = featuredGroup.filter((game) =>
 		game.gameName.toLowerCase().includes(searchTerm.toLowerCase()),
 	);
-
-	if (!mounted) {
-		return null;
-	}
 
 	return (
 		<>
@@ -65,7 +57,7 @@ const Home = ({ slotDataProps, reviewDataProps }) => {
 
 						<div className='grid grid-cols-2 gap-5 sm:grid-cols-2 md:grid-cols-3'>
 							{filteredGames.map((game) => (
-								<LargeImageCard key={game.documentId} game={game} />
+								<LargeImageCard key={game.created_at} game={game} />
 							))}
 						</div>
 					</div>

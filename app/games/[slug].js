@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { usefetchgame } from '../hooks/games/useFetch';
 import { motion } from 'framer-motion';
-import { singleSlotUrl, requestOptions } from '../config/api';
+import Footer from '../../components/siteComponets/footer/Footer';
+import Loading from '../loading';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
@@ -12,6 +13,7 @@ import GameImageCard from '../../components/games/gameImageCard';
 import GameDetailsCard from '../../components/games/gameDetailsCard';
 import KeyFeaturesSection from '../../components/games/keyFeaturesSection';
 import { GameCTAButtons } from '../../components/games/gameCTAButtons';
+import WhyPlayersLoveIt from '../../components/games/WhyPlayersLoveIt';
 
 const GamePage = () => {
 	const params = useParams();
@@ -42,7 +44,7 @@ const GamePage = () => {
 			<div className='min-h-screen bg-dark flex items-center justify-center'>
 				<div className='text-center'>
 					<h1 className='text-4xl text-white mb-4'>
-						{!mounted ? 'game loading' : 'Game Not Found'}
+						{!mounted ? <Loading /> : 'Something went wrong'}
 					</h1>
 					<Link href='/' className='text-red-500 hover:text-red-400'>
 						Return to Home
@@ -89,11 +91,14 @@ const GamePage = () => {
 							<VerticalGameInfoCard game={selectedGame} />
 						</div>
 
+						<WhyPlayersLoveIt />
+
 						{/* Key Features Section */}
 						<KeyFeaturesSection features={selectedGame.feature} />
 					</motion.div>
 				</div>
 			</div>
+			<Footer />
 		</>
 	);
 };

@@ -2,34 +2,6 @@ import { FiCheckCircle, FiXCircle, FiCheck } from 'react-icons/fi';
 
 const ACCENT = '#fb226b';
 
-// const keyFeatures = [
-// 	'Tumble Feature with up to 100x multipliers',
-// 	'Up to 25,000x maximum win',
-// 	'Free Spins with multipliers',
-// 	'Vibrant candy-themed graphics and fun soundtrack',
-// 	'High RTP of 96.51%',
-// ];
-
-// const pros = [
-// 	'High maximum win potential',
-// 	'Fun and engaging gameplay',
-// 	'Attractive visuals and sounds',
-// 	'High RTP of 96.51%',
-// ];
-
-// const cons = [
-// 	'High volatility may not suit all players',
-// 	'Free Spins can be inconsistent',
-// ];
-
-// const verdict = {
-// 	rating: 4.8,
-// 	text: `Sweet Bonanza 1000 is a fantastic sequel that builds on everything
-// players love about the original. With its high win potential, exciting
-// features, and delightful theme, it's a must-play for slot enthusiasts.
-// We highly recommend giving it a spin!`,
-// };
-
 export default function GameOverview({ gameOverview }) {
 	const { pros, cons, verdict, keyFeatures } = gameOverview;
 	return (
@@ -85,7 +57,6 @@ export default function GameOverview({ gameOverview }) {
 							</h4>
 
 							<ul className='space-y-3'>
-								{console.log('dfdfdfdf', cons)}
 								{cons.cons.map((con) => (
 									<li key={con} className='flex items-start gap-2'>
 										<FiXCircle className='mt-0.5 h-4 w-4 shrink-0 text-pink-500' />

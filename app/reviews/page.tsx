@@ -4,8 +4,8 @@ import UnderConstruction from '../../components/siteComponets/siteWarnings/Under
 export default async function Page() {
 	return (
 		<UnderConstruction
-			title='Guides Coming Soon'
-			message='Our slot guides section is still in the oven.'
+			title='reviews Coming Soon'
+			message='Our slot reviews section is still in the oven.'
 		/>
 	);
 }

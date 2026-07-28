@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import {
 	FaStar,
 	FaArrowRight,
@@ -60,14 +61,18 @@ export default function HeroSection({
 
 					{/* CTA buttons */}
 					<div className='mt-6 flex flex-wrap items-center gap-3'>
-						<button className='inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm sm:text-base font-semibold text-white transition-colors hover:from-red-400 hover:to-orange-400'>
+						<Link
+							href='/slots'
+							className='inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm sm:text-base font-semibold text-white transition-colors hover:from-red-400 hover:to-orange-400'>
 							Explore Slots
 							<FaArrowRight className='h-3.5 w-3.5' />
-						</button>
-						<button className='inline-flex items-center gap-2 rounded-xl bg-white/5 px-5 py-3 text-sm sm:text-base font-semibold text-white ring-1 ring-inset ring-white transition-colors hover:bg-white/10'>
+						</Link>
+						<Link
+							href='/reviews'
+							className='inline-flex items-center gap-2 rounded-xl bg-white/5 px-5 py-3 text-sm sm:text-base font-semibold text-white ring-1 ring-inset ring-white transition-colors hover:bg-white/10'>
 							<FaFileAlt className='h-3.5 w-3.5' />
 							Latest Reviews
-						</button>
+						</Link>
 					</div>
 
 					{/* Trust indicators */}
