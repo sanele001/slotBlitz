@@ -1,59 +1,26 @@
 'use client';
-
 import React, { useState, useEffect } from 'react';
-import HomeNav from '../components/ui/nav/nav';
-import HeroBanner from '../components/ui/heroBanner';
-import SlotCard from '../components/slot/slotCard';
-import ReviewCard from '../components/reviews/reviewCard';
-import Image from 'next/image';
-import styles from '../styles/localStyle.module.css';
-import { motion } from 'framer-motion';
-import { FaSearch, FaBell, FaUser } from 'react-icons/fa';
+import { LargeImageCard } from '../components/slot/largeImageCard';
+import { SmallImageCard } from '../components/slot/smallImageCard';
+import { FaCrown } from 'react-icons/fa';
+import HeroSection from '../components/siteComponets/Hero/hero';
+import DisplayGroups from '../lib/displayGroups';
+import EmblaCarousel from '../components/carousel/carousel';
 import Head from 'next/head';
 import Link from 'next/link';
-import diamondsImage from '../assets/Diamonds.jpg';
-import gatesOlympusImage from '../assets/40diomond.png';
-import jackpotWorldImage from '../assets/jackpotWorld.png';
+import Footer from '../components/siteComponets/footer/Footer';
 
-const games = [
-	{
-		slug: 'mega-fortune-dreams',
-		title: 'Diamonds',
-		image: diamondsImage,
-		description:
-			'Experience the thrill of progressive jackpots and luxurious symbols in this NetEnt classic.',
-	},
-	{
-		slug: 'starburst',
-		title: '40 Diamonds Plus',
-		image: gatesOlympusImage,
-		description:
-			'A dazzling journey through space with expanding wilds and respins.',
-	},
-	{
-		slug: 'gonzos-quest',
-		title: 'Jackpot World',
-		image: jackpotWorldImage,
-		description:
-			'Join Gonzo on his quest for El Dorado with avalanche multipliers.',
-	},
-];
+const hero = require('../assets/mainbg.png');
 
-const Home = () => {
+const Home = ({ slotDataProps, reviewDataProps }) => {
 	const [searchTerm, setSearchTerm] = useState('');
 	const [mounted, setMounted] = useState(false);
+	const featuredGroup = new DisplayGroups(slotDataProps, 6).featuredGroup();
+	const topRatedGroup = new DisplayGroups(slotDataProps, 9).topGamesGroup();
 
-	useEffect(() => {
-		setMounted(true);
-	}, []);
-
-	const filteredGames = games.filter((game) =>
-		game.title.toLowerCase().includes(searchTerm.toLowerCase()),
+	const filteredGames = featuredGroup.filter((game) =>
+		game.gameName.toLowerCase().includes(searchTerm.toLowerCase()),
 	);
-
-	if (!mounted) {
-		return null;
-	}
 
 	return (
 		<>
@@ -67,56 +34,86 @@ const Home = () => {
 			</Head>
 
 			<div className='min-h-screen bg-dark'>
-				{/* Navigation */}
-				<HomeNav />
-
 				{/* Hero Section */}
-				<HeroBanner />
+				<HeroSection heroImageSrc={hero} />
 
 				{/* Featured Games */}
-				<section className='px-6 py-12'>
-					<h3 className='text-2xl font-bold text-white mb-8'>Featured Games</h3>
-					<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-						{filteredGames.map((game, index) => (
-							<motion.div
-								key={game.slug}
-								initial={{ opacity: 0, scale: 0.9 }}
-								animate={{ opacity: 1, scale: 1 }}
-								whileHover={{ y: -10 }}
-								className='bg-dark-light p-4 rounded-2xl'>
-								{/* slot card */}
-								<SlotCard game={game} />
-							</motion.div>
-						))}
-						{filteredGames.length === 0 && (
-							<div className='col-span-full text-center text-gray-400 py-12'>
-								No games found matching "{searchTerm}"
+				<section className='px-1 py-3 items-center'>
+					<div className='mx-auto max-w-7xl border border-white/[0.06]  rounded-3xl p-6'>
+						{/* Header */}
+						<div className='mb-6 flex items-center justify-between'>
+							<div className='flex items-center gap-2 text-amber-500'>
+								<FaCrown className='h-5 w-5' />
+								<h2 className='text-xl font-bold text-white tracking-wide'>
+									Featured Games
+								</h2>
 							</div>
-						)}
+							<Link
+								href='/games'
+								className='text-xs font-semibold text-gray-400 hover:text-white transition-colors flex items-center gap-1'>
+								View all games
+							</Link>
+						</div>
+
+						<div className='grid grid-cols-2 gap-5 sm:grid-cols-2 md:grid-cols-3'>
+							{filteredGames.map((game) => (
+								<LargeImageCard key={game.created_at} game={game} />
+							))}
+						</div>
+					</div>
+				</section>
+
+				{/* toprated section */}
+				<section className='px-6 py-3'>
+					<div className='mx-auto max-w-7xl border border-white/[0.06]  rounded-3xl p-6'>
+						{/* Header */}
+						<div className='mb-6 flex items-center justify-between'>
+							<div className='flex items-center gap-2 text-amber-500'>
+								<FaCrown className='h-5 w-5' />
+								<h2 className='text-xl font-bold text-white tracking-wide'>
+									Top Ranking Games
+								</h2>
+							</div>
+							<Link
+								href='/games'
+								className='text-xs font-semibold text-gray-400 hover:text-white transition-colors flex items-center gap-1'>
+								View all games
+							</Link>
+						</div>
+
+						<div>
+							<EmblaCarousel slides={topRatedGroup} options={{ loop: true }} />
+						</div>
 					</div>
 				</section>
 
 				{/* Latest Reviews */}
-				<section className='px-6 py-12 bg-dark-light'>
-					<h3 className='text-2xl font-bold text-white mb-8'>Latest Reviews</h3>
-					<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-						{[
-							{
-								title: 'Starburst XXXtreme',
-								description:
-									'A high-volatility upgrade to the classic Starburst with massive multipliers...',
-							},
-							{
-								title: 'Book of Dead',
-								description:
-									'Join Rich Wilde on an Egyptian adventure with expanding symbols...',
-							},
-						].map((review, index) => (
-							<ReviewCard review={review} />
-						))}
+				<section className='px-1 py-3 items-center'>
+					<div className='mx-auto max-w-7xl border border-white/[0.06] rounded-3xl p-6'>
+						{/* Header */}
+						<div className='mb-6 flex items-center justify-between'>
+							<div className='flex items-center gap-2 text-amber-500'>
+								<FaCrown className='h-5 w-5' />
+								<h2 className='text-xl font-bold text-white tracking-wide'>
+									Expert Reviews
+								</h2>
+							</div>
+							<Link
+								href='/games'
+								className='text-xs font-semibold text-gray-400 hover:text-white transition-colors flex items-center gap-1'>
+								View all games
+							</Link>
+						</div>
+
+						<div className='grid grid-cols-1 gap-5 sm:grid-cols-1 md:grid-cols-2'>
+							{reviewDataProps.map((game) => (
+								<SmallImageCard key={game.id} game={game} />
+							))}
+						</div>
 					</div>
 				</section>
 			</div>
+			<Footer />
 		</>
 	);
 };
