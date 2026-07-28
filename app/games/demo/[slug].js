@@ -11,11 +11,8 @@ import GameFrame from '../../../components/slot/GameFrame';
 
 const DemoGame = () => {
 	const params = useParams();
-	const [mounted, setMounted] = useState(false);
-	const [balance, setBalance] = useState(1000);
 	const [selectedGame, setSelectedGame] = useState(null);
-	const [bet, setBet] = useState(1);
-	const [isSpinning, setIsSpinning] = useState(false);
+
 	const slug = params?.slug;
 
 	useEffect(() => {

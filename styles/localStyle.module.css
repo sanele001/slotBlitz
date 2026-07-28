@@ -1,9 +1,6 @@
 .demobg {
-	background-image: url('../assets/image.png');
-	background-size: 50%;
+	background-image: url('../assets/blurimage.png');
+	background-size: cover;
 	background-repeat: no-repeat;
-	background-position: right;
-	background-position: right top;
-	background-color: rgba(0, 0, 0, 0.55);
-	backdrop-filter: blur(10px);
+	background-position: top;
 }
