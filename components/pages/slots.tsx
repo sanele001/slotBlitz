@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import DisplayGroups from '../../lib/displayGroups';
+import Footer from '../siteComponets/footer/Footer';
 import { dummyData } from '../../dummydata';
 import { LargeImageCard } from '../slot/largeImageCard';
 import FliudHeroSection from '../siteComponets/Hero/fluidHero';
@@ -56,6 +57,7 @@ const Slots = () => {
 					</div>
 				</section>
 			</div>
+			<Footer />
 		</>
 	);
 };

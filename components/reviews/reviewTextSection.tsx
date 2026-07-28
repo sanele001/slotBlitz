@@ -2,35 +2,36 @@ import { FiCheckCircle, FiXCircle, FiCheck } from 'react-icons/fi';
 
 const ACCENT = '#fb226b';
 
-const keyFeatures = [
-	'Tumble Feature with up to 100x multipliers',
-	'Up to 25,000x maximum win',
-	'Free Spins with multipliers',
-	'Vibrant candy-themed graphics and fun soundtrack',
-	'High RTP of 96.51%',
-];
+// const keyFeatures = [
+// 	'Tumble Feature with up to 100x multipliers',
+// 	'Up to 25,000x maximum win',
+// 	'Free Spins with multipliers',
+// 	'Vibrant candy-themed graphics and fun soundtrack',
+// 	'High RTP of 96.51%',
+// ];
 
-const pros = [
-	'High maximum win potential',
-	'Fun and engaging gameplay',
-	'Attractive visuals and sounds',
-	'High RTP of 96.51%',
-];
+// const pros = [
+// 	'High maximum win potential',
+// 	'Fun and engaging gameplay',
+// 	'Attractive visuals and sounds',
+// 	'High RTP of 96.51%',
+// ];
 
-const cons = [
-	'High volatility may not suit all players',
-	'Free Spins can be inconsistent',
-];
+// const cons = [
+// 	'High volatility may not suit all players',
+// 	'Free Spins can be inconsistent',
+// ];
 
-const verdict = {
-	rating: 4.8,
-	text: `Sweet Bonanza 1000 is a fantastic sequel that builds on everything
-players love about the original. With its high win potential, exciting
-features, and delightful theme, it's a must-play for slot enthusiasts.
-We highly recommend giving it a spin!`,
-};
+// const verdict = {
+// 	rating: 4.8,
+// 	text: `Sweet Bonanza 1000 is a fantastic sequel that builds on everything
+// players love about the original. With its high win potential, exciting
+// features, and delightful theme, it's a must-play for slot enthusiasts.
+// We highly recommend giving it a spin!`,
+// };
 
-export default function GameOverview() {
+export default function GameOverview({ gameOverview }) {
+	const { pros, cons, verdict, keyFeatures } = gameOverview;
 	return (
 		<section className='mx-auto mt-6 mb-6 max-w-7xl overflow-hidden rounded-2xl border border-white/10'>
 			{/* Top */}
@@ -40,7 +41,7 @@ export default function GameOverview() {
 					<h3 className='mb-5 text-lg font-bold text-white'>Key Features</h3>
 
 					<ul className='space-y-4'>
-						{keyFeatures.map((feature) => (
+						{keyFeatures.features.map((feature) => (
 							<li key={feature} className='flex items-start gap-3'>
 								<FiCheckCircle
 									className='mt-0.5 h-5 w-5 shrink-0'
@@ -67,7 +68,7 @@ export default function GameOverview() {
 							</h4>
 
 							<ul className='space-y-3'>
-								{pros.map((pro) => (
+								{pros.pros.map((pro) => (
 									<li key={pro} className='flex items-start gap-2'>
 										<FiCheck className='mt-0.5 h-4 w-4 shrink-0 text-green-400' />
 
@@ -84,7 +85,8 @@ export default function GameOverview() {
 							</h4>
 
 							<ul className='space-y-3'>
-								{cons.map((con) => (
+								{console.log('dfdfdfdf', cons)}
+								{cons.cons.map((con) => (
 									<li key={con} className='flex items-start gap-2'>
 										<FiXCircle className='mt-0.5 h-4 w-4 shrink-0 text-pink-500' />
 
@@ -109,7 +111,9 @@ export default function GameOverview() {
 						borderColor: ACCENT,
 						color: ACCENT,
 					}}>
-					<span className='text-3xl leading-none'>{verdict.rating}</span>
+					<span className='text-3xl leading-none'>
+						{verdict.verdict.rating}
+					</span>
 
 					<span className='text-xs text-white/60'>/5</span>
 				</div>
@@ -119,7 +123,7 @@ export default function GameOverview() {
 					<h3 className='text-xl font-bold text-white'>Our Verdict</h3>
 
 					<p className='mt-3 whitespace-pre-line text-sm leading-7 text-white/70'>
-						{verdict.text}
+						{verdict.verdict.text}
 					</p>
 				</div>
 			</div>

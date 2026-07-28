@@ -2,10 +2,11 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
 import { IconType } from 'react-icons';
 import {
 	FaHome,
-	FaCrown,
 	FaNewspaper,
 	FaCompass,
 	FaBars,
@@ -41,7 +42,8 @@ const ACCENT = '#fb226b';
 
 export default function Navbar() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const activeLabel = 'Home'; // mock active route
+	const pathname = usePathname();
+	const activeLabel = pathname;
 
 	return (
 		<header className='sticky top-0 z-50 w-full bg-[#0c0714] border-b border-white/10'>
@@ -58,7 +60,7 @@ export default function Navbar() {
 				<ul className='hidden lg:flex items-center gap-6'>
 					{NAV_ITEMS.map((item) => {
 						const Icon = item.icon;
-						const isActive = item.label === activeLabel;
+						const isActive = item.href === activeLabel;
 						return (
 							<li key={item.label}>
 								<Link

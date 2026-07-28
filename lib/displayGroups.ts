@@ -18,6 +18,11 @@ class DisplayGroups {
 		const groupedData = this.groupData.slice(0, this.groupSize);
 		return groupedData;
 	}
+
+	reviewGroup() {
+		const groupedData = this.groupData.slice(0, this.groupSize);
+		return groupedData;
+	}
 }
 
 export default DisplayGroups;

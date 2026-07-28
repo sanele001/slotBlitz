@@ -27,7 +27,7 @@ export default function GameDetailsCard({
 	className = '',
 	children,
 }: GameDetailsProps) {
-	const badgeLabel = 'Featured Game';
+	const badgeLabel = game.badge;
 	const stats: GameStat[] = [
 		{ label: 'RTP', value: game.rtp },
 		{ label: 'Volatility', value: game.volatility },
@@ -35,7 +35,6 @@ export default function GameDetailsCard({
 		{ label: 'Max Bet', value: game.maxBet },
 	];
 
-	console.log(game);
 	return (
 		<div
 			className={`relative w-full max-w-xl overflow-hidden rounded-2xl  p-6 sm:p-8 ${className}`}>

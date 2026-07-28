@@ -7,45 +7,40 @@ import {
 	FiBarChart2,
 } from 'react-icons/fi';
 
-const gameInfo = [
-	{
-		label: 'Release Date',
-		value: 'Jan 31, 2025',
-		icon: FiCalendar,
-	},
-	{
-		label: 'Provider',
-		value: 'Pragmatic Play',
-		icon: FiGrid,
-	},
-	{
-		label: 'Reels / Rows',
-		value: '6 Reels / 5 Rows',
-		icon: FiPackage,
-	},
-	{
-		label: 'Max Win',
-		value: '25,000x',
-		icon: FiAward,
-	},
-	{
-		label: 'RTP',
-		value: '96.51%',
-		icon: FiTarget,
-	},
-	{
-		label: 'Volatility',
-		value: 'High',
-		icon: FiBarChart2,
-	},
-];
+type Barproptype = {
+	label: string;
+	value: string;
+	icon: string;
+};
 
-export default function ReviewBar() {
+type iconsList = {
+	gameInfo: Barproptype[];
+};
+
+type barInfo = {
+	feature: iconsList;
+};
+
+const iconDictionary = {
+	icon_FiCalendar: FiCalendar,
+
+	icon_FiGrid: FiGrid,
+
+	icon_FiPackage: FiPackage,
+
+	icon_FiAward: FiAward,
+
+	icon_FiTarget: FiTarget,
+
+	icon_FiBarChart2: FiBarChart2,
+};
+
+export default function ReviewBar({ feature }: barInfo) {
 	return (
 		<section className='mx-auto mt-6 max-w-7xl rounded-2xl border border-white/10 bg-[#0c0714]'>
 			<div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6'>
-				{gameInfo.map((item, index) => {
-					const Icon = item.icon;
+				{feature.gameInfo.map((item, index) => {
+					const Icon = iconDictionary[item.icon];
 
 					return (
 						<div
@@ -53,7 +48,7 @@ export default function ReviewBar() {
 							className={`
                 flex items-center gap-3 p-4
                 ${
-									index !== gameInfo.length - 1
+									index !== feature.gameInfo.length - 1
 										? 'border-b border-white/10 lg:border-b-0 lg:border-r'
 										: ''
 								}

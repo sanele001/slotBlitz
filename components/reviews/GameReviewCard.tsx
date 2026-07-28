@@ -21,18 +21,8 @@ interface GameReviewCardProps {
 	providerUrl: string;
 }
 
-// Mock data — replace with real review content
-const MOCK_REVIEW: GameReviewCardProps = {
-	thumbnail: '/images/sweet-bonanza-1000.png',
-	category: 'Video Slot',
-	title: 'Sweet Bonanza 1000 Review',
-	rating: 4.8,
-	author: 'Top Slots Team',
-	updatedDate: 'May 20, 2025',
-	description:
-		'Sweet Bonanza 1000 takes the beloved candy-themed slot to the next level with bigger wins, exciting multipliers, and the ever-popular Tumble feature. With a massive 25,000x max win, this game is as rewarding as it is entertaining.',
-	playUrl: '#',
-	providerUrl: '#',
+type ReviewProps = {
+	gameReview: GameReviewCardProps;
 };
 
 const ACCENT = '#fb226b';
@@ -54,11 +44,7 @@ function StarRating({ rating }: { rating: number }) {
 	);
 }
 
-export default function GameReviewCard({
-	review = MOCK_REVIEW,
-}: {
-	review?: GameReviewCardProps;
-}) {
+export default function GameReviewCard({ gameReview }: ReviewProps) {
 	const {
 		thumbnail,
 		category,
@@ -69,7 +55,7 @@ export default function GameReviewCard({
 		description,
 		playUrl,
 		providerUrl,
-	} = review;
+	} = gameReview;
 	return (
 		<div className='mx-auto max-w-7xl   rounded-2xl p-4 sm:p-6 flex flex-col md:flex-row gap-6'>
 			{/* Thumbnail */}

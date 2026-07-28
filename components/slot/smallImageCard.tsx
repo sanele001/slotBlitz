@@ -10,38 +10,33 @@ export interface SmallSlotGame {
 	provider: string;
 	rating: number;
 	imageUrl: string;
+	reviewSlug: string;
 	slug: string;
 	rtpTag?: string; // e.g., "High RTP"
 	volatilityTag?: string; // e.g., "Volatility: High"
 }
 
-export const MOCK_SMALL_SLOT: SmallSlotGame = {
-	id: 'wanted-dead-or-wild',
-	title: 'Wanted Dead or a Wild',
-	provider: 'Hacksaw Gaming',
-	rating: 4.5,
-	imageUrl: '/images/slots/wanted-dead-or-wild.jpg', // Replace with your public image path
-	slug: 'wanted-dead-or-a-wild',
-	rtpTag: 'High RTP',
-	volatilityTag: 'Volatility: High',
-};
-
 interface SmallImageCardProps {
 	game: SmallSlotGame;
 }
 
-const game = MOCK_SMALL_SLOT;
-
-export const SmallImageCard: React.FC<SmallImageCardProps> = () => {
-	const { title, provider, rating, imageUrl, slug, rtpTag, volatilityTag } =
-		game;
+export const SmallImageCard: React.FC<SmallImageCardProps> = ({ game }) => {
+	const {
+		title,
+		provider,
+		rating,
+		imageUrl,
+		reviewSlug,
+		rtpTag = 'High RTP',
+		volatilityTag = 'Volatility: High',
+	} = game;
 
 	return (
 		<div className='group relative flex items-center gap-4 rounded-2xl border border-white/[0.06] bg-[#0c0a14] p-3 transition-all duration-300 hover:border-white/[0.15] hover:bg-[#120f1f] hover:shadow-2xl hover:shadow-black/60 w-full max-w-xl'>
 			{/* Small Square Thumbnail */}
 			<div className='relative h-28 w-28 md:h-32 md:w-32 shrink-0 overflow-hidden rounded-xl bg-[#1a162b]'>
 				<Image
-					src='https://static.freedemo.games/images/games/the-dog-house-megaways-1000/the-dog-house-megaways-1000-square.webp'
+					src={imageUrl}
 					alt={title}
 					fill
 					sizes='(max-width: 768px) 112px, 128px'
@@ -87,7 +82,7 @@ export const SmallImageCard: React.FC<SmallImageCardProps> = () => {
 				{/* Row 3: Outlined Call to Action Button */}
 				<div className='mt-3'>
 					<Link
-						href={`/reviews/${slug}`}
+						href={`/review/${reviewSlug}`}
 						className='inline-flex items-center justify-center rounded-xl border border-[#fb226b]/[0.4] px-5 py-1.5 text-xs font-semibold text-primary transition-all duration-200 hover:border-[#e54b4b] hover:bg-[#e54b4b]/[0.06] active:scale-[0.98]'>
 						Read Review
 					</Link>

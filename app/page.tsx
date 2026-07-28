@@ -1,12 +1,12 @@
 import Home from './index';
-import { useFetch } from './hooks/useFetch';
-import { requestOptions } from './config/api';
+import { usefetchSlotsAndreviews } from './hooks/games/useFetch';
+import { Suspense } from 'react';
+import Loader from '../components/siteComponets/loader/Loader';
 
 export default async function Page() {
-	const slotData = await useFetch(
-		'http://localhost:1337/api/slots',
-		requestOptions,
-	);
+	const response = await usefetchSlotsAndreviews(9);
 
-	return <Home slotDataProps={slotData} />;
+	return (
+		<Home slotDataProps={response.slots} reviewDataProps={response.reviews} />
+	);
 }

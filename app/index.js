@@ -1,6 +1,5 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { EmblaOptionsType } from 'embla-carousel';
 import { LargeImageCard } from '../components/slot/largeImageCard';
 import { SmallImageCard } from '../components/slot/smallImageCard';
 import { FaCrown } from 'react-icons/fa';
@@ -9,62 +8,15 @@ import DisplayGroups from '../lib/displayGroups';
 import EmblaCarousel from '../components/carousel/carousel';
 import Head from 'next/head';
 import Link from 'next/link';
+import Footer from '../components/siteComponets/footer/Footer';
 
 const hero = require('../assets/mainbg.png');
 
-/////////////////////////////////////////////////////////////
-// use used to hold review section will deleted later
-const MOCK_SLOTS = [
-	{
-		id: '1',
-		title: 'Mega Fortune Dreams',
-		provider: 'NetEnt',
-		rating: 4.6,
-		imageUrl: '/images/slots/mega-fortune.jpg',
-		slug: 'mega-fortune-dreams',
-		badge: { text: 'HOT', type: 'hot' },
-	},
-	{
-		id: '2',
-		title: 'Mega Fortune Dreams',
-		provider: 'NetEnt',
-		rating: 4.6,
-		imageUrl: '/images/slots/mega-fortune.jpg',
-		slug: 'mega-fortune-dreams',
-		badge: { text: 'HOT', type: 'hot' },
-	},
-	{
-		id: '3',
-		title: 'Starburst',
-		provider: 'NetEnt',
-		rating: 4.8,
-		imageUrl: '/images/slots/starburst.jpg',
-		slug: 'starburst',
-		badge: { text: 'NEW', type: 'new' },
-	},
-	{
-		id: '5',
-		title: "Gonzo's Quest",
-		provider: 'NetEnt',
-		rating: 4.7,
-		imageUrl: '/images/slots/gonzos-quest.jpg',
-		slug: 'gonzos-quest',
-		badge: { text: 'FEATURED', type: 'featured' },
-	},
-];
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-const Home = ({ slotDataProps }) => {
+const Home = ({ slotDataProps, reviewDataProps }) => {
 	const [searchTerm, setSearchTerm] = useState('');
 	const [mounted, setMounted] = useState(false);
-	const featuredGroup = new DisplayGroups(
-		slotDataProps.data,
-		6,
-	).featuredGroup();
-	const topRatedGroup = new DisplayGroups(
-		slotDataProps.data,
-		9,
-	).topGamesGroup();
+	const featuredGroup = new DisplayGroups(slotDataProps, 6).featuredGroup();
+	const topRatedGroup = new DisplayGroups(slotDataProps, 9).topGamesGroup();
 
 	useEffect(() => {
 		setMounted(true);
@@ -162,13 +114,14 @@ const Home = ({ slotDataProps }) => {
 						</div>
 
 						<div className='grid grid-cols-1 gap-5 sm:grid-cols-1 md:grid-cols-2'>
-							{MOCK_SLOTS.map((game) => (
-								<SmallImageCard key={game.id} />
+							{reviewDataProps.map((game) => (
+								<SmallImageCard key={game.id} game={game} />
 							))}
 						</div>
 					</div>
 				</section>
 			</div>
+			<Footer />
 		</>
 	);
 };

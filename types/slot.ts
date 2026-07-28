@@ -5,6 +5,7 @@ export interface Slot {
 	gameName: string;
 	gameSlug: string;
 	type: string;
+	badge: string;
 
 	releaseDate: string;
 

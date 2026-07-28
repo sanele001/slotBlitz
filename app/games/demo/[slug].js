@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useFetch } from '../../hooks/useFetch';
+import { usefetchgame } from '../../hooks/games/useFetch';
 import { singleSlotUrl, requestOptions } from '../../config/api';
 import styles from '../../../styles/localStyle.module.css';
 import Head from 'next/head';
@@ -23,8 +23,8 @@ const DemoGame = () => {
 
 		async function getGame() {
 			if (call) {
-				const resp = await useFetch(singleSlotUrl + slug, requestOptions);
-				setSelectedGame(resp.data[0]);
+				const resp = await usefetchgame(slug);
+				setSelectedGame(resp);
 				setMounted(true);
 			}
 		}
@@ -34,7 +34,7 @@ const DemoGame = () => {
 		return () => {
 			call = false;
 		};
-	}, [selectedGame]);
+	}, [slug]);
 
 	if (!selectedGame) {
 		return (

@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { useFetch } from '../hooks/useFetch';
+import { usefetchgame } from '../hooks/games/useFetch';
 import { motion } from 'framer-motion';
 import { singleSlotUrl, requestOptions } from '../config/api';
 import Head from 'next/head';
@@ -12,7 +12,6 @@ import GameImageCard from '../../components/games/gameImageCard';
 import GameDetailsCard from '../../components/games/gameDetailsCard';
 import KeyFeaturesSection from '../../components/games/keyFeaturesSection';
 import { GameCTAButtons } from '../../components/games/gameCTAButtons';
-import { features } from 'process';
 
 const GamePage = () => {
 	const params = useParams();
@@ -25,8 +24,8 @@ const GamePage = () => {
 
 		async function getGame() {
 			if (call) {
-				const resp = await useFetch(singleSlotUrl + slug, requestOptions);
-				setSelectedGame(resp.data[0]);
+				const resp = await usefetchgame(slug);
+				setSelectedGame(resp);
 				setMounted(true);
 			}
 		}
@@ -36,7 +35,7 @@ const GamePage = () => {
 		return () => {
 			call = false;
 		};
-	}, [selectedGame]);
+	}, [slug]);
 
 	if (!selectedGame) {
 		return (

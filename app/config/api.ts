@@ -10,3 +10,6 @@ export const requestOptions = {
 };
 export const singleSlotUrl =
 	'http://localhost:1337/api/slots?filters[gameSlug][$eq]=';
+
+export const reviewUrl =
+	'http://localhost:1337/api/reviews?filters[reviewSlug][$eq]=';
