@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { FaStar, FaFire, FaArrowLeft } from 'react-icons/fa';
 import { HiOutlineTrendingUp } from 'react-icons/hi';
+import Loader from '../siteComponets/loader/Loader';
+import { useIsMobile } from '../../app/hooks/layout/useMobile';
 
 /**
  * GameFrame
@@ -31,6 +33,7 @@ interface GameFrameProps {
 export default function GameFrame({ game }: GameFrameProps) {
 	const [progress, setProgress] = useState(0);
 	const [isLoaded, setIsLoaded] = useState(false);
+	const showInstructions = useIsMobile();
 
 	useEffect(() => {
 		if (isLoaded) return;
@@ -55,7 +58,7 @@ export default function GameFrame({ game }: GameFrameProps) {
 	}, [progress]);
 
 	return (
-		<div className='relative w-full max-w-3xl mx-auto rounded-3xl border border-red-500/30 bg-[#150b1e]/50 p-6 sm:p-8 shadow-2xl overflow-hidden'>
+		<div className='center w-full max-w-3xl mx-auto rounded-3xl border border-red-500/30 bg-[#150b1e]/80 p-6 sm:p-8 shadow-2xl overflow-hidden'>
 			{/* Header */}
 			<div className='text-center mb-6'>
 				<h1 className='text-3xl sm:text-4xl font-extrabold text-white tracking-tight'>
@@ -83,13 +86,7 @@ export default function GameFrame({ game }: GameFrameProps) {
 			<div className='relative rounded-2xl border border-red-500/40 bg-black/40 aspect-video overflow-hidden'>
 				{!isLoaded ? (
 					<div className='absolute inset-0 flex flex-col items-center justify-center gap-4 px-8'>
-						<div className='w-full max-w-sm h-2 rounded-full bg-white/10 overflow-hidden'>
-							<div
-								className='h-full bg-gradient-to-r from-red-500 to-orange-400 transition-all duration-150 ease-linear'
-								style={{ width: `${progress}%` }}
-							/>
-						</div>
-						<p className='text-white/60 text-sm'>Game Loading...</p>
+						<Loader />
 					</div>
 				) : (
 					<iframe
@@ -104,6 +101,11 @@ export default function GameFrame({ game }: GameFrameProps) {
 
 			{/* Footer */}
 			<div className='text-center mt-6'>
+				{showInstructions && (
+					<h4 className='text-primary text-sm mb-4'>
+						Press the game to load full screen. Press back to exit.
+					</h4>
+				)}
 				<p className='text-white/50 text-sm mb-4'>
 					This is a demo version for entertainment purposes only.
 				</p>
