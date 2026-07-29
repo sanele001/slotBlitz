@@ -58,7 +58,7 @@ export default function GameFrame({ game }: GameFrameProps) {
 	}, [progress]);
 
 	return (
-		<div className='center w-full max-w-3xl mx-auto rounded-3xl border border-red-500/30 bg-[#150b1e]/80 p-6 sm:p-8 shadow-2xl overflow-hidden'>
+		<div className='relative w-full max-w-3xl mx-auto rounded-3xl border border-red-500/30 bg-[#150b1e]/80 p-6 sm:p-8 shadow-2xl overflow-hidden'>
 			{/* Header */}
 			<div className='text-center mb-6'>
 				<h1 className='text-3xl sm:text-4xl font-extrabold text-white tracking-tight'>

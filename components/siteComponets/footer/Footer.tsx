@@ -26,21 +26,18 @@ const FOOTER_COLUMNS: FooterColumn[] = [
 	{
 		title: 'Explore',
 		links: [
-			{ label: 'Top Rated Slots', href: '/top-rated' },
-			{ label: 'New Slots', href: '/new' },
-			{ label: 'Bonus Deals', href: '/bonuses' },
+			{ label: 'Top Rated Slots', href: '/slots' },
 			{ label: 'Slot Reviews', href: '/reviews' },
-			{ label: 'Guides', href: '/guides' },
+			{ label: 'News', href: '/news' },
 		],
 	},
 	{
 		title: 'Information',
 		links: [
 			{ label: 'About Us', href: '/about' },
-			{ label: 'Contact Us', href: '/contact' },
 			{ label: 'Privacy Policy', href: '/privacy' },
 			{ label: 'Terms & Conditions', href: '/terms' },
-			{ label: 'Responsible Gaming', href: '/responsible-gaming' },
+			{ label: 'Responsible Gaming', href: '/responsible' },
 		],
 	},
 ];
