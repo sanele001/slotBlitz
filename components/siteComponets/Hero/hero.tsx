@@ -37,21 +37,9 @@ export default function HeroSection({
 					<div className='flex items-start justify-between gap-4 lg:block'>
 						<h1 className='text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-white'>
 							Discover the Best{' '}
-							<span className='text-primary'>Online Slots</span>{' '}
+							<span className='text-primary'>Online Slots</span>
 							<span className='text-amber-300'>✦</span>
 						</h1>
-
-						{/* Hero image: shown here only on mobile/tablet, beside the heading */}
-						<div className='relative h-100 w-100 shrink-0 sm:h-32 sm:w-32 lg:hidden'>
-							<Image
-								src={heroImageSrc}
-								alt='Slot machine'
-								fill
-								sizes='128px'
-								className='object-contain'
-								priority
-							/>
-						</div>
 					</div>
 
 					<p className='mt-4 max-w-md text-sm sm:text-base leading-relaxed text-neutral-400'>

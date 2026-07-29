@@ -25,7 +25,7 @@ const Home = ({ slotDataProps, reviewDataProps }) => {
 	return (
 		<>
 			<Head>
-				<title>Slot Reviews - Best Online Slots</title>
+				<title>Slot Reviews - Best Online Slots-casino</title>
 				<meta
 					name='description'
 					content='Discover and review the best online slot games'
@@ -49,7 +49,7 @@ const Home = ({ slotDataProps, reviewDataProps }) => {
 								</h2>
 							</div>
 							<Link
-								href='/games'
+								href='/slots'
 								className='text-xs font-semibold text-gray-400 hover:text-white transition-colors flex items-center gap-1'>
 								View all games
 							</Link>
@@ -71,11 +71,11 @@ const Home = ({ slotDataProps, reviewDataProps }) => {
 							<div className='flex items-center gap-2 text-amber-500'>
 								<FaCrown className='h-5 w-5' />
 								<h2 className='text-xl font-bold text-white tracking-wide'>
-									Top Ranking Games
+									Top Games
 								</h2>
 							</div>
 							<Link
-								href='/games'
+								href='/slots'
 								className='text-xs font-semibold text-gray-400 hover:text-white transition-colors flex items-center gap-1'>
 								View all games
 							</Link>
@@ -99,7 +99,7 @@ const Home = ({ slotDataProps, reviewDataProps }) => {
 								</h2>
 							</div>
 							<Link
-								href='/games'
+								href='/slots'
 								className='text-xs font-semibold text-gray-400 hover:text-white transition-colors flex items-center gap-1'>
 								View all games
 							</Link>
