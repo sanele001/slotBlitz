@@ -21,7 +21,7 @@ interface GameMeta {
 	gameName: string;
 	provider: string;
 	demoGameLink: string;
-	rtp: number; // e.g. 96.5
+	rtp: number;
 	volatility: 'Low' | 'Medium' | 'High';
 	iframeUrl: string;
 }

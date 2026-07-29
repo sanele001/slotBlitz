@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { FaArrowLeft, FaDollarSign, FaSpinner } from 'react-icons/fa';
 import GameFrame from '../../../components/slot/GameFrame';
+import Loader from '../../../components/siteComponets/loader/Loader';
 
 const DemoGame = () => {
 	const params = useParams();
@@ -22,7 +23,6 @@ const DemoGame = () => {
 			if (call) {
 				const resp = await usefetchgame(slug);
 				setSelectedGame(resp);
-				setMounted(true);
 			}
 		}
 
@@ -37,7 +37,7 @@ const DemoGame = () => {
 		return (
 			<div className='min-h-screen bg-dark flex items-center justify-center'>
 				<div className='text-center'>
-					<h1 className='text-4xl text-white mb-4'>Game Not Found</h1>
+					<Loader />
 					<Link href='/' className='text-primary hover:text-primary-dark'>
 						Return to Home
 					</Link>
