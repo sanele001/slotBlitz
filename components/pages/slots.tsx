@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import DisplayGroups from '../../lib/displayGroups';
 import Footer from '../siteComponets/footer/Footer';
 import { dummyData } from '../../dummydata';
@@ -15,7 +15,6 @@ const Slots = () => {
 	const [searchTerm, setSearchTerm] = useState('');
 	const [mounted, setMounted] = useState(false);
 	const featuredGroup = new DisplayGroups(test, 10).featuredGroup();
-
 	const filteredGames = featuredGroup.filter((game) =>
 		game.gameName.toLowerCase().includes(searchTerm.toLowerCase()),
 	);

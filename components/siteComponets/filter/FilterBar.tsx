@@ -38,7 +38,7 @@ const FILTERS: FilterConfig[] = [
 	{
 		key: 'rtp',
 		label: 'RTP',
-		options: ['Any', '96%+', '97%+', '98%+'],
+		options: ['Any', '96%+'],
 		defaultValue: 'Any',
 		accent: true,
 	},
@@ -51,15 +51,15 @@ const FILTERS: FilterConfig[] = [
 	},
 	{
 		key: 'features',
-		label: 'Features',
-		options: ['Any', 'Free Spins', 'Megaways', 'Bonus Buy', 'Cluster Pays'],
+		label: 'Slot Rank',
+		options: ['Any', '6+'],
 		defaultValue: 'Any',
 		accent: true,
 	},
 	{
 		key: 'sort',
 		label: 'Sort by',
-		options: ['Top Rated', 'Newest', 'Most Popular', 'RTP: High to Low'],
+		options: ['Top Rated', 'Newest', 'Most Popular'],
 		defaultValue: 'Top Rated',
 		accent: false,
 	},
