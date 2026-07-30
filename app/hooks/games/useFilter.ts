@@ -3,20 +3,27 @@ export async function useFilterSlots(filter: string) {
 	let query;
 
 	switch (filter) {
-		case 'amazon':
-			query = supabase.from('slot').select('*').eq('provider', 'amazon');
+		case 'Pragmatic Play':
+		case 'Games Global':
+		case "Play'n GO":
+			query = supabase.from('slot').select('*').eq('vendor', filter);
 			break;
 
-		case 'highRtp':
-			query = supabase.from('slot').select('*').gte('rtp', 96);
+		case '96%+':
+			query = supabase.from('slot').select('*').gte('rtp', filter);
 			break;
 
-		case 'highVolatility':
-			query = supabase.from('slot').select('*').eq('volatility', 'high');
+		case 'Low':
+		case 'High':
+		case 'Med':
+			query = supabase
+				.from('slot')
+				.select('*')
+				.eq('volatility', filter.toUpperCase());
 			break;
 
-		case 'topRanked':
-			query = supabase.from('slot').select('*').gte('slot_rank', 6);
+		case '6+':
+			query = supabase.from('slot').select('*').gte('slotRank', filter);
 			break;
 
 		case 'amazonHighRtp':
