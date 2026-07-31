@@ -25,41 +25,35 @@ const FILTERS: FilterConfig[] = [
 	{
 		key: 'providers',
 		label: 'Providers',
-		options: [
-			'All Providers',
-			'Pragmatic Play',
-			'Games Global',
-			'NetEnt',
-			"Play'n GO",
-		],
+		options: ['All Providers', 'Pragmatic Play', 'Games Global', "Play'n Go"],
 		defaultValue: 'All Providers',
 		accent: true,
 	},
 	{
 		key: 'rtp',
 		label: 'RTP',
-		options: ['Any', '96%+', '97%+', '98%+'],
+		options: ['Any', '96'],
 		defaultValue: 'Any',
 		accent: true,
 	},
 	{
 		key: 'volatility',
 		label: 'Volatility',
-		options: ['Any', 'Low', 'Medium', 'High'],
+		options: ['Any', 'Low', 'Med', 'High'],
 		defaultValue: 'Any',
 		accent: true,
 	},
 	{
 		key: 'features',
-		label: 'Features',
-		options: ['Any', 'Free Spins', 'Megaways', 'Bonus Buy', 'Cluster Pays'],
+		label: 'Slot Rank',
+		options: ['Any', '6'],
 		defaultValue: 'Any',
 		accent: true,
 	},
 	{
 		key: 'sort',
 		label: 'Sort by',
-		options: ['Top Rated', 'Newest', 'Most Popular', 'RTP: High to Low'],
+		options: ['Top Rated', 'Newest', 'Most Popular'],
 		defaultValue: 'Top Rated',
 		accent: false,
 	},
@@ -67,7 +61,15 @@ const FILTERS: FilterConfig[] = [
 
 const ACCENT = '#fb226b';
 
-function FilterDropdown({ filter }: { filter: FilterConfig }) {
+function FilterDropdown({
+	filter,
+	selectFilter,
+	trigger,
+}: {
+	filter: FilterConfig;
+	selectFilter: (string: string) => {};
+	trigger: boolean;
+}) {
 	const [isOpen, setIsOpen] = useState(false);
 	const [value, setValue] = useState(filter.defaultValue);
 	const ref = useRef<HTMLDivElement>(null);
@@ -81,6 +83,10 @@ function FilterDropdown({ filter }: { filter: FilterConfig }) {
 		document.addEventListener('mousedown', handleClickOutside);
 		return () => document.removeEventListener('mousedown', handleClickOutside);
 	}, []);
+
+	useEffect(() => {
+		setValue(filter.defaultValue);
+	}, [trigger]);
 
 	return (
 		<div
@@ -114,6 +120,7 @@ function FilterDropdown({ filter }: { filter: FilterConfig }) {
 								onClick={() => {
 									setValue(option);
 									setIsOpen(false);
+									selectFilter(option);
 								}}
 								className={`w-full text-left px-3 py-2 text-sm hover:bg-white/10 transition-colors ${
 									option === value
@@ -130,7 +137,12 @@ function FilterDropdown({ filter }: { filter: FilterConfig }) {
 	);
 }
 
-export default function FilterBar() {
+export default function FilterBar({ selectFilter }) {
+	const [triggerReset, setTriggerReset] = useState(false);
+
+	const trigger = () => {
+		setTriggerReset((prev) => !prev);
+	};
 	return (
 		<div className='mx-auto max-w-7xl rounded-2xl border border-white/10 bg-dark p-3 sm:p-4'>
 			<div className='flex flex-col lg:flex-row lg:items-center gap-3'>
@@ -147,12 +159,22 @@ export default function FilterBar() {
 				{/* Filter dropdowns */}
 				<div className='flex flex-wrap gap-2 flex-1'>
 					{FILTERS.map((filter) => (
-						<FilterDropdown key={filter.key} filter={filter} />
+						<FilterDropdown
+							key={filter.key}
+							filter={filter}
+							selectFilter={selectFilter}
+							trigger={triggerReset}
+						/>
 					))}
 				</div>
 
 				{/* Clear filters */}
-				<button className='flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors px-4 py-2.5 text-sm font-medium text-white shrink-0'>
+				<button
+					className='flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors px-4 py-2.5 text-sm font-medium text-white shrink-0'
+					onClick={() => {
+						selectFilter('clear');
+						trigger();
+					}}>
 					<MdFilterAltOff className='w-4 h-4' />
 					Clear Filters
 				</button>
