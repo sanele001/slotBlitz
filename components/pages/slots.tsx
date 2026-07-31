@@ -14,6 +14,7 @@ const Slots = () => {
 	const [searchTerm, setSearchTerm] = useState('');
 	const [mounted, setMounted] = useState(false);
 	const [filteredGames, setFilteredGames] = useState([]);
+	const [count, setcount] = useState(100);
 	const handleFilterOption = async (select: string) => {
 		const resp = await useFilterSlots(select);
 		setFilteredGames(resp);
@@ -34,6 +35,10 @@ const Slots = () => {
 			call = false;
 		};
 	}, []);
+
+	useEffect(() => {
+		setcount(filteredGames.length);
+	}, [filteredGames]);
 
 	return (
 		<>
@@ -56,7 +61,7 @@ const Slots = () => {
 						<div className='mb-6 flex items-center justify-between'>
 							<div className='flex items-center gap-2 text-red'>
 								<p className='text-sm font-light text-red-600 tracking-wide'>
-									1,002 games found
+									{count} games found
 								</p>
 							</div>
 							<Link
