@@ -23,10 +23,10 @@ const Slots = () => {
 	useEffect(() => {
 		let call = true;
 		if (call) {
-			async function loadSlots() {
+			const loadSlots = async () => {
 				const resp = await useFilterSlots('clear');
 				setFilteredGames(resp);
-			}
+			};
 
 			loadSlots();
 		}
