@@ -60,8 +60,8 @@ const Slots = () => {
 						{/* Header */}
 						<div className='mb-6 flex items-center justify-between'>
 							<div className='flex items-center gap-2 text-red'>
-								<p className='text-sm font-light text-red-600 tracking-wide'>
-									{count} games found
+								<p className='text-sm font-bold text-primary tracking-wide'>
+									Games found: {count ? count : ''}
 								</p>
 							</div>
 							<Link
