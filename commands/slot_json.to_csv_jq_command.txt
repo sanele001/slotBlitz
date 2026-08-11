@@ -1,0 +1,29 @@
+ jq -r '
+["gameId","gameName","vendorName","gameSlug","type","releaseDate","rtpComments","payways","isExclusive","minBet","maxBet","maxMultiplier","gameSizeMb","slotRank","demoGameLink","imageSquare","imageLandscape","description","theme","badge","vendor","rtp","feature","volatility"],
+(.results[:100] | .[] | [
+  "WaitingGameId",
+  .name,
+  .provider,
+  .slug,
+  "video slot",
+  .release_date,
+  "96% 98%",
+  "0111",
+  0,
+  .min_bet,
+  .max_bet,
+  "0111",
+  23,
+  6,
+  ("https://playin.com/embed/v1/demo/" + (.name | gsub("[^a-zA-Z0-9]"; "")) + "0000000000?device=mobile"),
+  "noImage",
+  "noImage",
+  "no description",
+  (if (.theme | type) == "array" then (.theme | join(", ")) else .theme end),
+  "Featured",
+  .provider,
+  .rtp,
+  (.features | join(", ")),
+  (.volatility | ascii_upcase)
+]) | @csv
+' red-tiger.json > output.csv
