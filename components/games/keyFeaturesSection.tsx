@@ -1,6 +1,4 @@
 'use client';
-
-import { index } from 'cheerio/dist/commonjs/api/traversing';
 import { FaBolt } from 'react-icons/fa';
 
 export interface Feature {

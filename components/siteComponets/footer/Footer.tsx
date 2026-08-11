@@ -140,6 +140,12 @@ export default function Footer() {
 						18+
 					</span>
 				</div>
+				<a
+					href='https://slot.report/'
+					rel='noopener'
+					className='text-xs text-white/40'>
+					Slot data by slot.report
+				</a>
 			</div>
 		</footer>
 	);
