@@ -56,8 +56,8 @@ const Home = ({ slotDataProps, reviewDataProps }) => {
 						</div>
 
 						<div className='grid grid-cols-2 gap-5 sm:grid-cols-2 md:grid-cols-3'>
-							{filteredGames.map((game) => (
-								<LargeImageCard key={game.created_at} game={game} />
+							{filteredGames.map((game, index) => (
+								<LargeImageCard key={index} game={game} />
 							))}
 						</div>
 					</div>

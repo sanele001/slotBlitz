@@ -1,5 +1,6 @@
 import React from 'react';
 import { EmblaOptionsType } from 'embla-carousel';
+import { usefetchPublicImage } from '../../app/hooks/games/useFetchPublicImage';
 import useEmblaCarousel from 'embla-carousel-react';
 import styles from '../../styles/mabler.module.css';
 import { NextButton, PrevButton, usePrevNextButtons } from './carouselButtons';
@@ -26,21 +27,28 @@ const EmblaCarousel = (props: PropType) => {
 		<div className={styles.embla}>
 			<div className={styles.embla__viewport} ref={emblaRef}>
 				<div className={styles.embla__container}>
-					{slides.map((slide, index) => (
-						<div className={styles.embla__slide} key={index}>
-							<Link href={`/games/${slide.gameSlug}`}>
-								<div className={styles.embla__slide__number}>
-									<div className='w-full h-full'>
-										<div
-											style={{
-												backgroundImage: `url(${slide.imageLandscape})`,
-											}}
-											className='w-full h-full rounded-xl bg-cover bg-top bg-no-repeat'></div>
+					{slides.map((slide, index) => {
+						const imageUrl = usefetchPublicImage(slide.imageSquare);
+						console.log('imageUrl:', imageUrl); // Log the image URL for debugging
+						return (
+							<div
+								className={styles.embla__slide}
+								key={slide.gameSlug ?? index}>
+								<Link href={`/games/${slide.gameSlug}`}>
+									<div className={styles.embla__slide__number}>
+										<div className='w-full h-full'>
+											<div
+												style={{
+													backgroundImage: `url(${imageUrl})`,
+												}}
+												className='w-full h-full rounded-xl bg-cover bg-center bg-no-repeat'
+											/>
+										</div>
 									</div>
-								</div>
-							</Link>
-						</div>
-					))}
+								</Link>
+							</div>
+						);
+					})}
 				</div>
 			</div>
 

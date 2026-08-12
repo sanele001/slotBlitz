@@ -3,17 +3,17 @@ import { supabase } from '../../../dbclient/superBaseClient';
 // returns limited records
 export const usefetchSlotsAndreviews = async (amount: number) => {
 	try {
-		const [slot, review] = await Promise.all([
-			supabase.from('slot').select('*').limit(amount),
+		const [slotdata, review] = await Promise.all([
+			supabase.from('slotdata').select('*').limit(amount),
 			supabase.from('review').select('*').limit(amount),
 		]);
 
 		// Check each for errors
-		if (slot.error) throw slot.error;
+		if (slotdata.error) throw slotdata.error;
 		if (review.error) throw review.error;
 
 		return {
-			slots: slot.data,
+			slots: slotdata.data,
 			reviews: review.data,
 		};
 	} catch (error) {
