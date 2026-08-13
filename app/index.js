@@ -30,6 +30,10 @@ const Home = ({ slotDataProps, reviewDataProps }) => {
 					name='description'
 					content='Discover and review the best online slot games'
 				/>
+				<meta
+					name='google-site-verification'
+					content='Ghaq_wRV7wkV7dc9rkLSnRLGoKQapLYBTLGiEjZ3FUY'
+				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
