@@ -1,6 +1,10 @@
 # Ignore Next.js build output
 .next/
+
+# Environment variables - NEVER commit these
 .env
+.env.local
+.env.*.local
 
 # Dependencies
 node_modules/

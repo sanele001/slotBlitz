@@ -8,6 +8,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import VerticalGameInfoCard from '../../components/games/verticalGameInfoCard';
+import { usefetchPublicImage } from '../hooks/games/useFetchPublicImage';
 import { FaArrowLeft } from 'react-icons/fa';
 import GameImageCard from '../../components/games/gameImageCard';
 import GameDetailsCard from '../../components/games/gameDetailsCard';
@@ -54,6 +55,8 @@ const GamePage = () => {
 		);
 	}
 
+	const publicImage = usefetchPublicImage(selectedGame.imageSquare);
+
 	return (
 		<>
 			<Head>
@@ -80,7 +83,7 @@ const GamePage = () => {
 						{/* Layout: Image on left, Details on right (stacks on mobile) */}
 						<div className=' flex max-w-7xl flex-col items-start gap-6 md:flex-row '>
 							<GameImageCard
-								imageSrc={selectedGame.imageSquare}
+								imageSrc={publicImage}
 								title={selectedGame.gameName}
 								rating={4.8}
 								provider='Games Global'

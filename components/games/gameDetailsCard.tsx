@@ -55,7 +55,7 @@ export default function GameDetailsCard({
 					{game.gameName}
 				</h2>
 
-				<p className='mt-3 max-w-md text-sm sm:text-base leading-relaxed text-neutral-400'>
+				<p className='mt-3 max-w-96 text-sm sm:text-base leading-relaxed text-neutral-400'>
 					{game.description}
 				</p>
 

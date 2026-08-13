@@ -28,7 +28,7 @@ export default function GameImageCard({
 			className={`group w-full max-w-[280px] sm:max-w-xs mx-auto select-none ${
 				onClick ? 'cursor-pointer' : ''
 			} ${className}`}>
-			<div className='relative aspect-[4/5] w-full overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-lg shadow-black/40 transition-transform duration-300 ease-out group-hover:scale-[1.02] group-hover:shadow-xl group-hover:shadow-black/60'>
+			<div className='relative aspect-[1/1] w-full overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-lg shadow-black/40 transition-transform duration-300 ease-out group-hover:scale-[1.02] group-hover:shadow-xl group-hover:shadow-black/60'>
 				<Image
 					src={imageSrc}
 					alt={title}

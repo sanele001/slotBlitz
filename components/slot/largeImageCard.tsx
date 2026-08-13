@@ -1,7 +1,8 @@
-import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaStar, FaCrown } from 'react-icons/fa';
+import { FaStar } from 'react-icons/fa';
+import { gameConfig } from '../../app/config/game';
+import { usefetchPublicImage } from '../../app/hooks/games/useFetchPublicImage';
 
 interface SlotGame {
 	gameId: Number;
@@ -23,7 +24,7 @@ export const LargeImageCard: React.FC<SlotCardProps> = ({ game }) => {
 		gameName,
 		vendorName,
 		slotRank,
-		maxRating = 5,
+		maxRating = gameConfig.sortingInfo.maxRating, // Default to 10 if not provided
 		imageSquare,
 		gameSlug,
 		badge,
@@ -42,6 +43,8 @@ export const LargeImageCard: React.FC<SlotCardProps> = ({ game }) => {
 		}
 	};
 
+	const imageUrl = usefetchPublicImage(imageSquare);
+
 	return (
 		<div className='group relative flex flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-[#0c0a14] p-3 transition-all duration-300 hover:border-white/[0.15] hover:bg-[#120f1f] hover:shadow-2xl hover:shadow-black/60 w-full'>
 			{/* 
@@ -49,9 +52,9 @@ export const LargeImageCard: React.FC<SlotCardProps> = ({ game }) => {
         - Mobile: Tall portrait aspect ratio (aspect-[4/5])
         - Desktop (md): Wide landscape aspect ratio (md:aspect-[21/9])
       */}
-			<div className='relative aspect-[4/5] md:aspect-[21/9] w-full overflow-hidden rounded-xl bg-[#1a162b]'>
+			<div className='relative aspect-[1/1] md:aspect-[21/9] w-full overflow-hidden rounded-xl bg-red'>
 				<Image
-					src={imageSquare}
+					src={imageUrl}
 					alt={gameName}
 					fill
 					sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'

@@ -15,7 +15,7 @@ const hero = require('../assets/mainbg.png');
 const Home = ({ slotDataProps, reviewDataProps }) => {
 	const [searchTerm, setSearchTerm] = useState('');
 	const [mounted, setMounted] = useState(false);
-	const featuredGroup = new DisplayGroups(slotDataProps, 6).featuredGroup();
+	const featuredGroup = new DisplayGroups(slotDataProps, 9).featuredGroup();
 	const topRatedGroup = new DisplayGroups(slotDataProps, 9).topGamesGroup();
 
 	const filteredGames = featuredGroup.filter((game) =>
@@ -55,9 +55,9 @@ const Home = ({ slotDataProps, reviewDataProps }) => {
 							</Link>
 						</div>
 
-						<div className='grid grid-cols-2 gap-5 sm:grid-cols-2 md:grid-cols-3'>
-							{filteredGames.map((game) => (
-								<LargeImageCard key={game.created_at} game={game} />
+						<div className='grid grid-cols-1 gap-5 sm:grid-cols-1 md:grid-cols-3'>
+							{filteredGames.map((game, index) => (
+								<LargeImageCard key={index} game={game} />
 							))}
 						</div>
 					</div>

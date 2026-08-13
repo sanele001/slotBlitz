@@ -3,17 +3,17 @@ import { supabase } from '../../../dbclient/superBaseClient';
 // returns limited records
 export const usefetchSlotsAndreviews = async (amount: number) => {
 	try {
-		const [slot, review] = await Promise.all([
-			supabase.from('slot').select('*').limit(amount),
+		const [slotdata, review] = await Promise.all([
+			supabase.from('slotdata').select('*').limit(amount),
 			supabase.from('review').select('*').limit(amount),
 		]);
 
 		// Check each for errors
-		if (slot.error) throw slot.error;
+		if (slotdata.error) throw slotdata.error;
 		if (review.error) throw review.error;
 
 		return {
-			slots: slot.data,
+			slots: slotdata.data,
 			reviews: review.data,
 		};
 	} catch (error) {
@@ -24,8 +24,8 @@ export const usefetchSlotsAndreviews = async (amount: number) => {
 
 // return game record
 export const usefetchgame = async (slug: string) => {
-	const { data: slot, error } = await supabase
-		.from('slot')
+	const { data: slotdata, error } = await supabase
+		.from('slotdata')
 		.select('*')
 		.eq('gameSlug', slug)
 		.single();
@@ -33,5 +33,16 @@ export const usefetchgame = async (slug: string) => {
 	if (error) {
 		console.error('Error fetching game:', error);
 	}
-	return slot;
+	return slotdata;
+};
+
+export const useFetchSlotCount = async () => {
+	const { count, error } = await supabase
+		.from('slotdata')
+		.select('*', { count: 'exact', head: true });
+	if (error) {
+		console.error('Error fetching slot count:', error);
+		return 0;
+	}
+	return count || 0;
 };
