@@ -24,8 +24,8 @@ export const usefetchSlotsAndreviews = async (amount: number) => {
 
 // return game record
 export const usefetchgame = async (slug: string) => {
-	const { data: slot, error } = await supabase
-		.from('slot')
+	const { data: slotdata, error } = await supabase
+		.from('slotdata')
 		.select('*')
 		.eq('gameSlug', slug)
 		.single();
@@ -33,5 +33,16 @@ export const usefetchgame = async (slug: string) => {
 	if (error) {
 		console.error('Error fetching game:', error);
 	}
-	return slot;
+	return slotdata;
+};
+
+export const useFetchSlotCount = async () => {
+	const { count, error } = await supabase
+		.from('slotdata')
+		.select('*', { count: 'exact', head: true });
+	if (error) {
+		console.error('Error fetching slot count:', error);
+		return 0;
+	}
+	return count || 0;
 };

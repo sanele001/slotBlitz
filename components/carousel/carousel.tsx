@@ -29,7 +29,7 @@ const EmblaCarousel = (props: PropType) => {
 				<div className={styles.embla__container}>
 					{slides.map((slide, index) => {
 						const imageUrl = usefetchPublicImage(slide.imageSquare);
-						console.log('imageUrl:', imageUrl); // Log the image URL for debugging
+
 						return (
 							<div
 								className={styles.embla__slide}

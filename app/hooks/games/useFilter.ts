@@ -1,5 +1,9 @@
 import { supabase } from '../../../dbclient/superBaseClient';
-export async function useFilterSlots(filter: string) {
+export async function useFilterSlots(
+	filter: string,
+	limit: number = 15,
+	offset: number = 0,
+) {
 	let query;
 
 	switch (filter) {
@@ -46,7 +50,10 @@ export async function useFilterSlots(filter: string) {
 
 		default:
 			// Reset filters
-			query = supabase.from('slotdata').select('*').limit(12).range(10, 21);
+			query = supabase
+				.from('slotdata')
+				.select('*')
+				.range(offset, offset + limit - 1);
 			break;
 	}
 

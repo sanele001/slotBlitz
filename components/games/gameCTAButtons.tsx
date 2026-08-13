@@ -13,7 +13,6 @@ export const GameCTAButtons: React.FC<GameCTAButtonsProps> = ({
 	onAddToFavorites,
 	isFavorite = false,
 }) => {
-	console.log('myslug is ', slug);
 	return (
 		<div className='flex flex-col md:flex-row gap-4 mt-8'>
 			<Link href={`/games/demo/${slug}`} className='flex-1 md:flex-none'>

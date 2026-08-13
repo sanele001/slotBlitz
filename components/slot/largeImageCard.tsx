@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaStar } from 'react-icons/fa';
+import { gameConfig } from '../../app/config/game';
 import { usefetchPublicImage } from '../../app/hooks/games/useFetchPublicImage';
 
 interface SlotGame {
@@ -23,7 +24,7 @@ export const LargeImageCard: React.FC<SlotCardProps> = ({ game }) => {
 		gameName,
 		vendorName,
 		slotRank,
-		maxRating = 5,
+		maxRating = gameConfig.sortingInfo.maxRating, // Default to 10 if not provided
 		imageSquare,
 		gameSlug,
 		badge,
@@ -51,7 +52,7 @@ export const LargeImageCard: React.FC<SlotCardProps> = ({ game }) => {
         - Mobile: Tall portrait aspect ratio (aspect-[4/5])
         - Desktop (md): Wide landscape aspect ratio (md:aspect-[21/9])
       */}
-			<div className='relative aspect-[4/5] md:aspect-[21/9] w-full overflow-hidden rounded-xl bg-[#1a162b]'>
+			<div className='relative aspect-[1/1] md:aspect-[21/9] w-full overflow-hidden rounded-xl bg-red'>
 				<Image
 					src={imageUrl}
 					alt={gameName}

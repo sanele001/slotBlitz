@@ -20,6 +20,7 @@ import { useIsMobile } from '../../app/hooks/layout/useMobile';
 interface GameMeta {
 	gameName: string;
 	provider: string;
+	vendor: string;
 	demoGameLink: string;
 	rtp: number;
 	volatility: 'Low' | 'Medium' | 'High';
@@ -57,6 +58,8 @@ export default function GameFrame({ game }: GameFrameProps) {
 		}
 	}, [progress]);
 
+	console.log('sdsdsdsdsdsdd', game.demoGameLink);
+
 	return (
 		<div className='relative w-full max-w-3xl mx-auto rounded-3xl border border-red-500/30 bg-[#150b1e]/80 p-6 sm:p-8 shadow-2xl overflow-hidden'>
 			{/* Header */}
@@ -67,7 +70,7 @@ export default function GameFrame({ game }: GameFrameProps) {
 				<div className='mt-2 flex items-center justify-center gap-3 text-sm text-white/70 flex-wrap'>
 					<span className='flex items-center gap-1'>
 						<FaStar className='w-4 h-4 text-red-400' />
-						{game.provider}
+						{game.vendor}
 					</span>
 					<span className='w-px h-4 bg-white/20' />
 					<span className='flex items-center gap-1'>
