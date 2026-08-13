@@ -58,8 +58,6 @@ export default function GameFrame({ game }: GameFrameProps) {
 		}
 	}, [progress]);
 
-	console.log('sdsdsdsdsdsdd', game.demoGameLink);
-
 	return (
 		<div className='relative w-full max-w-3xl mx-auto rounded-3xl border border-red-500/30 bg-[#150b1e]/80 p-6 sm:p-8 shadow-2xl overflow-hidden'>
 			{/* Header */}
