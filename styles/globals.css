@@ -12,6 +12,24 @@ body {
 	@apply bg-dark text-white;
 }
 
+.pagination {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.pagination > li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.pagination a,
+.pagination button {
+	text-decoration: none;
+	box-sizing: border-box;
+}
+
 .pagination-shell {
 	display: flex;
 	justify-content: center;
@@ -20,6 +38,8 @@ body {
 
 .pagination {
 	@apply mt-4 mb-2 hidden flex-wrap items-center justify-center gap-2 text-sm font-medium md:flex;
+	margin: 0;
+	padding: 0;
 	list-style: none;
 }
 
@@ -124,4 +144,27 @@ body {
 	font-size: 0.8rem;
 	font-weight: 600;
 	white-space: nowrap;
+}
+
+.pagination__item {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+}
+
+.pagination__item--active {
+	cursor: default;
+}
+
+.pagination__nav {
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+}
+
+.pagination__nav:disabled {
+	cursor: not-allowed;
 }
