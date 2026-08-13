@@ -18,13 +18,14 @@ const Slots = () => {
 	const [filteredGames, setFilteredGames] = useState([]);
 	const [pageCount, setPageCount] = useState(0);
 	const [currentPage, setCurrentPage] = useState(0);
-	const [count, setcount] = useState(100);
+	const [count, setCount] = useState(100);
 	const handleFilterOption = async (select: string) => {
 		const resp = await useFilterSlots(select);
 		setFilteredGames(resp);
 	};
 
 	useEffect(() => {
+		setMounted(true);
 		let call = true;
 		if (call) {
 			async function loadSlots() {
@@ -41,7 +42,7 @@ const Slots = () => {
 	}, []);
 
 	useEffect(() => {
-		setcount(filteredGames.length);
+		setCount(filteredGames.length);
 		useFetchSlotCount().then(setPageCount);
 	}, [filteredGames]);
 
@@ -122,26 +123,37 @@ const Slots = () => {
 							</button>
 						</div>
 
-						<ReactPaginate
-							className='pagination hidden md:flex'
-							pageClassName='pagination__item'
-							pageLinkClassName='pagination__link'
-							activeClassName='pagination__item--active'
-							breakClassName='pagination__break'
-							previousClassName='pagination__nav pagination__nav--prev'
-							nextClassName='pagination__nav pagination__nav--next'
-							previousLinkClassName='pagination__nav-link'
-							nextLinkClassName='pagination__nav-link'
-							disabledClassName='pagination__nav--disabled'
-							breakLabel='...'
-							nextLabel='next >'
-							onPageChange={handlePageClick}
-							forcePage={currentPage}
-							pageRangeDisplayed={5}
-							pageCount={totalPages}
-							previousLabel='< previous'
-							renderOnZeroPageCount={null}
-						/>
+						{mounted ? (
+							<div className='pagination hidden md:flex'>
+								<button
+									type='button'
+									className='pagination__nav pagination__nav--prev'
+									disabled={currentPage === 0}
+									onClick={() => goToPage(currentPage - 1)}>
+									<span className='pagination__nav-link'>&lt; previous</span>
+								</button>
+
+								{Array.from({ length: totalPages }, (_, index) => (
+									<button
+										key={index}
+										type='button'
+										className={`pagination__item ${
+											currentPage === index ? 'pagination__item--active' : ''
+										}`}
+										onClick={() => goToPage(index)}>
+										<span className='pagination__link'>{index + 1}</span>
+									</button>
+								))}
+
+								<button
+									type='button'
+									className='pagination__nav pagination__nav--next'
+									disabled={currentPage === totalPages - 1}
+									onClick={() => goToPage(currentPage + 1)}>
+									<span className='pagination__nav-link'>next &gt;</span>
+								</button>
+							</div>
+						) : null}
 					</div>
 				</section>
 			</div>
