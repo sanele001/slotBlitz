@@ -34,7 +34,11 @@ interface GameFrameProps {
 export default function GameFrame({ game }: GameFrameProps) {
 	const [progress, setProgress] = useState(0);
 	const [isLoaded, setIsLoaded] = useState(false);
-	const showInstructions = useIsMobile();
+	const isMobile = useIsMobile();
+	const showInstructions = isMobile;
+	const frameStyle = isMobile
+		? { height: 'min(58vh, 420px)', minHeight: '260px' }
+		: { height: 'min(72vh, 720px)', minHeight: '420px' };
 
 	useEffect(() => {
 		if (isLoaded) return;
@@ -58,8 +62,27 @@ export default function GameFrame({ game }: GameFrameProps) {
 		}
 	}, [progress]);
 
+	const enterFullscreen = async () => {
+		const iframe = document.getElementById(
+			'game-frame',
+		) as HTMLIFrameElement | null;
+		const target = iframe?.parentElement ?? iframe;
+
+		if (!target) return;
+
+		if (target.requestFullscreen) {
+			await target.requestFullscreen();
+			return;
+		}
+
+		// Safari / iOS fallback
+		if ((target as any).webkitRequestFullscreen) {
+			await (target as any).webkitRequestFullscreen();
+		}
+	};
+
 	return (
-		<div className='relative w-full max-w-3xl mx-auto rounded-3xl border border-red-500/30 bg-[#150b1e]/80 p-6 sm:p-8 shadow-2xl overflow-hidden'>
+		<div className='relative w-full max-w-6xl mx-auto rounded-3xl border border-red-500/30 bg-[#150b1e]/80 p-4 sm:p-8 shadow-2xl'>
 			{/* Header */}
 			<div className='text-center mb-6'>
 				<h1 className='text-3xl sm:text-4xl font-extrabold text-white tracking-tight'>
@@ -84,27 +107,35 @@ export default function GameFrame({ game }: GameFrameProps) {
 			</div>
 
 			{/* Frame area */}
-			<div className='relative rounded-2xl border border-red-500/40 bg-black/40 aspect-video overflow-hidden'>
-				{!isLoaded ? (
-					<div className='absolute inset-0 flex flex-col items-center justify-center gap-4 px-8'>
-						<Loader />
-					</div>
-				) : (
-					<iframe
-						src={game.demoGameLink}
-						title={game.gameName}
-						className='absolute inset-0 w-full h-full'
-						allow='fullscreen'
-						allowFullScreen
-					/>
-				)}
+			<div className='relative w-full overflow-hidden rounded-2xl border border-red-500/40 bg-black/40'>
+				<div className='relative w-full' style={frameStyle}>
+					{!isLoaded ? (
+						<div className='absolute inset-0 flex flex-col items-center justify-center gap-4 px-8'>
+							<Loader />
+						</div>
+					) : (
+						<iframe
+							id='game-frame'
+							src={game.demoGameLink}
+							title={game.gameName}
+							className='absolute inset-0 w-full h-full border-0'
+							allow='fullscreen'
+							allowFullScreen
+						/>
+					)}
+				</div>
 			</div>
 
 			{/* Footer */}
 			<div className='text-center mt-6'>
+				<h2
+					className='text-white/50 text-sm mb-4 cursor-pointer hover:text-white transition-colors'
+					onClick={enterFullscreen}>
+					FULLSCREEN
+				</h2>
 				{showInstructions && (
 					<h4 className='text-primary text-sm mb-4'>
-						Press the game to load full screen. Press back to exit.
+						Press the back to exit fullScree
 					</h4>
 				)}
 				<p className='text-white/50 text-sm mb-4'>
