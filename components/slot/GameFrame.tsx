@@ -135,7 +135,7 @@ export default function GameFrame({ game }: GameFrameProps) {
 				</h2>
 				{showInstructions && (
 					<h4 className='text-primary text-sm mb-4'>
-						Press the back to exit fullScree
+						Press the back to exit fullScreen
 					</h4>
 				)}
 				<p className='text-white/50 text-sm mb-4'>
