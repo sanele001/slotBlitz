@@ -36,6 +36,7 @@ export const usefetchgame = async (slug: string) => {
 	return slotdata;
 };
 
+// returns all records count
 export const useFetchSlotCount = async () => {
 	const { count, error } = await supabase
 		.from('slotdata')
@@ -45,4 +46,32 @@ export const useFetchSlotCount = async () => {
 		return 0;
 	}
 	return count || 0;
+};
+
+// returns searched records
+interface SearchResult {
+	gameName: string;
+	gameSlug: string;
+}
+export const useSearchGames = async (
+	query: string,
+): Promise<SearchResult[]> => {
+	const normalizedQuery = query.trim();
+
+	if (!normalizedQuery) {
+		return [];
+	}
+
+	const { data, error } = await supabase
+		.from('slotdata')
+		.select('gameName, gameSlug')
+		.ilike('gameName', `%${normalizedQuery}%`)
+		.limit(5);
+
+	if (error) {
+		console.error('Error searching games:', error);
+		return [];
+	}
+
+	return data || [];
 };

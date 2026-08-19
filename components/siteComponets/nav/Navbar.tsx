@@ -3,18 +3,14 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { useSearchGames } from '../../../app/hooks/games/useFetch';
+import SearchDropdown from './SearchDropdown';
 
 import { IconType } from 'react-icons';
-import {
-	FaHome,
-	FaNewspaper,
-	FaCompass,
-	FaBars,
-	FaTimes,
-} from 'react-icons/fa';
-import { BsGridFill } from 'react-icons/bs';
-import { MdBusiness } from 'react-icons/md';
-import { IoSearch, IoNotifications, IoPersonCircle } from 'react-icons/io5';
+import { gameConfig } from '../../../app/config/game';
+import { IoNotifications, IoPersonCircle } from 'react-icons/io5';
+import { useDebouncedSearch } from '../../../app/hooks/games/useDebounce';
 
 /**
  * Navbar
@@ -29,14 +25,13 @@ interface NavItem {
 	icon: IconType;
 }
 
+interface SearchResult {
+	gameName: string;
+	gameSlug: string;
+}
+
 // Mock data — replace hrefs with real routes
-const NAV_ITEMS: NavItem[] = [
-	{ label: 'Home', href: '/', icon: FaHome },
-	{ label: 'Slots', href: '/slots', icon: BsGridFill },
-	{ label: 'Providers', href: '/providers', icon: MdBusiness },
-	{ label: 'News', href: '/news', icon: FaNewspaper },
-	{ label: 'Reviews', href: '/reviews', icon: FaCompass },
-];
+const NAV_ITEMS: NavItem[] = gameConfig.navItems;
 
 const ACCENT = '#fb226b';
 
@@ -44,6 +39,13 @@ export default function Navbar() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const pathname = usePathname();
 	const activeLabel = pathname;
+
+	const { searchTerm, setSearchTerm, results, isLoading, clearSearch } =
+		useDebouncedSearch<SearchResult>(useSearchGames, 1000);
+
+	const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setSearchTerm(e.target.value);
+	};
 
 	return (
 		<header className='sticky top-0 z-50 w-full bg-[#0c0714] border-b border-white/10'>
@@ -89,14 +91,11 @@ export default function Navbar() {
 
 				{/* Right side: search / notifications / profile */}
 				<div className='hidden lg:flex items-center gap-4'>
-					<div className='flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3 py-2 w-64'>
-						<IoSearch className='w-4 h-4 text-white/40 shrink-0' />
-						<input
-							type='text'
-							placeholder='Search slots, providers...'
-							className='bg-transparent text-sm text-white placeholder-white/40 outline-none w-full'
-						/>
-					</div>
+					<SearchDropdown
+						handleSearchChange={handleSearchChange}
+						clearsearch={clearSearch}
+						games={results}
+					/>
 
 					<button
 						aria-label='Notifications'
@@ -143,14 +142,15 @@ export default function Navbar() {
 			{/* Mobile menu panel */}
 			{isMenuOpen && (
 				<div className='lg:hidden border-t border-white/10 bg-[#0c0714] px-4 pb-4 pt-3'>
-					<div className='flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3 py-2 mb-3'>
+					{/* <div className='flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3 py-2 mb-3'>
 						<IoSearch className='w-4 h-4 text-white/40 shrink-0' />
 						<input
 							type='text'
 							placeholder='Search slots, providers...'
 							className='bg-transparent text-sm text-white placeholder-white/40 outline-none w-full'
 						/>
-					</div>
+					</div> */}
+					<SearchDropdown />
 
 					<ul className='flex flex-col gap-1'>
 						{NAV_ITEMS.map((item) => {
