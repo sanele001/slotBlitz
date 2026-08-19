@@ -4,12 +4,13 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import useDebouncedSearch from '../../../app/hooks/games/useDebounce';
+import { useSearchGames } from '../../../app/hooks/games/useFetch';
 import SearchDropdown from './SearchDropdown';
 
 import { IconType } from 'react-icons';
 import { gameConfig } from '../../../app/config/game';
-import { IoSearch, IoNotifications, IoPersonCircle } from 'react-icons/io5';
+import { IoNotifications, IoPersonCircle } from 'react-icons/io5';
+import { useDebouncedSearch } from '../../../app/hooks/games/useDebounce';
 
 /**
  * Navbar
@@ -25,10 +26,8 @@ interface NavItem {
 }
 
 interface SearchResult {
-	id: string;
-	name: string;
-	description?: string;
-	// Add other fields based on your API response
+	gameName: string;
+	gameSlug: string;
 }
 
 // Mock data — replace hrefs with real routes
@@ -40,13 +39,13 @@ export default function Navbar() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const pathname = usePathname();
 	const activeLabel = pathname;
-	const { searchTerm, setSearchTerm, results, isLoading, error, clearSearch } =
-		useDebouncedSearch<SearchResult>(yourApiSearchFunction, '', 500);
 
-	async function yourApiSearchFunction(query: string): Promise<SearchResult[]> {
-		// Replace this with your actual API call logic
-		return [{ id: '1', name: 'Game 1', description: 'Description for Game 1' }];
-	}
+	const { searchTerm, setSearchTerm, results, isLoading, clearSearch } =
+		useDebouncedSearch<SearchResult>(useSearchGames, 1000);
+
+	const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setSearchTerm(e.target.value);
+	};
 
 	return (
 		<header className='sticky top-0 z-50 w-full bg-[#0c0714] border-b border-white/10'>
@@ -92,7 +91,11 @@ export default function Navbar() {
 
 				{/* Right side: search / notifications / profile */}
 				<div className='hidden lg:flex items-center gap-4'>
-					<SearchDropdown />
+					<SearchDropdown
+						handleSearchChange={handleSearchChange}
+						clearsearch={clearSearch}
+						games={results}
+					/>
 
 					<button
 						aria-label='Notifications'

@@ -3,6 +3,9 @@
 import { useState, useRef, useEffect } from 'react';
 import { IoSearch, IoChevronDown } from 'react-icons/io5';
 import { MdFilterAltOff } from 'react-icons/md';
+import SearchDropdown from '../nav/SearchDropdown';
+import { useSearchGames } from '../../../app/hooks/games/useFetch';
+import { useDebouncedSearch } from '../../../app/hooks/games/useDebounce';
 
 /**
  * FilterBar
@@ -137,8 +140,19 @@ function FilterDropdown({
 	);
 }
 
+interface SearchResult {
+	gameName: string;
+	gameSlug: string;
+}
+
 export default function FilterBar({ selectFilter }) {
 	const [triggerReset, setTriggerReset] = useState(false);
+	const { searchTerm, setSearchTerm, results, isLoading, clearSearch } =
+		useDebouncedSearch<SearchResult>(useSearchGames, 1000);
+
+	const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setSearchTerm(e.target.value);
+	};
 
 	const trigger = () => {
 		setTriggerReset((prev) => !prev);
@@ -147,12 +161,11 @@ export default function FilterBar({ selectFilter }) {
 		<div className='mx-auto max-w-7xl rounded-2xl border border-white/10 bg-dark p-3 sm:p-4'>
 			<div className='flex flex-col lg:flex-row lg:items-center gap-3'>
 				{/* Search */}
-				<div className='flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 lg:w-64 shrink-0'>
-					<IoSearch className='w-4 h-4 text-white/40 shrink-0' />
-					<input
-						type='text'
-						placeholder='Search slots...'
-						className='bg-transparent text-sm text-white placeholder-white/40 outline-none w-full'
+				<div className='flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-1 py-1 lg:w-64 shrink-0'>
+					<SearchDropdown
+						handleSearchChange={handleSearchChange}
+						clearsearch={clearSearch}
+						games={results}
 					/>
 				</div>
 

@@ -9,7 +9,6 @@ import EmblaCarousel from '../components/carousel/carousel';
 import Head from 'next/head';
 import Link from 'next/link';
 import Footer from '../components/siteComponets/footer/Footer';
-import searchtest from './hooks/games/useDebounce';
 
 const hero = require('../assets/mainbg.png');
 
@@ -22,10 +21,6 @@ const Home = ({ slotDataProps, reviewDataProps }) => {
 	const filteredGames = featuredGroup.filter((game) =>
 		game.gameName.toLowerCase().includes(searchTerm.toLowerCase()),
 	);
-
-	useEffect(() => {
-		console.log('dfdfdfdfdfdffdf');
-	}, [searchtest]);
 
 	return (
 		<>
