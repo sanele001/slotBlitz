@@ -18,7 +18,7 @@ const nextConfig = {
 							port: '',
 							pathname: '/storage/v1/**',
 						},
-				  ]
+					]
 				: []),
 		],
 	},

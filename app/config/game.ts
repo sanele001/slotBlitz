@@ -21,4 +21,7 @@ export const gameConfig = {
 		{ label: 'News', href: '/news', icon: FaNewspaper },
 		{ label: 'Reviews', href: '/reviews', icon: FaCompass },
 	],
+
+	newsQuery:
+		'(casino OR casinos OR gambling OR "online gambling" OR "online casino" OR iGaming OR sportsbook OR sportsbooks OR "sports betting" OR "online betting" OR slots OR "slot machine" OR poker OR "online poker" OR blackjack OR roulette OR baccarat OR "live casino" OR "casino games" OR wagering)',
 };
