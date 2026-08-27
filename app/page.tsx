@@ -1,10 +1,14 @@
 import Home from './index';
-import { usefetchSlotsAndreviews } from './hooks/games/useFetch';
+import { supabase } from '../dbclient/superBaseClient';
 
 export default async function Page() {
-	const response = await usefetchSlotsAndreviews(9);
+	const [slots, reviews] = await Promise.all([
+		supabase.from('slotdata').select('*').limit(9),
+		supabase.from('review').select('*').limit(9),
+	]);
 
-	return (
-		<Home slotDataProps={response.slots} reviewDataProps={response.reviews} />
-	);
+	if (slots.error) throw slots.error;
+	if (reviews.error) throw reviews.error;
+
+	return <Home slotDataProps={slots.data} reviewDataProps={reviews.data} />;
 }

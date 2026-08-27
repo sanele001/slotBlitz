@@ -7,10 +7,8 @@ import { useFetchSlotCount } from '../../app/hooks/games/useFetch';
 import { LargeImageCard } from '../slot/largeImageCard';
 import { gameConfig } from '../../app/config/game';
 import FliudHeroSection from '../siteComponets/Hero/fluidHero';
-import ReactPaginate from 'react-paginate';
 import FilterBar from '../siteComponets/filter/FilterBar';
 import Head from 'next/head';
-import Link from 'next/link';
 
 const Slots = () => {
 	const [searchTerm, setSearchTerm] = useState('');
@@ -80,7 +78,7 @@ const Slots = () => {
 			</Head>
 			{/* main holder */}
 			<div className='min-h-screen bg-dark'>
-				<FliudHeroSection />
+				<FliudHeroSection heroProps={gameConfig.fluideHeroProps.slots} />
 				<FilterBar selectFilter={handleFilterOption} />
 
 				<section className='px-1 py-3 items-center'>
