@@ -27,16 +27,17 @@ export default function FliudHeroSection({ heroProps }: textObj) {
 		<section className='relative w-full overflow-hidden bg-dark px-4 py-6 sm:px-6 lg:px-12 lg:py-8'>
 			<div className='mx-auto grid max-w-7xl grid-cols-1 items-center gap-6 lg:grid-cols-2 lg:gap-12'>
 				{/* Left column: copy */}
-				<div className='relative z-10'>
+				<div className=' flex-col relative z-10'>
 					<div className='flex items-center justify-between gap-4 lg:block'>
 						<div className='flex mb-4'>
 							<span className='text-white/[0.6]'>Home {'\u276F'}</span>
 							<p className='ml-2'>{heroProps.route}</p>
 						</div>
-						<h1 className='text-3xl font-extrabold leading-tight text-white sm:text-4xl md:text-5xl'>
-							{heroProps.heading}
-						</h1>
 					</div>
+
+					<h1 className='text-3xl font-extrabold leading-tight text-white sm:text-4xl md:text-5xl'>
+						{heroProps.heading}
+					</h1>
 
 					<p className='mt-3 max-w-md text-sm leading-relaxed text-neutral-400 sm:text-base'>
 						{heroProps.summary}
