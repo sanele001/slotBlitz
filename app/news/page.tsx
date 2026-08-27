@@ -14,6 +14,9 @@ export type cardArticle = {
 	excerpt: string;
 	date: string;
 	readTime: string;
+	content: string;
+	sourceUrl: string;
+	sourceName: string;
 };
 
 export default function Page() {
@@ -47,9 +50,13 @@ export default function Page() {
 				day: 'numeric',
 				year: 'numeric',
 			}),
+			content: article.content,
+			sourceUrl: article.url,
+			sourceName: article.source.name,
 			readTime: '5 min read',
 		}));
 		setCardArticles(cardArticles);
+		debugger;
 	}, [articles]);
 
 	return (

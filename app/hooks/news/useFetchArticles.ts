@@ -5,6 +5,7 @@ export type Article = {
 	urlToImage: string | null;
 	publishedAt: string;
 	source: { name: string };
+	content: string;
 };
 
 type ArticlesResponse = {
