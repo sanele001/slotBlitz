@@ -1,21 +1,9 @@
-import { supabase } from '../../../dbclient/superBaseClient';
-
 // returns limited records
 export const usefetchSlotsAndreviews = async (amount: number) => {
 	try {
-		const [slotdata, review] = await Promise.all([
-			supabase.from('slotdata').select('*').limit(amount),
-			supabase.from('review').select('*').limit(amount),
-		]);
-
-		// Check each for errors
-		if (slotdata.error) throw slotdata.error;
-		if (review.error) throw review.error;
-
-		return {
-			slots: slotdata.data,
-			reviews: review.data,
-		};
+		const response = await fetch(`/api/slots?amount=${amount}`);
+		if (!response.ok) throw new Error('Unable to fetch slots and reviews.');
+		return await response.json();
 	} catch (error) {
 		console.error('Error fetching data:', error);
 		return null;
@@ -24,28 +12,21 @@ export const usefetchSlotsAndreviews = async (amount: number) => {
 
 // return game record
 export const usefetchgame = async (slug: string) => {
-	const { data: slotdata, error } = await supabase
-		.from('slotdata')
-		.select('*')
-		.eq('gameSlug', slug)
-		.single();
-
-	if (error) {
-		console.error('Error fetching game:', error);
+	const response = await fetch(`/api/slots/${encodeURIComponent(slug)}`);
+	if (!response.ok) {
+		const data = await response.json().catch(() => null);
+		console.error('Error fetching game:', data?.error ?? response.statusText);
+		return null;
 	}
-	return slotdata;
+	return await response.json();
 };
 
 // returns all records count
 export const useFetchSlotCount = async () => {
-	const { count, error } = await supabase
-		.from('slotdata')
-		.select('*', { count: 'exact', head: true });
-	if (error) {
-		console.error('Error fetching slot count:', error);
-		return 0;
-	}
-	return count || 0;
+	const response = await fetch('/api/slots/count');
+	if (!response.ok) return 0;
+	const data = await response.json();
+	return data.count || 0;
 };
 
 // returns searched records
@@ -62,16 +43,9 @@ export const useSearchGames = async (
 		return [];
 	}
 
-	const { data, error } = await supabase
-		.from('slotdata')
-		.select('gameName, gameSlug')
-		.ilike('gameName', `%${normalizedQuery}%`)
-		.limit(5);
-
-	if (error) {
-		console.error('Error searching games:', error);
-		return [];
-	}
-
-	return data || [];
+	const response = await fetch(
+		`/api/slots?query=${encodeURIComponent(normalizedQuery)}`,
+	);
+	if (!response.ok) return [];
+	return await response.json();
 };

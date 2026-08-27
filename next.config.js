@@ -3,6 +3,11 @@ const nextConfig = {
 	reactStrictMode: true,
 	swcMinify: true,
 	images: {
+		localPatterns: [
+			{
+				pathname: '/api/images/**',
+			},
+		],
 		remotePatterns: [
 			{
 				protocol: 'https',
@@ -10,16 +15,6 @@ const nextConfig = {
 				port: '',
 				pathname: '/**',
 			},
-			...(process.env.NEXT_PUBLIC_SUPABASE_URL
-				? [
-						{
-							protocol: 'https',
-							hostname: new URL(process.env.NEXT_PUBLIC_SUPABASE_URL).hostname,
-							port: '',
-							pathname: '/storage/v1/**',
-						},
-					]
-				: []),
 		],
 	},
 };

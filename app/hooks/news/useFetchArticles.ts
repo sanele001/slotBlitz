@@ -10,7 +10,6 @@ export type Article = {
 type ArticlesResponse = {
 	articles: Article[];
 };
-
 export const fetchArticles = async (): Promise<Article[]> => {
 	const response = await fetch('/api/news');
 	const data = (await response.json()) as ArticlesResponse & { error?: string };

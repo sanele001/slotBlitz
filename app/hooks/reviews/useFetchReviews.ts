@@ -1,5 +1,3 @@
-import { supabase } from '../../../dbclient/superBaseClient';
-
 // returns limited records
 export const usefetchReviews = async (amount: number) => {
 	// try {
@@ -22,14 +20,9 @@ export const usefetchReviews = async (amount: number) => {
 
 // return game record
 export const usefetchReview = async (slug: string | string[]) => {
-	const { data: review, error } = await supabase
-		.from('review')
-		.select('*')
-		.eq('reviewSlug', slug)
-		.single();
-
-	if (error) {
-		console.error('Error fetching game:', error);
-	}
-	return review;
+	const response = await fetch(
+		`/api/reviews/${encodeURIComponent(String(slug))}`,
+	);
+	if (!response.ok) return null;
+	return await response.json();
 };
