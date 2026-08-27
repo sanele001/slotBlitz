@@ -17,7 +17,7 @@ export const gameConfig = {
 	navItems: [
 		{ label: 'Home', href: '/', icon: FaHome },
 		{ label: 'Slots', href: '/slots', icon: BsGridFill },
-		{ label: 'Providers', href: '/providers', icon: MdBusiness },
+		// { label: 'Providers', href: '/providers', icon: MdBusiness },
 		{ label: 'News', href: '/news', icon: FaNewspaper },
 		{ label: 'Reviews', href: '/reviews', icon: FaCompass },
 	],
