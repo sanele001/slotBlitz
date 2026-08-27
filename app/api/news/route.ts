@@ -15,10 +15,10 @@ export async function GET() {
 
 	try {
 		const params = new URLSearchParams({
-			q: gameConfig.newsQuery,
+			q: gameConfig.news.newsQuery,
 			language: 'en',
 			sortBy: 'publishedAt',
-			pageSize: '15',
+			pageSize: gameConfig.news.pageSize,
 			apiKey: newsApiKey,
 		});
 

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { FaRegCalendarAlt, FaRegClock, FaTimes } from 'react-icons/fa';
 import { HiArrowRight, HiOutlineExternalLink } from 'react-icons/hi';
+const fallBackImage = '../../assets/newsFallback.jpg';
 
 /**
  * NewsCard
@@ -69,7 +70,7 @@ function ArticleModal({
 				className='relative w-full max-w-lg max-h-[85vh] overflow-y-auto rounded-2xl border border-white/10 bg-[#150b1e] shadow-2xl'>
 				<div className='relative w-full aspect-video shrink-0'>
 					<img
-						src={article.thumbnail}
+						src={article.thumbnail || fallBackImage}
 						alt={article.title}
 						loading='lazy'
 						className='h-full w-full rounded-t-2xl object-cover'
@@ -139,14 +140,14 @@ function ArticleModal({
 export default function NewsCard({ article }: { article?: NewsArticle }) {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const { thumbnail, category, title, excerpt, date, readTime } = article;
-	debugger;
+
 	return (
 		<>
 			<div className='group flex flex-col rounded-2xl border border-white/10 bg-[#0c0714] overflow-hidden hover:border-white/20 transition-colors'>
 				{/* Thumbnail */}
 				<div className='relative w-full aspect-video shrink-0 overflow-hidden'>
 					<img
-						src={thumbnail}
+						src={thumbnail || fallBackImage}
 						alt={title}
 						loading='lazy'
 						className='h-full w-full object-cover transition-transform duration-300 group-hover:scale-105'

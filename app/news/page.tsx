@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import NewsCard from '../../components/news/NewsCard';
 import FliudHeroSection from '../../components/siteComponets/Hero/fluidHero';
+import { gameConfig } from '../config/game';
 import Footer from '../../components/siteComponets/footer/Footer';
 import { Article, fetchArticles } from '../hooks/news/useFetchArticles';
 import Loader from '../../components/siteComponets/loader/Loader';
@@ -40,7 +41,7 @@ export default function Page() {
 			slug: encodeURIComponent(
 				article.title.toLowerCase().replace(/\s+/g, '-'),
 			),
-			thumbnail: article.urlToImage ?? '/images/news-pragmatic-release.png',
+			thumbnail: article.urlToImage ?? '/images/newsFallback.jpg',
 			category: article.source.name,
 			title: article.title,
 			excerpt:
@@ -56,18 +57,19 @@ export default function Page() {
 			readTime: '5 min read',
 		}));
 		setCardArticles(cardArticles);
-		debugger;
 	}, [articles]);
-
 	return (
 		<section className='px-1 py-3 items-center'>
-			<FliudHeroSection />
+			<FliudHeroSection heroProps={gameConfig.fluideHeroProps.news} />
 			<div className='mx-auto max-w-7xl border border-white/[0.06]  rounded-3xl p-6'>
 				{/* {dynamic rendering} */}
 				{cardArticles.length > 0 ? (
 					<div className='grid grid-cols-1 gap-5 sm:grid-cols-1 md:grid-cols-3'>
-						{cardArticles.map((article) => (
-							<NewsCard key={article.slug} article={article} />
+						{cardArticles.map((article, i) => (
+							<NewsCard
+								key={article.slug + 1 + article.title}
+								article={article}
+							/>
 						))}
 					</div>
 				) : (

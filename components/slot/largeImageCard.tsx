@@ -44,7 +44,6 @@ export const LargeImageCard: React.FC<SlotCardProps> = ({ game }) => {
 	};
 
 	const imageUrl = usefetchPublicImage(imageSquare);
-	debugger;
 
 	return (
 		<div className='group relative flex flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-[#0c0a14] p-3 transition-all duration-300 hover:border-white/[0.15] hover:bg-[#120f1f] hover:shadow-2xl hover:shadow-black/60 w-full'>

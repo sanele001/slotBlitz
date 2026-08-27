@@ -47,6 +47,16 @@ npm run lint         # Run Next.js linting
 npm run processImages # Process image assets
 ```
 
+## image display architecture
+
+   <Image src="/api/images/jesterspins" />
+        ↓
+   GET /api/images/jesterspins
+        ↓
+    Supabase storage request on the server
+        ↓
+    Image bytes returned through  API
+
 ## Data and Security
 
 Supabase is accessed from server code through `dbclient/superBaseClient.js`. Client components do not import the Supabase client directly. They call same-origin API routes instead.
