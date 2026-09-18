@@ -2,6 +2,7 @@
 
 import { FaStar } from 'react-icons/fa';
 import type { Slot } from '../../types/slot';
+import { gameConfig } from '../../app/config/game';
 
 export interface GameStat {
 	label: string;
@@ -56,7 +57,7 @@ export default function GameDetailsCard({
 				</h2>
 
 				<p className='mt-3 max-w-96 text-sm sm:text-base leading-relaxed text-neutral-400'>
-					{game.description}
+					{game.description || gameConfig.placeholders.description}
 				</p>
 
 				<div className='mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4'>

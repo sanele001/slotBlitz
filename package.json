@@ -10,7 +10,8 @@
 		"processImages": "node scripts/processImages.js",
 		"mobile": "next dev --hostname 0.0.0.0",
 		"test": "jest",
-		"test:watch": "jest --watch"
+		"test:watch": "jest --watch",
+		"processdata": "node --env-file=.env.local server/dataService.js"
 	},
 	"dependencies": {
 		"@supabase/supabase-js": "^2.110.9",

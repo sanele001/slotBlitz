@@ -8,7 +8,7 @@ export interface Feature {
 
 export interface KeyFeaturesProps {
 	heading?: string;
-	features: Feature[];
+	features: string[] | Feature[];
 	className?: string;
 }
 
@@ -29,12 +29,10 @@ export default function KeyFeaturesSection({
 							<FaBolt className='h-4 w-4 text-red-500' />
 						</span>
 						<div>
-							<p className='text-sm font-semibold text-white'>
-								{feature.feature}
-							</p>
-							<p className='text-xs sm:text-sm text-neutral-400'>
+							<p className='text-sm font-semibold text-white'>{feature}</p>
+							{/* <p className='text-xs sm:text-sm text-neutral-400'>
 								{feature.description}
-							</p>
+							</p> */}
 						</div>
 					</div>
 				))}

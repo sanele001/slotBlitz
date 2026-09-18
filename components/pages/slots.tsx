@@ -87,7 +87,7 @@ const Slots = () => {
 						<div className='mb-6 flex items-center justify-between'>
 							<div className='flex items-center gap-2 text-red'>
 								<p className='text-sm font-bold text-primary tracking-wide'>
-									Games shown: {count ? count : 0} of 300+
+									Games shown: {count ? count : 0} of 600+
 								</p>
 							</div>
 						</div>

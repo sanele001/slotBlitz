@@ -1,0 +1,115 @@
+{
+	"protocol": "1.0",
+	"type": "response",
+	"serverId": "papi",
+	"messageId": "6aaae96897fed",
+	"timeCreated": "2026-09-16 19:09:28 +00:00",
+	"statusCode": 0,
+	"data": [
+		{
+			"gameId": 53199,
+			"uuid": "0a27a0f9-7477-11f1-9458-0242ac130002",
+			"gameCustomerId": null,
+			"vendorId": 32,
+			"vendorName": "Pragmatic Play",
+			"gameName": "Ra vs Osiris",
+			"gameSlug": "ra-vs-osiris",
+			"catalogUrl": "https://slotcatalog.com/en/slots/ra-vs-osiris",
+			"type": "Video Slots",
+			"reliaseDate": "2026-09-03",
+			"wideReliaseDate": null,
+			"reliaseDateComment": "Coming soon (exact date)",
+			"endOfLifeDate": null,
+			"rtp": null,
+			"rtpComments": "",
+			"volatility": "N/A",
+			"volatilityComment": null,
+			"hitFrequency": null,
+			"hitFrequencyComment": "",
+			"payWays": null,
+			"payWaysComments": "",
+			"isExclusive": 0,
+			"isLinesSetup": 0,
+			"isBothway": 0,
+			"layout": null,
+			"layoutComment": "",
+			"minBet": null,
+			"maxBet": null,
+			"betComment": "",
+			"maxMultiplier": null,
+			"maxCoinWin": null,
+			"maxWinComment": "",
+			"gameSizeMb": null,
+			"slotRank": 99,
+			"dtCreated": "2026-07-18",
+			"dtLastUpdate": "2026-07-18",
+			"dtDelete": null,
+			"demoGameLink": "https://freedemo.games/en/slots/ra-vs-osiris?view=demo",
+			"demoWidget": "https://freedemo.games/en/slots/ra-vs-osiris?view=widget",
+			"demoInstallPWA": "https://freedemo.games/en/slots/ra-vs-osiris?view=pwa-install",
+			"imageLandscape": "https://static.freedemo.games/images/games/ra-vs-osiris/ra-vs-osiris-rectangle-390x254.webp",
+			"imageSquare": "https://static.freedemo.games/images/games/ra-vs-osiris/ra-vs-osiris-square-500x500.webp",
+			"images": [],
+			"slotRanks": [
+				{
+					"cISO": "BF",
+					"SlotRank": 15742
+				},
+				{
+					"cISO": "BJ",
+					"SlotRank": 15742
+				},
+				{
+					"cISO": "CI",
+					"SlotRank": 3000
+				},
+				{
+					"cISO": "CM",
+					"SlotRank": 12516
+				},
+				{
+					"cISO": "DZ",
+					"SlotRank": 3000
+				},
+				{
+					"cISO": "ET",
+					"SlotRank": 3466
+				},
+				{
+					"cISO": "GH",
+					"SlotRank": 12528
+				},
+				{
+					"cISO": "KE",
+					"SlotRank": 12516
+				},
+				{
+					"cISO": "MA",
+					"SlotRank": 19985
+				},
+				{
+					"cISO": "ZA",
+					"SlotRank": 11024
+				}
+			],
+			"tags": [
+				{
+					"group": "Theme",
+					"values": "Adventure, Mystic, Gods, Mythical, legend, RA (God)"
+				}
+			],
+			"description": [],
+			"content": [],
+			"relations": [],
+			"themes": [
+				"Adventure",
+				"Mystic",
+				"Gods",
+				"Mythical",
+				"legend",
+				"RA (God)"
+			],
+			"features": []
+		}
+	]
+}

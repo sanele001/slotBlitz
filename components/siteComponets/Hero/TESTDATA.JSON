@@ -1,0 +1,998 @@
+{
+    "protocol": "1.0",
+    "type": "response",
+    "serverId": "papi",
+    "messageId": "6aaacbbd5399f",
+    "timeCreated": "2026-09-16 17:02:53 +00:00",
+    "statusCode": 0,
+    "data": [
+        {
+            "gameId": 53199,
+            "uuid": "0a27a0f9-7477-11f1-9458-0242ac130002",
+            "gameCustomerId": null,
+            "vendorId": 32,
+            "vendorName": "Pragmatic Play",
+            "gameName": "Ra vs Osiris",
+            "gameSlug": "ra-vs-osiris",
+            "catalogUrl": "https://slotcatalog.com/en/slots/ra-vs-osiris",
+            "type": "Video Slots",
+            "reliaseDate": "2026-09-03",
+            "wideReliaseDate": null,
+            "reliaseDateComment": "Coming soon (exact date)",
+            "endOfLifeDate": null,
+            "rtp": null,
+            "rtpComments": "",
+            "volatility": "N/A",
+            "volatilityComment": null,
+            "hitFrequency": null,
+            "hitFrequencyComment": "",
+            "payWays": null,
+            "payWaysComments": "",
+            "isExclusive": 0,
+            "isLinesSetup": 0,
+            "isBothway": 0,
+            "layout": null,
+            "layoutComment": "",
+            "minBet": null,
+            "maxBet": null,
+            "betComment": "",
+            "maxMultiplier": null,
+            "maxCoinWin": null,
+            "maxWinComment": "",
+            "gameSizeMb": null,
+            "slotRank": 99,
+            "dtCreated": "2026-07-18",
+            "dtLastUpdate": "2026-07-18",
+            "dtDelete": null,
+            "demoGameLink": "https://freedemo.games/en/slots/ra-vs-osiris?view=demo",
+            "demoWidget": "https://freedemo.games/en/slots/ra-vs-osiris?view=widget",
+            "demoInstallPWA": "https://freedemo.games/en/slots/ra-vs-osiris?view=pwa-install",
+            "imageLandscape": "https://static.freedemo.games/images/games/ra-vs-osiris/ra-vs-osiris-rectangle-390x254.webp",
+            "imageSquare": "https://static.freedemo.games/images/games/ra-vs-osiris/ra-vs-osiris-square-500x500.webp",
+            "images": [],
+            "slotRanks": [
+                {
+                    "cISO": "BF",
+                    "SlotRank": 15742
+                },
+                {
+                    "cISO": "BJ",
+                    "SlotRank": 15742
+                },
+                {
+                    "cISO": "CI",
+                    "SlotRank": 3000
+                },
+                {
+                    "cISO": "CM",
+                    "SlotRank": 12516
+                },
+                {
+                    "cISO": "DZ",
+                    "SlotRank": 3000
+                },
+                {
+                    "cISO": "ET",
+                    "SlotRank": 3466
+                },
+                {
+                    "cISO": "GH",
+                    "SlotRank": 12528
+                },
+                {
+                    "cISO": "KE",
+                    "SlotRank": 12516
+                },
+                {
+                    "cISO": "MA",
+                    "SlotRank": 19985
+                },
+                {
+                    "cISO": "ZA",
+                    "SlotRank": 11024
+                }
+            ],
+            "tags": [
+                {
+                    "group": "Theme",
+                    "values": "Adventure, Mystic, Gods, Mythical, legend, RA (God)"
+                }
+            ],
+            "description": [],
+            "content": [],
+            "relations": [],
+            "themes": [
+                "Adventure",
+                "Mystic",
+                "Gods",
+                "Mythical",
+                "legend",
+                "RA (God)"
+            ],
+            "features": []
+        },
+        {
+            "gameId": 53146,
+            "uuid": "c4220aa1-7151-11f1-9458-0242ac130002",
+            "gameCustomerId": null,
+            "vendorId": 304,
+            "vendorName": "Hacksaw Gaming",
+            "gameName": "Le Sortudo",
+            "gameSlug": "le-sortudo",
+            "catalogUrl": "https://slotcatalog.com/en/slots/le-sortudo",
+            "type": "Video Slots",
+            "reliaseDate": "2026-07-06",
+            "wideReliaseDate": null,
+            "reliaseDateComment": null,
+            "endOfLifeDate": null,
+            "rtp": 96.27,
+            "rtpComments": "86.28%, 92.23%, 94.29%, 96.27%",
+            "volatility": "MED",
+            "volatilityComment": "3/5",
+            "hitFrequency": 35.67,
+            "hitFrequencyComment": "",
+            "payWays": 9,
+            "payWaysComments": "",
+            "isExclusive": 0,
+            "isLinesSetup": 0,
+            "isBothway": 0,
+            "layout": "3*3",
+            "layoutComment": "",
+            "minBet": 0.05,
+            "maxBet": 400,
+            "betComment": "",
+            "maxMultiplier": 2500,
+            "maxCoinWin": null,
+            "maxWinComment": "",
+            "gameSizeMb": 19.3,
+            "slotRank": 160,
+            "dtCreated": "2026-07-18",
+            "dtLastUpdate": "2026-07-18",
+            "dtDelete": null,
+            "demoGameLink": "https://freedemo.games/en/slots/le-sortudo?view=demo",
+            "demoWidget": "https://freedemo.games/en/slots/le-sortudo?view=widget",
+            "demoInstallPWA": "https://freedemo.games/en/slots/le-sortudo?view=pwa-install",
+            "imageLandscape": "https://static.freedemo.games/images/games/le-sortudo/le-sortudo-rectangle-390x254.webp",
+            "imageSquare": "https://static.freedemo.games/images/games/le-sortudo/le-sortudo-square-500x500.webp",
+            "images": [],
+            "slotRanks": [
+                {
+                    "cISO": "BF",
+                    "SlotRank": 15727
+                },
+                {
+                    "cISO": "BJ",
+                    "SlotRank": 15727
+                },
+                {
+                    "cISO": "CI",
+                    "SlotRank": 16025
+                },
+                {
+                    "cISO": "CM",
+                    "SlotRank": 12501
+                },
+                {
+                    "cISO": "DZ",
+                    "SlotRank": 16025
+                },
+                {
+                    "cISO": "ET",
+                    "SlotRank": 16678
+                },
+                {
+                    "cISO": "GH",
+                    "SlotRank": 21760
+                },
+                {
+                    "cISO": "KE",
+                    "SlotRank": 12501
+                },
+                {
+                    "cISO": "ZA",
+                    "SlotRank": 1896
+                }
+            ],
+            "tags": [
+                {
+                    "group": "Features",
+                    "values": "Multiplier, Respins, Scatter symbols, Random multiplier, Bonus symbols, Buy Feature, RTP range, Hold and Win, Pot Collection, Cash Collector, Fixed Jackpots, Sequels, Series Continuations"
+                },
+                {
+                    "group": "Theme",
+                    "values": "Green, Chip, Brazil, Brown, Coins, Rainbow, Raccoon, Clover"
+                },
+                {
+                    "group": "Attributes",
+                    "values": "96% RTP"
+                }
+            ],
+            "description": [],
+            "content": [],
+            "relations": [],
+            "themes": [
+                "Green",
+                "Chip",
+                "Brazil",
+                "Brown",
+                "Coins",
+                "Rainbow",
+                "Raccoon",
+                "Clover"
+            ],
+            "features": [
+                "Multiplier",
+                "Respins",
+                "Scatter symbols",
+                "Random multiplier",
+                "Bonus symbols",
+                "Buy Feature",
+                "RTP range",
+                "Hold and Win",
+                "Pot Collection",
+                "Cash Collector",
+                "Fixed Jackpots",
+                "Sequels",
+                "Series Continuations"
+            ]
+        },
+        {
+            "gameId": 53136,
+            "uuid": "6f0fae24-713c-11f1-9458-0242ac130002",
+            "gameCustomerId": null,
+            "vendorId": 946,
+            "vendorName": "Lucky Lunar Studio",
+            "gameName": "Cash Vortex",
+            "gameSlug": "cash-vortex",
+            "catalogUrl": "https://slotcatalog.com/en/slots/cash-vortex",
+            "type": "Other types",
+            "reliaseDate": "2026-06-24",
+            "wideReliaseDate": null,
+            "reliaseDateComment": "Approximate",
+            "endOfLifeDate": null,
+            "rtp": 94.08,
+            "rtpComments": "",
+            "volatility": "MED-HIGH",
+            "volatilityComment": null,
+            "hitFrequency": null,
+            "hitFrequencyComment": "",
+            "payWays": 12,
+            "payWaysComments": "",
+            "isExclusive": 0,
+            "isLinesSetup": 0,
+            "isBothway": 0,
+            "layout": "5*5",
+            "layoutComment": "",
+            "minBet": 0.2,
+            "maxBet": 20,
+            "betComment": "",
+            "maxMultiplier": 1000,
+            "maxCoinWin": null,
+            "maxWinComment": "",
+            "gameSizeMb": 19.2,
+            "slotRank": 14,
+            "dtCreated": "2026-07-18",
+            "dtLastUpdate": "2026-07-18",
+            "dtDelete": null,
+            "demoGameLink": "https://freedemo.games/en/slots/cash-vortex?view=demo",
+            "demoWidget": "https://freedemo.games/en/slots/cash-vortex?view=widget",
+            "demoInstallPWA": "https://freedemo.games/en/slots/cash-vortex?view=pwa-install",
+            "imageLandscape": "https://static.freedemo.games/images/games/cash-vortex/cash-vortex-rectangle-390x254.webp",
+            "imageSquare": "https://static.freedemo.games/images/games/cash-vortex/cash-vortex-square-500x500.webp",
+            "images": [],
+            "slotRanks": [
+                {
+                    "cISO": "ZA",
+                    "SlotRank": 107
+                }
+            ],
+            "tags": [
+                {
+                    "group": "Features",
+                    "values": "Wild, Bonus Game, Multiplier, Bonus wheel, Random multiplier, Additive symbol, Bonus symbols, Cash Collector, Fixed Jackpots, Sticky Symbols"
+                },
+                {
+                    "group": "Theme",
+                    "values": "Gold, Coins, Tornado, Electricity"
+                }
+            ],
+            "description": [],
+            "content": [],
+            "relations": [],
+            "themes": [
+                "Gold",
+                "Coins",
+                "Tornado",
+                "Electricity"
+            ],
+            "features": [
+                "Wild",
+                "Bonus Game",
+                "Multiplier",
+                "Bonus wheel",
+                "Random multiplier",
+                "Additive symbol",
+                "Bonus symbols",
+                "Cash Collector",
+                "Fixed Jackpots",
+                "Sticky Symbols"
+            ]
+        },
+        {
+            "gameId": 53081,
+            "uuid": "61fd4b66-7070-11f1-9458-0242ac130002",
+            "gameCustomerId": null,
+            "vendorId": 46,
+            "vendorName": "Blueprint",
+            "gameName": "Triple Power Cash Strike",
+            "gameSlug": "triple-power-cash-strike",
+            "catalogUrl": "https://slotcatalog.com/en/slots/triple-power-cash-strike",
+            "type": "Video Slots",
+            "reliaseDate": "2026-09-10",
+            "wideReliaseDate": null,
+            "reliaseDateComment": "Coming soon (exact date)",
+            "endOfLifeDate": null,
+            "rtp": null,
+            "rtpComments": "",
+            "volatility": "N/A",
+            "volatilityComment": null,
+            "hitFrequency": null,
+            "hitFrequencyComment": "",
+            "payWays": null,
+            "payWaysComments": "",
+            "isExclusive": 0,
+            "isLinesSetup": 0,
+            "isBothway": 0,
+            "layout": null,
+            "layoutComment": "",
+            "minBet": null,
+            "maxBet": null,
+            "betComment": "",
+            "maxMultiplier": null,
+            "maxCoinWin": null,
+            "maxWinComment": "",
+            "gameSizeMb": null,
+            "slotRank": 7,
+            "dtCreated": "2026-07-18",
+            "dtLastUpdate": "2026-07-18",
+            "dtDelete": null,
+            "demoGameLink": "https://freedemo.games/en/slots/triple-power-cash-strike?view=demo",
+            "demoWidget": "https://freedemo.games/en/slots/triple-power-cash-strike?view=widget",
+            "demoInstallPWA": "https://freedemo.games/en/slots/triple-power-cash-strike?view=pwa-install",
+            "imageLandscape": "https://static.freedemo.games/images/games/triple-power-cash-strike/triple-power-cash-strike-rectangle-390x254.webp",
+            "imageSquare": "https://static.freedemo.games/images/games/triple-power-cash-strike/triple-power-cash-strike-square-500x500.webp",
+            "images": [],
+            "slotRanks": [
+                {
+                    "cISO": "CI",
+                    "SlotRank": 16014
+                },
+                {
+                    "cISO": "DZ",
+                    "SlotRank": 16014
+                },
+                {
+                    "cISO": "ET",
+                    "SlotRank": 16667
+                },
+                {
+                    "cISO": "GH",
+                    "SlotRank": 21749
+                },
+                {
+                    "cISO": "ZA",
+                    "SlotRank": 17
+                }
+            ],
+            "tags": [
+                {
+                    "group": "Theme",
+                    "values": "Gold, Fruit, Classic style, Coins, Fire, Bell, 777"
+                }
+            ],
+            "description": [],
+            "content": [],
+            "relations": [],
+            "themes": [
+                "Gold",
+                "Fruit",
+                "Classic style",
+                "Coins",
+                "Fire",
+                "Bell",
+                "777"
+            ],
+            "features": []
+        },
+        {
+            "gameId": 53052,
+            "uuid": "cf25a350-6fc9-11f1-9458-0242ac130002",
+            "gameCustomerId": null,
+            "vendorId": 32,
+            "vendorName": "Pragmatic Play",
+            "gameName": "Eastern Fury",
+            "gameSlug": "eastern-fury",
+            "catalogUrl": "https://slotcatalog.com/en/slots/eastern-fury",
+            "type": "Video Slots",
+            "reliaseDate": "2026-08-27",
+            "wideReliaseDate": null,
+            "reliaseDateComment": "Coming soon (exact date)",
+            "endOfLifeDate": null,
+            "rtp": null,
+            "rtpComments": "",
+            "volatility": "N/A",
+            "volatilityComment": null,
+            "hitFrequency": null,
+            "hitFrequencyComment": "",
+            "payWays": null,
+            "payWaysComments": "",
+            "isExclusive": 0,
+            "isLinesSetup": 0,
+            "isBothway": 0,
+            "layout": null,
+            "layoutComment": "",
+            "minBet": null,
+            "maxBet": null,
+            "betComment": "",
+            "maxMultiplier": null,
+            "maxCoinWin": null,
+            "maxWinComment": "",
+            "gameSizeMb": null,
+            "slotRank": 155,
+            "dtCreated": "2026-07-18",
+            "dtLastUpdate": "2026-07-18",
+            "dtDelete": null,
+            "demoGameLink": "https://freedemo.games/en/slots/eastern-fury?view=demo",
+            "demoWidget": "https://freedemo.games/en/slots/eastern-fury?view=widget",
+            "demoInstallPWA": "https://freedemo.games/en/slots/eastern-fury?view=pwa-install",
+            "imageLandscape": "https://static.freedemo.games/images/games/eastern-fury/eastern-fury-rectangle-390x254.webp",
+            "imageSquare": "https://static.freedemo.games/images/games/eastern-fury/eastern-fury-square-500x500.webp",
+            "images": [],
+            "slotRanks": [
+                {
+                    "cISO": "BF",
+                    "SlotRank": 15714
+                },
+                {
+                    "cISO": "BJ",
+                    "SlotRank": 15714
+                },
+                {
+                    "cISO": "CI",
+                    "SlotRank": 16008
+                },
+                {
+                    "cISO": "CM",
+                    "SlotRank": 12488
+                },
+                {
+                    "cISO": "DZ",
+                    "SlotRank": 16008
+                },
+                {
+                    "cISO": "ET",
+                    "SlotRank": 16661
+                },
+                {
+                    "cISO": "GH",
+                    "SlotRank": 21743
+                },
+                {
+                    "cISO": "KE",
+                    "SlotRank": 12488
+                },
+                {
+                    "cISO": "MA",
+                    "SlotRank": 19964
+                },
+                {
+                    "cISO": "ZA",
+                    "SlotRank": 13432
+                }
+            ],
+            "tags": [
+                {
+                    "group": "Theme",
+                    "values": "Oriental, Asian"
+                }
+            ],
+            "description": [],
+            "content": [],
+            "relations": [],
+            "themes": [
+                "Oriental",
+                "Asian"
+            ],
+            "features": []
+        },
+        {
+            "gameId": 52967,
+            "uuid": "6056f79f-6e2b-11f1-9458-0242ac130002",
+            "gameCustomerId": null,
+            "vendorId": 430,
+            "vendorName": "Print Studios",
+            "gameName": "Deck of Divinity",
+            "gameSlug": "deck-of-divinity",
+            "catalogUrl": "https://slotcatalog.com/en/slots/deck-of-divinity",
+            "type": "Video Slots",
+            "reliaseDate": "2026-08-25",
+            "wideReliaseDate": null,
+            "reliaseDateComment": "Coming soon (exact date)",
+            "endOfLifeDate": null,
+            "rtp": null,
+            "rtpComments": "",
+            "volatility": "HIGH",
+            "volatilityComment": null,
+            "hitFrequency": null,
+            "hitFrequencyComment": "",
+            "payWays": null,
+            "payWaysComments": "Scatter Pays",
+            "isExclusive": 0,
+            "isLinesSetup": 0,
+            "isBothway": 0,
+            "layout": null,
+            "layoutComment": "",
+            "minBet": null,
+            "maxBet": null,
+            "betComment": "",
+            "maxMultiplier": 10000,
+            "maxCoinWin": null,
+            "maxWinComment": "",
+            "gameSizeMb": null,
+            "slotRank": 8,
+            "dtCreated": "2026-07-18",
+            "dtLastUpdate": "2026-07-18",
+            "dtDelete": null,
+            "demoGameLink": "https://freedemo.games/en/slots/deck-of-divinity?view=demo",
+            "demoWidget": "https://freedemo.games/en/slots/deck-of-divinity?view=widget",
+            "demoInstallPWA": "https://freedemo.games/en/slots/deck-of-divinity?view=pwa-install",
+            "imageLandscape": "https://static.freedemo.games/images/games/deck-of-divinity/deck-of-divinity-rectangle-390x254.webp",
+            "imageSquare": "https://static.freedemo.games/images/games/deck-of-divinity/deck-of-divinity-square-500x500.webp",
+            "images": [],
+            "slotRanks": [
+                {
+                    "cISO": "ZA",
+                    "SlotRank": 69
+                }
+            ],
+            "tags": [
+                {
+                    "group": "Features",
+                    "values": "Avalanche, Cascading, Scatter Pays"
+                },
+                {
+                    "group": "Theme",
+                    "values": "Blue, Black, Adventure, Mythical, legend, Fortune"
+                }
+            ],
+            "description": [],
+            "content": [],
+            "relations": [],
+            "themes": [
+                "Blue",
+                "Black",
+                "Adventure",
+                "Mythical",
+                "legend",
+                "Fortune"
+            ],
+            "features": [
+                "Avalanche",
+                "Cascading",
+                "Scatter Pays"
+            ]
+        },
+        {
+            "gameId": 52966,
+            "uuid": "05899f7e-6e2b-11f1-9458-0242ac130002",
+            "gameCustomerId": null,
+            "vendorId": 7,
+            "vendorName": "ELK Studios",
+            "gameName": "Langley Street 23",
+            "gameSlug": "langley-street-23",
+            "catalogUrl": "https://slotcatalog.com/en/slots/langley-street-23",
+            "type": "Video Slots",
+            "reliaseDate": "2026-08-25",
+            "wideReliaseDate": null,
+            "reliaseDateComment": "Coming soon (exact date)",
+            "endOfLifeDate": null,
+            "rtp": null,
+            "rtpComments": "",
+            "volatility": "N/A",
+            "volatilityComment": null,
+            "hitFrequency": null,
+            "hitFrequencyComment": "",
+            "payWays": null,
+            "payWaysComments": "",
+            "isExclusive": 0,
+            "isLinesSetup": 0,
+            "isBothway": 0,
+            "layout": null,
+            "layoutComment": "",
+            "minBet": null,
+            "maxBet": null,
+            "betComment": "",
+            "maxMultiplier": null,
+            "maxCoinWin": null,
+            "maxWinComment": "",
+            "gameSizeMb": null,
+            "slotRank": 2,
+            "dtCreated": "2026-07-18",
+            "dtLastUpdate": "2026-07-18",
+            "dtDelete": null,
+            "demoGameLink": "https://freedemo.games/en/slots/langley-street-23?view=demo",
+            "demoWidget": "https://freedemo.games/en/slots/langley-street-23?view=widget",
+            "demoInstallPWA": "https://freedemo.games/en/slots/langley-street-23?view=pwa-install",
+            "imageLandscape": "https://static.freedemo.games/images/games/langley-street-23/langley-street-23-rectangle-390x254.webp",
+            "imageSquare": "https://static.freedemo.games/images/games/langley-street-23/langley-street-23-square-500x500.webp",
+            "images": [],
+            "slotRanks": [
+                {
+                    "cISO": "CI",
+                    "SlotRank": 15993
+                },
+                {
+                    "cISO": "DZ",
+                    "SlotRank": 15993
+                },
+                {
+                    "cISO": "ET",
+                    "SlotRank": 16646
+                },
+                {
+                    "cISO": "GH",
+                    "SlotRank": 21727
+                },
+                {
+                    "cISO": "ZA",
+                    "SlotRank": 2
+                }
+            ],
+            "tags": [
+                {
+                    "group": "Theme",
+                    "values": "Blue, Black, Street food Taco, HotDod, Shaurma, Fortune"
+                }
+            ],
+            "description": [],
+            "content": [],
+            "relations": [],
+            "themes": [
+                "Blue",
+                "Black",
+                "Street food Taco",
+                "HotDod",
+                "Shaurma",
+                "Fortune"
+            ],
+            "features": []
+        },
+        {
+            "gameId": 52960,
+            "uuid": "385551b8-6e28-11f1-9458-0242ac130002",
+            "gameCustomerId": null,
+            "vendorId": 377,
+            "vendorName": "Gaming Corps",
+            "gameName": "3 Pigs Instant Blitz",
+            "gameSlug": "3-pigs-instant-blitz",
+            "catalogUrl": "https://slotcatalog.com/en/slots/3-pigs-instant-blitz",
+            "type": "Video Slots",
+            "reliaseDate": "2026-08-18",
+            "wideReliaseDate": null,
+            "reliaseDateComment": "Coming soon (exact date)",
+            "endOfLifeDate": null,
+            "rtp": null,
+            "rtpComments": "",
+            "volatility": "N/A",
+            "volatilityComment": null,
+            "hitFrequency": null,
+            "hitFrequencyComment": "",
+            "payWays": null,
+            "payWaysComments": "",
+            "isExclusive": 0,
+            "isLinesSetup": 0,
+            "isBothway": 0,
+            "layout": null,
+            "layoutComment": "",
+            "minBet": null,
+            "maxBet": null,
+            "betComment": "",
+            "maxMultiplier": null,
+            "maxCoinWin": null,
+            "maxWinComment": "",
+            "gameSizeMb": null,
+            "slotRank": 179,
+            "dtCreated": "2026-07-18",
+            "dtLastUpdate": "2026-07-18",
+            "dtDelete": null,
+            "demoGameLink": "https://freedemo.games/en/slots/3-pigs-instant-blitz?view=demo",
+            "demoWidget": "https://freedemo.games/en/slots/3-pigs-instant-blitz?view=widget",
+            "demoInstallPWA": "https://freedemo.games/en/slots/3-pigs-instant-blitz?view=pwa-install",
+            "imageLandscape": "https://static.freedemo.games/images/games/3-pigs-instant-blitz/3-pigs-instant-blitz-rectangle-390x254.webp",
+            "imageSquare": "https://static.freedemo.games/images/games/3-pigs-instant-blitz/3-pigs-instant-blitz-square-500x500.webp",
+            "images": [],
+            "slotRanks": [
+                {
+                    "cISO": "CI",
+                    "SlotRank": 15990
+                },
+                {
+                    "cISO": "DZ",
+                    "SlotRank": 15990
+                },
+                {
+                    "cISO": "ET",
+                    "SlotRank": 16643
+                },
+                {
+                    "cISO": "GH",
+                    "SlotRank": 21724
+                },
+                {
+                    "cISO": "ZA",
+                    "SlotRank": 165
+                }
+            ],
+            "tags": [
+                {
+                    "group": "Theme",
+                    "values": "Blue, Black, Jewelry, Animals, Pigs, Adventure, Diamond, Gems"
+                }
+            ],
+            "description": [],
+            "content": [],
+            "relations": [],
+            "themes": [
+                "Blue",
+                "Black",
+                "Jewelry",
+                "Animals",
+                "Pigs",
+                "Adventure",
+                "Diamond",
+                "Gems"
+            ],
+            "features": []
+        },
+        {
+            "gameId": 52884,
+            "uuid": "5f2021aa-6afd-11f1-9458-0242ac130002",
+            "gameCustomerId": null,
+            "vendorId": 623,
+            "vendorName": "Gamevy",
+            "gameName": "Twilight of the Gods",
+            "gameSlug": "twilight-of-the-gods",
+            "catalogUrl": "https://slotcatalog.com/en/slots/twilight-of-the-gods",
+            "type": "Video Slots",
+            "reliaseDate": "2026-08-12",
+            "wideReliaseDate": null,
+            "reliaseDateComment": "Coming soon (exact date)",
+            "endOfLifeDate": null,
+            "rtp": 95.7,
+            "rtpComments": "",
+            "volatility": "N/A",
+            "volatilityComment": null,
+            "hitFrequency": null,
+            "hitFrequencyComment": "",
+            "payWays": 20,
+            "payWaysComments": "",
+            "isExclusive": 0,
+            "isLinesSetup": 0,
+            "isBothway": 0,
+            "layout": "5*3",
+            "layoutComment": "Reels can double in Bonus Game",
+            "minBet": 0.2,
+            "maxBet": 20,
+            "betComment": "",
+            "maxMultiplier": 5000,
+            "maxCoinWin": null,
+            "maxWinComment": "",
+            "gameSizeMb": 58.7,
+            "slotRank": 161,
+            "dtCreated": "2026-07-18",
+            "dtLastUpdate": "2026-07-18",
+            "dtDelete": null,
+            "demoGameLink": "https://freedemo.games/en/slots/twilight-of-the-gods?view=demo",
+            "demoWidget": "https://freedemo.games/en/slots/twilight-of-the-gods?view=widget",
+            "demoInstallPWA": "https://freedemo.games/en/slots/twilight-of-the-gods?view=pwa-install",
+            "imageLandscape": "https://static.freedemo.games/images/games/twilight-of-the-gods/twilight-of-the-gods-rectangle-390x254.webp",
+            "imageSquare": "https://static.freedemo.games/images/games/twilight-of-the-gods/twilight-of-the-gods-square-500x500.webp",
+            "images": [],
+            "slotRanks": [
+                {
+                    "cISO": "BF",
+                    "SlotRank": 15685
+                },
+                {
+                    "cISO": "BJ",
+                    "SlotRank": 15685
+                },
+                {
+                    "cISO": "CI",
+                    "SlotRank": 15980
+                },
+                {
+                    "cISO": "CM",
+                    "SlotRank": 12458
+                },
+                {
+                    "cISO": "DZ",
+                    "SlotRank": 15980
+                },
+                {
+                    "cISO": "ET",
+                    "SlotRank": 16633
+                },
+                {
+                    "cISO": "GH",
+                    "SlotRank": 21714
+                },
+                {
+                    "cISO": "KE",
+                    "SlotRank": 12458
+                },
+                {
+                    "cISO": "ZA",
+                    "SlotRank": 15002
+                }
+            ],
+            "tags": [
+                {
+                    "group": "Features",
+                    "values": "Wild, Bonus Game, Multiplier, Reels doubling, Respins, Random multiplier, Additive symbol, Bonus symbols, Buy Feature, Hold and Win, Fixed Jackpots, Sticky Symbols"
+                },
+                {
+                    "group": "Theme",
+                    "values": "Scandinavia, Gods, Mythical, legend, Thor (God), Odin (God)"
+                }
+            ],
+            "description": [],
+            "content": [],
+            "relations": [],
+            "themes": [
+                "Scandinavia",
+                "Gods",
+                "Mythical",
+                "legend",
+                "Thor (God)",
+                "Odin (God)"
+            ],
+            "features": [
+                "Wild",
+                "Bonus Game",
+                "Multiplier",
+                "Reels doubling",
+                "Respins",
+                "Random multiplier",
+                "Additive symbol",
+                "Bonus symbols",
+                "Buy Feature",
+                "Hold and Win",
+                "Fixed Jackpots",
+                "Sticky Symbols"
+            ]
+        },
+        {
+            "gameId": 52802,
+            "uuid": "bc1c2954-6986-11f1-9458-0242ac130002",
+            "gameCustomerId": null,
+            "vendorId": 7,
+            "vendorName": "ELK Studios",
+            "gameName": "Heist Guys 2",
+            "gameSlug": "heist-guys-2",
+            "catalogUrl": "https://slotcatalog.com/en/slots/heist-guys-2",
+            "type": "Video Slots",
+            "reliaseDate": "2026-07-07",
+            "wideReliaseDate": null,
+            "reliaseDateComment": null,
+            "endOfLifeDate": null,
+            "rtp": 96,
+            "rtpComments": "87% - 96%",
+            "volatility": "MED-HIGH",
+            "volatilityComment": null,
+            "hitFrequency": 23.2,
+            "hitFrequencyComment": "",
+            "payWays": 1024,
+            "payWaysComments": "",
+            "isExclusive": 0,
+            "isLinesSetup": 0,
+            "isBothway": 0,
+            "layout": "5*4",
+            "layoutComment": "",
+            "minBet": 0.2,
+            "maxBet": 100,
+            "betComment": "",
+            "maxMultiplier": 10000,
+            "maxCoinWin": null,
+            "maxWinComment": "",
+            "gameSizeMb": 23.4,
+            "slotRank": 87,
+            "dtCreated": "2026-07-18",
+            "dtLastUpdate": "2026-07-18",
+            "dtDelete": null,
+            "demoGameLink": "https://freedemo.games/en/slots/heist-guys-2?view=demo",
+            "demoWidget": "https://freedemo.games/en/slots/heist-guys-2?view=widget",
+            "demoInstallPWA": "https://freedemo.games/en/slots/heist-guys-2?view=pwa-install",
+            "imageLandscape": "https://static.freedemo.games/images/games/heist-guys-2/heist-guys-2-rectangle-390x254.webp",
+            "imageSquare": "https://static.freedemo.games/images/games/heist-guys-2/heist-guys-2-square-500x500.webp",
+            "images": [],
+            "slotRanks": [
+                {
+                    "cISO": "CI",
+                    "SlotRank": 15962
+                },
+                {
+                    "cISO": "DZ",
+                    "SlotRank": 15962
+                },
+                {
+                    "cISO": "ET",
+                    "SlotRank": 16615
+                },
+                {
+                    "cISO": "GH",
+                    "SlotRank": 21697
+                },
+                {
+                    "cISO": "ZA",
+                    "SlotRank": 14999
+                }
+            ],
+            "tags": [
+                {
+                    "group": "Features",
+                    "values": "Wild, Free Spins, Bonus Game, Sticky Wilds, Multiplier, Symbols collection (Energy), Feature: Random reward, BonusGame: Pick Objects, Multiway (+1024), Random multiplier, Bonus symbols, Avalanche, Buy Feature, RTP range, Bonus Bet, Walking Symbols, Moving Wilds, Wilds with multipliers, Cascading, Sequels, Series Continuations"
+                },
+                {
+                    "group": "Theme",
+                    "values": "Adventure, Bandit, Coins, Weapons, Wild West, Bell, Bank`s, Keys, Sheriff, Robbery"
+                },
+                {
+                    "group": "Attributes",
+                    "values": "96% RTP"
+                }
+            ],
+            "description": [],
+            "content": [],
+            "relations": [],
+            "themes": [
+                "Adventure",
+                "Bandit",
+                "Coins",
+                "Weapons",
+                "Wild West",
+                "Bell",
+                "Bank`s",
+                "Keys",
+                "Sheriff",
+                "Robbery"
+            ],
+            "features": [
+                "Wild",
+                "Free Spins",
+                "Bonus Game",
+                "Sticky Wilds",
+                "Multiplier",
+                "Symbols collection (Energy)",
+                "Feature: Random reward",
+                "BonusGame: Pick Objects",
+                "Multiway (+1024)",
+                "Random multiplier",
+                "Bonus symbols",
+                "Avalanche",
+                "Buy Feature",
+                "RTP range",
+                "Bonus Bet",
+                "Walking Symbols",
+                "Moving Wilds",
+                "Wilds with multipliers",
+                "Cascading",
+                "Sequels",
+                "Series Continuations"
+            ]
+        }
+    ],
+    "info": {
+        "execTime": 2953
+    }
+}

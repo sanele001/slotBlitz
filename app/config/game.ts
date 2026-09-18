@@ -35,4 +35,9 @@ export const gameConfig = {
 				'Stay infomed about what is heppening in the indistry. checkout some good reads from more than 15000 sources.',
 		},
 	},
+
+	placeholders: {
+		description:
+			'A description for this game is not available at the moment. Our team is currently working on updating the game information and adding a detailed description. Please check back later for the latest details and a complete overview of the game.',
+	},
 };

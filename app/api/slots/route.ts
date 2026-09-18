@@ -12,7 +12,7 @@ export async function GET(request: Request) {
 	try {
 		if (query) {
 			const { data, error } = await supabase
-				.from('slotdata')
+				.from('slotcatalog')
 				.select('gameName, gameSlug')
 				.ilike('gameName', `%${query}%`)
 				.limit(5);
@@ -21,7 +21,7 @@ export async function GET(request: Request) {
 		}
 
 		if (filter) {
-			let filteredQuery = supabase.from('slotdata').select('*');
+			let filteredQuery = supabase.from('slotcatalog').select('*');
 			switch (filter) {
 				case 'Pragmatic Play':
 				case 'Games Global':
@@ -59,7 +59,7 @@ export async function GET(request: Request) {
 		}
 
 		const [slots, reviews] = await Promise.all([
-			supabase.from('slotdata').select('*').limit(amount),
+			supabase.from('slotcatalog').select('*').limit(amount),
 			supabase.from('review').select('*').limit(amount),
 		]);
 		if (slots.error) throw slots.error;

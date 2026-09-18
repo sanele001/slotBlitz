@@ -37,8 +37,8 @@ export default function HeroSection({
 					<div className='flex items-start justify-between gap-4 lg:block'>
 						<h1 className='text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-white'>
 							Discover the Best{' '}
-							<span className='text-primary'>Online Slots</span>
-							<span className='text-amber-300'>✦</span>
+							<span className='text-primary'>Online Slot</span>
+							<span className='text-white'>$</span>
 						</h1>
 					</div>
 

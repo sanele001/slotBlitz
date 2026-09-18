@@ -7,7 +7,7 @@ export async function GET(
 ) {
 	const { slug } = await params;
 	const { data, error } = await supabase
-		.from('slotdata')
+		.from('slotcatalog')
 		.select('*')
 		.eq('gameSlug', slug)
 		.single();

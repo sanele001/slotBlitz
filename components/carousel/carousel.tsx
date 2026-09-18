@@ -7,10 +7,11 @@ import { NextButton, PrevButton, usePrevNextButtons } from './carouselButtons';
 import { Slot } from '../../types/slot';
 import Link from 'next/link';
 
+const fallbackImageUrl = require('../../assets/fallback.jpg');
+
 type PropType = {
 	slides: Slot[];
 	options?: EmblaOptionsType;
-	imageLandscape: string;
 };
 
 const EmblaCarousel = (props: PropType) => {
@@ -28,7 +29,16 @@ const EmblaCarousel = (props: PropType) => {
 			<div className={styles.embla__viewport} ref={emblaRef}>
 				<div className={styles.embla__container}>
 					{slides.map((slide, index) => {
-						const imageUrl = usefetchPublicImage(slide.imageSquare);
+						const normalizedImageSquare =
+							slide.imageSquare?.trim().toLowerCase() ?? '';
+						const normalizedImageLandscape =
+							slide.imageLandscape?.trim().toLowerCase() ?? '';
+						const imageUrl = usefetchPublicImage(normalizedImageSquare);
+						const imageSource =
+							normalizedImageSquare ||
+							normalizedImageLandscape ||
+							imageUrl ||
+							fallbackImageUrl;
 
 						return (
 							<div
@@ -39,7 +49,7 @@ const EmblaCarousel = (props: PropType) => {
 										<div className='w-full h-full'>
 											<div
 												style={{
-													backgroundImage: `url(${imageUrl})`,
+													backgroundImage: `url(${imageSource})`,
 												}}
 												className='w-full h-full rounded-xl bg-cover bg-center bg-no-repeat'
 											/>
