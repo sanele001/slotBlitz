@@ -1,5 +1,5 @@
 import Head from 'next/head';
 import GameReviewComp from '../singleReviewComponent';
-export default async function Page() {
+export default function Page() {
 	return <GameReviewComp />;
 }
