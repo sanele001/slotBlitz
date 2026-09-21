@@ -1,5 +1,6 @@
 import '../styles/globals.css';
 import Navbar from '../components/siteComponets/nav/Navbar';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata = {
 	title: 'webslots.africa',
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
 			<body>
 				<Navbar />
 				{children}
+				<Analytics />
 			</body>
 		</html>
 	);
