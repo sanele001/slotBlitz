@@ -48,7 +48,10 @@ export default function GameReviewComp() {
 
 	//  infomation for review
 	const gameReview = {
-		thumbnail: reviewInfo?.imageUrl,
+		thumbnail:
+			reviewInfo?.imageSquare ||
+			reviewInfo?.imageLandscape ||
+			reviewInfo?.imageUrl,
 		category: reviewInfo?.type,
 		title: reviewInfo?.title,
 		rating: reviewInfo?.rating,

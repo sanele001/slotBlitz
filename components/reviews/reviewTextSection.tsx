@@ -13,8 +13,8 @@ export default function GameOverview({ gameOverview }) {
 					<h3 className='mb-5 text-lg font-bold text-white'>Key Features</h3>
 
 					<ul className='space-y-4'>
-						{keyFeatures.features.map((feature) => (
-							<li key={feature} className='flex items-start gap-3'>
+						{keyFeatures.features.map((feature, i) => (
+							<li key={feature + i} className='flex items-start gap-3'>
 								<FiCheckCircle
 									className='mt-0.5 h-5 w-5 shrink-0'
 									style={{ color: ACCENT }}
@@ -40,8 +40,8 @@ export default function GameOverview({ gameOverview }) {
 							</h4>
 
 							<ul className='space-y-3'>
-								{pros.pros.map((pro) => (
-									<li key={pro} className='flex items-start gap-2'>
+								{pros.pros.map((pro, i) => (
+									<li key={pro + i} className='flex items-start gap-2'>
 										<FiCheck className='mt-0.5 h-4 w-4 shrink-0 text-green-400' />
 
 										<span className='text-sm text-white/70'>{pro}</span>
@@ -57,8 +57,8 @@ export default function GameOverview({ gameOverview }) {
 							</h4>
 
 							<ul className='space-y-3'>
-								{cons.cons.map((con) => (
-									<li key={con} className='flex items-start gap-2'>
+								{cons.cons.map((con, i) => (
+									<li key={con + i} className='flex items-start gap-2'>
 										<FiXCircle className='mt-0.5 h-4 w-4 shrink-0 text-pink-500' />
 
 										<span className='text-sm text-white/70'>{con}</span>
