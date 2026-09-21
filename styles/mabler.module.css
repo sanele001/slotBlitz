@@ -24,7 +24,7 @@
 	transform: translate3d(0, 0, 0);
 	flex: 0 0 var(--slide-size);
 	min-width: 0;
-	padding-left: var(--slide-spacing);
+	padding: var(--slide-spacing);
 	border-color: rgba(255, 255, 255, 0.06);
 
 	/* bg-[#0c0a14] */
@@ -49,20 +49,16 @@
 
 .embla__slide__number:hover {
 	cursor: pointer;
-	/* hover:border-white/[0.15] */
 	border-color: rgba(255, 255, 255, 0.15);
-
-	/* hover:bg-[#120f1f] */
 	background-color: #120f1f;
-
-	/* hover:shadow-2xl combined with hover:shadow-black/60 */
-	/* Tailwind's shadow-2xl uses two layered box-shadows for smooth depth */
+	transform: translateY(-0.2rem) scale(1.025);
 	box-shadow:
-		0 25px 50px -12px rgba(0, 0, 0, 0.6),
-		0 0 0 1px rgba(0, 0, 0, 0.6);
-	transition-property: border-color, background-color, box-shadow;
+		0 1rem 2rem -0.75rem rgba(0, 0, 0, 0.75),
+		0 0 1.25rem rgba(251, 34, 107, 0.3),
+		0 0 0 1px rgba(251, 34, 107, 0.2);
+	transition-property: transform, border-color, background-color, box-shadow;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transition-duration: 300ms;
+	transition-duration: 240ms;
 }
 
 .embla__controls {

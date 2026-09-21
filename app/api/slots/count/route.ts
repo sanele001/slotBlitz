@@ -3,7 +3,7 @@ import { supabase } from '../../../../dbclient/superBaseClient';
 
 export async function GET() {
 	const { count, error } = await supabase
-		.from('slotdata')
+		.from('slotcatalog')
 		.select('*', { count: 'exact', head: true });
 
 	if (error) {

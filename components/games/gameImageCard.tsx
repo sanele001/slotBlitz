@@ -2,9 +2,13 @@
 
 import Image from 'next/image';
 import { FaStar } from 'react-icons/fa';
+import { usefetchPublicImage } from '../../app/hooks/games/useFetchPublicImage';
+
+const fallbackImageUrl = require('../../assets/fallback.jpg');
 
 export interface GameCardProps {
 	imageSrc: string;
+	imageLandscape?: string;
 	title: string;
 	rating: number;
 	maxRating?: number;
@@ -15,6 +19,7 @@ export interface GameCardProps {
 
 export default function GameImageCard({
 	imageSrc,
+	imageLandscape,
 	title,
 	rating,
 	maxRating = 5,
@@ -22,6 +27,15 @@ export default function GameImageCard({
 	onClick,
 	className = '',
 }: GameCardProps) {
+	const normalizedImageSquare = imageSrc?.trim().toLowerCase() ?? '';
+	const normalizedImageLandscape = imageLandscape?.trim().toLowerCase() ?? '';
+	const imageUrl = usefetchPublicImage(normalizedImageSquare);
+	const imageSource =
+		normalizedImageSquare ||
+		normalizedImageLandscape ||
+		imageUrl ||
+		fallbackImageUrl;
+
 	return (
 		<div
 			onClick={onClick}
@@ -30,9 +44,10 @@ export default function GameImageCard({
 			} ${className}`}>
 			<div className='relative aspect-[1/1] w-full overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-lg shadow-black/40 transition-transform duration-300 ease-out group-hover:scale-[1.02] group-hover:shadow-xl group-hover:shadow-black/60'>
 				<Image
-					src={imageSrc}
+					src={imageSource}
 					alt={title}
 					fill
+					unoptimized
 					sizes='(max-width: 640px) 35vw, (max-width: 1024px) 15vw, 280px'
 					className='object-cover'
 					priority

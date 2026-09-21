@@ -1,8 +1,8 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { FaStar } from 'react-icons/fa';
 import { gameConfig } from '../../app/config/game';
 import { usefetchPublicImage } from '../../app/hooks/games/useFetchPublicImage';
+const fallbackImageUrl = require('../../assets/fallback.jpg');
 
 interface SlotGame {
 	gameId: Number;
@@ -11,6 +11,7 @@ interface SlotGame {
 	slotRank: number;
 	maxRating?: number; // Defaults to 5
 	imageSquare: string;
+	imageLandscape: string;
 	gameSlug: string;
 	badge?: string;
 }
@@ -28,6 +29,7 @@ export const LargeImageCard: React.FC<SlotCardProps> = ({ game }) => {
 		imageSquare,
 		gameSlug,
 		badge,
+		imageLandscape,
 	} = game;
 
 	const getBadgeStyles = (type?: string) => {
@@ -43,7 +45,10 @@ export const LargeImageCard: React.FC<SlotCardProps> = ({ game }) => {
 		}
 	};
 
-	const imageUrl = usefetchPublicImage(imageSquare);
+	const normalizedImageSquare = imageSquare?.trim().toLowerCase();
+	const imageUrl = usefetchPublicImage(normalizedImageSquare);
+	const imageSrc =
+		normalizedImageSquare || imageLandscape || imageUrl || fallbackImageUrl;
 
 	return (
 		<div className='group relative flex flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-[#0c0a14] p-3 transition-all duration-300 hover:border-white/[0.15] hover:bg-[#120f1f] hover:shadow-2xl hover:shadow-black/60 w-full'>
@@ -53,13 +58,10 @@ export const LargeImageCard: React.FC<SlotCardProps> = ({ game }) => {
         - Desktop (md): Wide landscape aspect ratio (md:aspect-[21/9])
       */}
 			<div className='relative aspect-[1/1] md:aspect-[21/9] w-full overflow-hidden rounded-xl bg-red'>
-				<Image
-					src={imageUrl}
+				<img
+					src={imageSrc}
 					alt={gameName}
-					fill
-					sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-					className='object-cover transition-transform duration-500 ease-out group-hover:scale-105'
-					priority
+					className='absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105'
 				/>
 				<div className='absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent' />
 

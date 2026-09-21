@@ -83,7 +83,8 @@ const GamePage = () => {
 						{/* Layout: Image on left, Details on right (stacks on mobile) */}
 						<div className=' flex max-w-7xl flex-col items-start gap-6 md:flex-row '>
 							<GameImageCard
-								imageSrc={publicImage}
+								imageSrc={selectedGame.imageSquare || publicImage}
+								imageLandscape={selectedGame.imageLandscape}
 								title={selectedGame.gameName}
 								rating={4.8}
 								provider='Games Global'

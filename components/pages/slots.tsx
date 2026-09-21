@@ -61,6 +61,37 @@ const Slots = () => {
 		1,
 		Math.ceil(pageCount / gameConfig.sortingInfo.itemsPerPage),
 	);
+	const pageItems: Array<number | 'start-ellipsis' | 'end-ellipsis'> = (() => {
+		if (totalPages <= 6) {
+			return Array.from({ length: totalPages }, (_, index) => index);
+		}
+
+		if (currentPage < 3) {
+			return [0, 1, 2, 3, 4, 'end-ellipsis', totalPages - 1];
+		}
+
+		if (currentPage >= totalPages - 3) {
+			return [
+				0,
+				'start-ellipsis',
+				totalPages - 5,
+				totalPages - 4,
+				totalPages - 3,
+				totalPages - 2,
+				totalPages - 1,
+			];
+		}
+
+		return [
+			0,
+			'start-ellipsis',
+			currentPage - 1,
+			currentPage,
+			currentPage + 1,
+			'end-ellipsis',
+			totalPages - 1,
+		];
+	})();
 	const goToPage = async (nextPage: number) => {
 		if (nextPage < 0 || nextPage >= totalPages) return;
 		await handlePageClick({ selected: nextPage });
@@ -87,7 +118,7 @@ const Slots = () => {
 						<div className='mb-6 flex items-center justify-between'>
 							<div className='flex items-center gap-2 text-red'>
 								<p className='text-sm font-bold text-primary tracking-wide'>
-									Games shown: {count ? count : 0} of 300+
+									Games shown: {count ? count : 0} of 600+
 								</p>
 							</div>
 						</div>
@@ -131,17 +162,26 @@ const Slots = () => {
 									<span className='pagination__nav-link'>&lt; previous</span>
 								</button>
 
-								{Array.from({ length: totalPages }, (_, index) => (
-									<button
-										key={index}
-										type='button'
-										className={`pagination__item ${
-											currentPage === index ? 'pagination__item--active' : ''
-										}`}
-										onClick={() => goToPage(index)}>
-										<span className='pagination__link'>{index + 1}</span>
-									</button>
-								))}
+								{pageItems.map((item) =>
+									typeof item === 'number' ? (
+										<button
+											key={item}
+											type='button'
+											className={`pagination__item ${
+												currentPage === item ? 'pagination__item--active' : ''
+											}`}
+											onClick={() => goToPage(item)}>
+											<span className='pagination__link'>{item + 1}</span>
+										</button>
+									) : (
+										<span
+											key={item}
+											className='pagination__break'
+											aria-hidden='true'>
+											...
+										</span>
+									),
+								)}
 
 								<button
 									type='button'

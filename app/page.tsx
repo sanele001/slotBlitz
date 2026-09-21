@@ -3,7 +3,7 @@ import { supabase } from '../dbclient/superBaseClient';
 
 export default async function Page() {
 	const [slots, reviews] = await Promise.all([
-		supabase.from('slotdata').select('*').limit(9),
+		supabase.from('slotcatalog').select('*').limit(9),
 		supabase.from('review').select('*').limit(9),
 	]);
 
