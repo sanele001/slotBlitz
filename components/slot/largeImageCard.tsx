@@ -46,13 +46,6 @@ export const LargeImageCard: React.FC<SlotCardProps> = ({ game }) => {
 	};
 
 	const normalizedImageSquare = imageSquare?.trim().toLowerCase();
-	// if (
-	// 	!normalizedImageSquare ||
-	// 	normalizedImageSquare === 'null' ||
-	// 	normalizedImageSquare === 'undefined'
-	// ) {
-	// 	debugger;
-	// }
 	const imageUrl = usefetchPublicImage(normalizedImageSquare);
 	const imageSrc =
 		normalizedImageSquare || imageLandscape || imageUrl || fallbackImageUrl;
