@@ -65,6 +65,7 @@ export default function GameReviewCard({ gameReview }: ReviewProps) {
 					src={thumbnail}
 					alt={title}
 					fill
+					unoptimized
 					className='object-cover'
 					sizes='(max-width: 768px) 100vw, 288px'
 				/>
