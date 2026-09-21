@@ -61,13 +61,11 @@ export default function GameReviewCard({ gameReview }: ReviewProps) {
 		<div className='mx-auto max-w-7xl   rounded-2xl p-4 sm:p-6 flex flex-col md:flex-row gap-6'>
 			{/* Thumbnail */}
 			<div className='relative w-full aspect-[16/9] md:w-72 md:aspect-auto md:h-auto md:flex-shrink-0 overflow-hidden rounded-xl'>
-				<Image
+				<img
 					src={thumbnail}
 					alt={title}
-					fill
-					unoptimized
-					className='object-cover'
-					sizes='(max-width: 768px) 100vw, 288px'
+					loading='lazy'
+					className='absolute inset-0 w-full h-full object-cover'
 				/>
 			</div>
 
