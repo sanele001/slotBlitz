@@ -50,11 +50,11 @@ export default function BonusCalculator() {
       <p className="text-sm sm:text-base text-white/70 mb-4">
         Here is a{" "}
         <span className="font-bold text-white">Casino Bonus Calculator</span>{" "}
-        widget designed specifically to help users understand the true value of
+        widget designed specifically to help you understand the true value of
         online casino promotions by breaking down the wagering requirements.
       </p>
 
-      <div className="rounded-3xl border border-white/10 bg-[#0c0714] p-5 sm:p-7">
+      <div className="rounded-3xl border border-white/10  p-5 sm:p-7">
         {/* Total wagering requirement */}
         <div>
           <p className="text-xs text-white/40">Total wagering requirement</p>
@@ -225,7 +225,7 @@ export default function BonusCalculator() {
       </div>
 
       <p className="mt-3 text-xs text-white/30 text-center">
-        AI-generated. Don&apos;t enter sensitive personal info.
+         this is an estimate not real payout.
       </p>
     </div>
   );

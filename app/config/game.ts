@@ -1,4 +1,4 @@
-import { FaHome, FaNewspaper, FaCompass } from 'react-icons/fa';
+import { FaHome, FaNewspaper, FaCompass,FaCalculator } from 'react-icons/fa';
 import { BsGridFill } from 'react-icons/bs';
 
 export const gameConfig = {
@@ -10,7 +10,7 @@ export const gameConfig = {
 	navItems: [
 		{ label: 'Home', href: '/', icon: FaHome },
 		{ label: 'Slots', href: '/slots', icon: BsGridFill },
-		// { label: 'Providers', href: '/providers', icon: MdBusiness },
+		 { label: 'Bonus-Calculator', href: '/casino-bonus-calculator', icon: FaCalculator },
 		{ label: 'News', href: '/news', icon: FaNewspaper },
 		{ label: 'Reviews', href: '/reviews', icon: FaCompass },
 	],
@@ -34,6 +34,11 @@ export const gameConfig = {
 			summary:
 				'Stay infomed about what is heppening in the indistry. checkout some good reads from more than 15000 sources.',
 		},
+		calculator:{
+			route: 'bonus-calculator',
+			heading:"Casino Bonus calculator",
+			summary: 'Do not guess your playthrough. Input any offer into our Instant Bonus Valuation Tool to see the hidden wagering totals before you sign up!'
+		}
 	},
 
 	placeholders: {

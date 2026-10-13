@@ -9,7 +9,7 @@ import EmblaCarousel from "../components/carousel/carousel";
 import Head from "next/head";
 import Link from "next/link";
 import Footer from "../components/siteComponets/footer/Footer";
-import CalculatorTeaser from "../components/tools/CalculatorTeaser";
+import BonusCalculatorTeaser from "../components/tools/BonusCalculatorTeaser";
 import BonusCalculator from "../components/tools/BonusCalculator";
 
 const hero = require("../assets/mainbg.png");
@@ -71,22 +71,10 @@ const Home = ({ slotDataProps, reviewDataProps }) => {
         </section>
         {/* Bonus Calculator */}
         <section className="px-1 py-3 items-center">
-          <div className="mx-auto max-w-7xl border border-white/[0.06]  rounded-3xl p-6">
-            <h2 className="text-xl font-bold text-white tracking-wide">
-              Bonus Calculator
-            </h2>
-            <div className="flex flex-col items-start gap-6 md:flex-row">
-              <p className="w-full md:flex-1">
-                Lorem ipsum is a standard piece of placeholder or dummy text
-                used across graphic design, publishing, and web development to
-                preview visual layouts. By using scrambled, nonsensical Latin,
-                it allows designers to evaluate typography, spacing, and
-                formatting without readers being distracted by actual, readable
-                content
-              </p>
-              <CalculatorTeaser />
-            </div>
+          <div className="mx-auto max-w-7xl   rounded-3xl">
+          <BonusCalculatorTeaser/>
           </div>
+          
         </section>
 
         {/* toprated section */}
