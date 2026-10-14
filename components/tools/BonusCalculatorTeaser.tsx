@@ -90,7 +90,10 @@ export default function BonusCalculatorTeaser() {
           <div className="p-5 sm:p-6">
             <span
               className="inline-block text-[11px] font-bold uppercase tracking-wide rounded-full px-3 py-1"
-              style={{ color: ACCENT, backgroundColor: "rgba(251,34,107,0.12)" }}
+              style={{
+                color: ACCENT,
+                backgroundColor: "rgba(251,34,107,0.12)",
+              }}
             >
               Bonus Preview
             </span>
