@@ -22,10 +22,14 @@ Create `.env.local` in the project root:
 ```env
 SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_ANON_KEY=your-supabase-key
+# Optional for importing reviews when your anon key cannot write to the table:
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 NEWS_API_KEY=your-newsapi-key
 ```
 
 Do not commit `.env.local` or place private keys in variables prefixed with `NEXT_PUBLIC_`.
+The review importer prefers `SUPABASE_SERVICE_ROLE_KEY` when set; keep it private
+because it bypasses Supabase Row Level Security.
 
 Start the development server:
 
@@ -45,7 +49,19 @@ npm test             # Run the test suite
 npm run test:watch   # Run tests in watch mode
 npm run lint         # Run Next.js linting
 npm run processImages # Process image assets
+npm run importreviews # Import databaseService/review.json into Supabase's review table
 ```
+
+The review importer reads `databaseService/review.json` by default. You can also
+provide a different JSON file path:
+
+```bash
+npm run importreviews -- ./path/to/reviews.json
+```
+
+The JSON must be an array of review objects with unique, non-empty `reviewSlug`
+values. Nested review fields are inserted as-is, so the Supabase `review` table
+must have matching columns and suitable JSON/JSONB types for nested values.
 
 ## image display architecture
 
