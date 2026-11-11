@@ -34,6 +34,12 @@ export const gameConfig = {
 			summary:
 				'Stay infomed about what is heppening in the indistry. checkout some good reads from more than 15000 sources.',
 		},
+		reviews: {
+			route: 'reviews',
+			heading: 'Game Reviews',
+			summary:
+				'Explore expert reviews, ratings, and detailed insights for online slot games.',
+		},
 		calculator:{
 			route: 'bonus-calculator',
 			heading:"Casino Bonus calculator",
