@@ -1,11 +1,5 @@
-'use client';
-import UnderConstruction from '../../components/siteComponets/siteWarnings/UnderConstruction';
+import Reviews from '../../components/pages/reviews';
 
-export default async function Page() {
-	return (
-		<UnderConstruction
-			title='reviews Coming Soon'
-			message='Our slot reviews section is still in the oven.'
-		/>
-	);
+export default function Page() {
+	return <Reviews />;
 }
