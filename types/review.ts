@@ -1,3 +1,27 @@
+export interface ReviewSummary {
+	reviewSlug: string;
+	title?: string | null;
+	provider?: string | null;
+	rating?: number | null;
+	imageUrl?: string | null;
+	type?: string | null;
+	author?: string | null;
+	description?: string | null;
+}
+
+/** A full row of the `review` table, including the review detail content. */
+export interface Review extends ReviewSummary {
+	badge?: string | null;
+	playUrl?: string | null;
+	providerUrl?: string | null;
+	createdAt?: string | null;
+	gameInfo: { icon: string; label: string; value: string }[];
+	keyFeatures: { features: string[] };
+	pros: { pros: string[] };
+	cons: { cons: string[] };
+	verdict: { verdict: { text: string; rating: string } };
+}
+
 export interface ReviewData {
 	badge: string;
 	createdAt: string;
